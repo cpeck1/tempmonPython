@@ -1,0 +1,42 @@
+To add a compliant device, create a folder with the model name in this 
+directory with the following directory heirarchy:
+
+.
+|
+|--MODELNAME
+   |--drivers
+   |  |--openModule.{py, h}
+   |  |--{openModule.c, any other supporting files}
+   |  |--readModule.{py, h}
+   |  |--{readModule.c, any other supporting files}
+   |  |--closeModule.{py, h}
+   |  |--{closeModule.c, any other supporting files}
+   |  |--decodeErrorModule.{py, h}
+   |  |--{decodeErrorModule.c, any other supporting files}
+   |--usbinfo
+
+-------------------------------------
+decodeErrorModule contains the following function:
+int decode_error(int error_code, char *buffer)
+
+--------------------------------------
+For the below functions: 
+    - a return value of zero indicates a success
+    - a negative return value indicates an error with an error code of the 
+      return value. 
+
+openModule contains the following function:
+int open_device(int vendor_id, int product_id, void *device_handle)
+
+readModule contains the following function:
+int read_device(void *device_handle, void *reading)
+
+closeModule contains the following function:
+int close_device(void *device_handle)
+
+---------------------------------------
+usbinfo consists of:
+modelName=modelName
+manufacturer=manufacturer
+idVendor=idVendor
+idProduct=idProduct
