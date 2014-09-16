@@ -6,8 +6,7 @@ class Event:
     """
     
     def __init__(
-            self, context_id, time=None, field_name=None, 
-            field_value=None, status=None):
+            self, context_id, time=None, field_name=None, field_value=None):
         assert (isinstance(context_id, int))
 
         self._context_id = context_id
@@ -19,7 +18,7 @@ class Event:
         if time is not None:
             self.time = time
         if field_name is not None:
-            self.field_name = field_value
+            self.field_name = field_name
         if field_value is not None:
             self.field_value = field_value
     
@@ -106,7 +105,7 @@ class Event:
     @property
     def field_value(self):
         """
-        get this event's recorded field_value
+        get tihs event's recorded field_value
         
         >>> event = Event(12345)
         >>> field_value = -80.1

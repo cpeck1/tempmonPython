@@ -9,8 +9,8 @@ from datetime import datetime
 import time
 from context import Context
 from transmitter import Transmitter
-from alarm_specification import AlarmSpecification
 from alarm import Alarm
+from event import Event
 
 class ContextTest(unittest.TestCase):
     def setUp(self):
@@ -18,6 +18,48 @@ class ContextTest(unittest.TestCase):
 
     def tearDown(self):
         self.context = None
+
+class ContextTest2(unittest.TestCase):
+    def setUp(self):
+        self.context = Context(12345, "test", "test_field", -80, 15)
+
+    def tearDown(self):
+        self.context = None
+
+class ContextTransmitterOpenFailure(unittest.TestCase):
+    def setUp(self):
+        self.context = Context(12345, "nttest", "nttest_field", 0, 0)
+
+        transmitter = ProductionClass()
+        transmitter.is_open = MagicMock(return_value=False)
+        transmitter.open = MagicMock(return_value=None)
+        transmitter.read = MagicMock(return_value=None)
+        
+        self.context.transmitter = transmitter
+
+    def tearDown(self):
+        self.context = None
+
+class ContextTransmitterReadingFailure(unittest.TestCase):
+    def setUp(self):
+        self.context = Context(12345, "rftest", "rftest_field", 0, 0)
+        
+        transmitter = ProductionClass()
+        transmitter.is_open = MagicMock(return_value=True)
+        transmitter.open = MagicMock(return_value=None)
+        transmitter.read = MagicMock(return_value=None)
+    
+    def tearDown(self):
+        self.context = None
+
+class ContextTransmitterBadReadings(unittest.TestCase):
+    def setUp(self):
+        self.context = Context(12345, "brtest", "brtest_field", -80, 15)
+        
+        transmitter = ProductionClass()
+        transmitter.is_open = MagicMock(return_value=True)
+        transmitter.open = MagicMock(return_value=None)
+        transmitter.read = MagicMock(return_value=-40)
 
 class DefaultUninitializedStateTest(ContextTest):
     def test_default_id(self):
@@ -44,12 +86,6 @@ class DefaultUninitializedStateTest(ContextTest):
             measured_field_name, '',
             "incorrect default value")
             
-    def test_default_alarm_specification(self):
-        alarm_specification = self.context.alarm_specification
-        self.assertEqual(
-            alarm_specification, None,
-            "incorrect default value")
-
     def test_default_active_alarm(self):
         alarm = self.context.active_alarm
         self.assertEqual(
@@ -147,6 +183,150 @@ class AccessorTest(ContextTest):
         self.assertRaises(
             AssertionError, self.set_measured_field_name, set_name)
 
+    def test_get_set_measured_field_expected_value1(self):
+        set_value = 0
+        self.context.measured_field_expected_value = set_value
+        get_value = self.context.measured_field_expected_value
+        self.assertEqual(
+            set_value, get_value,
+            "set value " + str(set_value) + 
+            "did not match get value " + str(get_value))
+
+    def test_get_set_measured_field_expected_value2(self):
+        set_value = 1
+        self.context.measured_field_expected_value = set_value
+        get_value = self.context.measured_field_expected_value
+        self.assertEqual(
+            set_value, get_value,
+            "set value " + str(set_value) + 
+            "did not match get value " + str(get_value))
+
+    def test_get_set_measured_field_expected_value3(self):
+        set_value = 213092142410
+        self.context.measured_field_expected_value = set_value
+        get_value = self.context.measured_field_expected_value
+        self.assertEqual(
+            set_value, get_value,
+            "set value " + str(set_value) + 
+            "did not match get value " + str(get_value))
+
+    def test_get_set_measured_field_expected_value4(self):
+        set_value = 0.000123
+        self.context.measured_field_expected_value = set_value
+        get_value = self.context.measured_field_expected_value
+        self.assertEqual(
+            set_value, get_value,
+            "set value " + str(set_value) + 
+            "did not match get value " + str(get_value))
+
+    def test_get_set_measured_field_expected_value5(self):
+        set_value = 1.101131
+        self.context.measured_field_expected_value = set_value
+        get_value = self.context.measured_field_expected_value
+        self.assertEqual(
+            set_value, get_value,
+            "set value " + str(set_value) + 
+            "did not match get value " + str(get_value))
+
+    def test_get_set_measured_field_expected_value6(self):
+        set_value = 129843243.123912849
+        self.context.measured_field_expected_value = set_value
+        get_value = self.context.measured_field_expected_value
+        self.assertEqual(
+            set_value, get_value,
+            "set value " + str(set_value) + 
+            "did not match get value " + str(get_value))
+
+    def set_measured_field_expected_value(self, val):
+        self.context.measured_field_expected_value = val
+
+    def test_set_measured_field_expected_value_bad_type1(self):
+        set_value = None
+        self.assertRaises(
+            AssertionError, self.set_measured_field_expected_value, set_value)
+
+    def test_set_measured_field_expected_value_bad_type2(self):
+        set_value = "set value"
+        self.assertRaises(
+            AssertionError, self.set_measured_field_expected_value, set_value)
+
+    def test_set_measured_field_expected_value_bad_type3(self):
+        set_value = [1234, 5678]
+        self.assertRaises(
+            AssertionError, self.set_measured_field_expected_value, set_value)
+
+    def test_get_set_measured_field_variance1(self):
+        set_var = 0
+        self.context.measured_field_variance = set_var
+        get_var = self.context.measured_field_variance
+        self.assertEqual(
+            set_var, get_var,
+            "set value " + str(set_var) + 
+            "did not match get value " + str(get_var))
+
+    def test_get_set_measured_field_variance2(self):
+        set_var = 1
+        self.context.measured_field_variance = set_var
+        get_var = self.context.measured_field_variance
+        self.assertEqual(
+            set_var, get_var,
+            "set value " + str(set_var) + 
+            "did not match get value " + str(get_var))
+
+    def test_get_set_measured_field_variance3(self):
+        set_var = 985924581032
+        self.context.measured_field_variance = set_var
+        get_var = self.context.measured_field_variance
+        self.assertEqual(
+            set_var, get_var,
+            "set value " + str(set_var) + 
+            "did not match get value " + str(get_var))
+
+    def test_get_set_measured_field_variance4(self):
+        set_var = 0.21449341
+        self.context.measured_field_variance = set_var
+        get_var = self.context.measured_field_variance
+        self.assertEqual(
+            set_var, get_var,
+            "set value " + str(set_var) + 
+            "did not match get value " + str(get_var))
+
+    def test_get_set_measured_field_variance5(self):
+        set_var = 1.1240945
+        self.context.measured_field_variance = set_var
+        get_var = self.context.measured_field_variance
+        self.assertEqual(
+            set_var, get_var,
+            "set value " + str(set_var) + 
+            "did not match get value " + str(get_var))
+
+    def test_get_set_measured_field_variance6(self):
+        set_var = 438532412.12498304
+        self.context.measured_field_variance = set_var
+        get_var = self.context.measured_field_variance
+        self.assertEqual(
+            set_var, get_var,
+            "set value " + str(set_var) + 
+            "did not match get value " + str(get_var))
+
+    def set_measured_field_variance(self, var):
+        self.context.measured_field_variance = var
+
+    def test_set_measured_field_variance_bad_type1(self):
+        set_var = None
+        self.assertRaises(
+            AssertionError, self.set_measured_field_variance, set_var)
+
+    def test_set_measured_field_variance_bad_type2(self):
+        set_var = "123.456"
+        self.assertRaises(
+            AssertionError, self.set_measured_field_variance, set_var)
+        
+
+    def test_set_measured_field_variance_bad_type3(self):
+        set_var = [1234, 5678]
+        self.assertRaises(
+            AssertionError, self.set_measured_field_variance, set_var)
 
     def test_get_set_transmitter1(self):
         set_trans = Transmitter(self.context.id)
@@ -193,33 +373,6 @@ class AccessorTest(ContextTest):
         set_trans = Transmitter
         self.assertRaises(
             AssertionError, self.set_transmitter, set_trans)
-
-    def test_get_set_alarm_specification1(self):
-        pass
-
-    def test_get_set_alarm_specification2(self):
-        pass
-
-    def test_get_set_alarm_specification3(self):
-        pass
-
-    def set_alarm_specification(self, spec):
-        self.context.alarm_specification = spec
-
-    def test_set_alarm_specificaiton_bad_type1(self):
-        set_alarm_spec = None
-        self.assertRaises(
-            AssertionError, self.set_alarm_specification, set_alarm_spec)
-
-    def test_set_alarm_specificaiton_bad_type2(self):
-        set_alarm_spec = [lambda r: r in range(0, 100), lambda r: r is not None]
-        self.assertRaises(
-            AssertionError, self.set_alarm_specification, set_alarm_spec)
-
-    def test_set_alarm_specificaiton_bad_type3(self):
-        set_alarm_spec = Alarm(12345)
-        self.assertRaises(
-            AssertionError, self.set_alarm_specification, set_alarm_spec)
 
     def test_get_set_active_alarm1(self):
         set_alarm = Alarm(self.context.id)
@@ -268,27 +421,134 @@ class AccessorTest(ContextTest):
         self.assertRaises(
             AssertionError, self.set_active_alarm, set_alarm)
 
-class ActivateAlarmTest(ContextTest):
+    def test_get_set_last_event1(self):
+        set_event = Event(12345)
+        self.context.last_event = set_event
+        get_event = self.context.last_event
+        self.assertEqual(
+            set_event, get_event,
+            "set value " + str(set_event) + 
+            " did not match get value " + str(get_event))
+        
+    def test_get_set_last_event2(self):
+        set_event = Event(12345, datetime.now())
+        self.context.last_event = set_event
+        get_event = self.context.last_event
+        self.assertEqual(
+            set_event, get_event,
+            "set value " + str(set_event) + 
+            " did not match get value " + str(get_event))
+
+    def test_get_set_last_event3(self):
+        set_event = Event(12345, datetime.now(), "test", 90931)
+        self.context.last_event = set_event
+        get_event = self.context.last_event
+        self.assertEqual(
+            set_event, get_event,
+            "set value " + str(set_event) + 
+            " did not match get value " + str(get_event))
+
+    def set_last_event(self, event):
+        self.context.last_event = event
+
+    def test_set_last_event_bad_type1(self):
+        set_event = None
+        self.assertRaises(
+            AssertionError, self.set_last_event, set_event)
+        
+    def test_set_last_event_bad_type2(self):
+        set_event = 1234
+        self.assertRaises(
+            AssertionError, self.set_last_event, set_event)
+        
+    def test_set_last_event_bad_type3(self):
+        set_event = "string event!"
+        self.assertRaises(
+            AssertionError, self.set_last_event, set_event)
+
+class ReadingOutOfRangeTest(ContextTest2):
+    def test_range1(self):
+        r = 0
+        self.assertTrue(
+            self.context.reading_out_of_range(r)) 
+
+    def test_range2(self):
+        r = -50
+        self.assertTrue(
+            self.context.reading_out_of_range(r)) 
+
+    def test_range3(self):
+        r = 123.1245
+        self.assertTrue(
+            self.context.reading_out_of_range(r)) 
+
+    def test_range4(self):
+        r = -64.9999999
+        self.assertTrue(
+            self.context.reading_out_of_range(r)) 
+
+    def test_range5(self):
+        r = -95.000001
+        self.assertTrue(
+            self.context.reading_out_of_range(r)) 
+
+class TestActivateAlarm(ContextTest2):
     def test_activate_alarm1(self):
-        # class: overdue reading
-        pass
+        cause = "transmitter failed to open"
+        self.context.activate_alarm(cause)
+        alarm = self.context.active_alarm
+        self.assertTrue(
+            alarm is not None and alarm.is_going_off(),
+            "should have resulted in an active alarm for the context")
 
     def test_activate_alarm2(self):
-        # class: transmitter error
-        pass
+        cause = "transmitter failed to gather reading"
+        self.context.activate_alarm(cause)
+        alarm = self.context.active_alarm
+        self.assertTrue(
+            alarm is not None and alarm.is_going_off(),
+            "should have resulted in an active alarm for the context")
 
     def test_activate_alarm3(self):
-        # class: reading failed
-        pass
+        reading = -55.0
+        cause = "transmitter gathered reading out of acceptable range"
+        self.context.activate_alarm(cause, reading)
+        alarm = self.context.active_alarm
+        self.assertTrue(
+            alarm is not None and alarm.is_going_off(),
+            "should have resulted in an active alarm for the context")
+        
+class TestAddEvent(ContextTest2):
+    def test_add_event1(self):
+        # note add event isn't responsible for checking if the given reading is
+        # above or below a certain range; this is left to functions that will
+        # invoke add_event
+        reading = 0
+        self.context.add_event(reading)
+        last_event = self.context.last_event
+        self.assertTrue(last_event is not None,
+            "last_event wasn't even set")
+        self.assertEqual(
+            last_event.field_value, reading,
+            "did not match expected value")
 
-    def test_activate_alarm4(self):
-        # class: bad reading
-        pass
+    def test_add_event1(self):
+        reading = 123
+        self.context.add_event(reading)
+        last_event = self.context.last_event
+        self.assertTrue(
+            last_event is not None,
+            "last_event wasn't even set")
+        self.assertEqual(
+            last_event.field_value, reading,
+            "did not match expected value")
 
-    def test_activate_alarm5(self):
-        # class: TBD
-        pass
-
-    def test_activate_alarm6(self):
-        # class: TBD
-        pass
+    def test_add_event1(self):
+        reading = 123.56789
+        self.context.add_event(reading)
+        last_event = self.context.last_event
+        self.assertTrue(last_event is not None,
+                        "last_event wasn't even set")
+        self.assertEqual(
+            last_event.field_value, reading,
+            "did not match expected value")

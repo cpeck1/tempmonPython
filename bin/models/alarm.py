@@ -6,26 +6,28 @@ class Alarm:
     Class for an alarm resulting from something not working as anticipated or
     some condition failing.
     """
+
     def __init__(
-            self, container_id, cause = None, start_time = None, 
-            last_refresh_time = None, end_time = None):
+            self, container_id, category=None, cause=None, start_time=None, 
+            last_refresh_time=None, end_time=None):
         assert (isinstance(container_id, int))
 
         self._container_id = container_id
-        self._cause = ''
+        self._category = ''
+        self._cause = None
         self._start_time = None
         self._last_refresh_time = None
         self._end_time = None
 
         # note all preconditions are handled by setters
+        if category is not None:
+            self.category = category
         if start_time is not None:
             self.start_time = start_time
         if last_refresh_time is not None:
             self.last_refresh_time = last_refresh_time
         if end_time is not None:
             self.end_time = end_time
-        if cause is not None:
-            self.cause = cause
 
     @property
     def container_id(self):
@@ -36,41 +38,72 @@ class Alarm:
         return self._container_id
 
     @property
-    def cause(self):
+    def category(self):
         """
-        get the cause that this alarm started
+        get the category of this alarm
         
         >>> Alarm = Alarm()
-        >>> alarm.cause
+        >>> alarm.category
         ''
 
-        >>> alarm.cause = "Jim needs to get potato salad"
-        >>> alarm.cause
+        >>> alarm.category = "Jim needs to get potato salad"
+        >>> alarm.category
         'Jim needs to get potato salad'
         """
         
+        return self._category
+
+    @category.setter
+    def category(self, category):
+        """
+        set the category that set this alarm off. 
+
+        >>> alarm = Alarm()
+        >>> alarm.category
+        ''
+
+        >>> alarm.category = "Jim is bringing the potato salad"
+        >>> alarm.category
+        'Jim is bringing the potato salad'
+
+        >>> alarm.category = ["Jim will be here soon", "I want potato salad"]
+        Traceback (most recent call last):
+        ...
+        AssertionError: category for alarm must be a string
+        """
+        # precondition: category must be of type string
+        assert isinstance(category, str), "category for alarm must be a string"
+        self._category = category
+
+    @property
+    def cause(self):
+        """
+        return the cause of the alarm, usually the object that set it off
+
+        Usage:
+        >>> alarm = Alarm(12345, category="list malfunction", cause=[1,2,3,4])
+        >>> alarm.cause
+        [1, 2, 3, 4]
+        """
         return self._cause
 
     @cause.setter
     def cause(self, cause):
         """
-        set the cause that this alarm started. 
-
-        >>> alarm = Alarm()
+        set the cause of the alarm. Accepts any type
+        
+        Usage:
+        >>> alarm = Alarm(12345, cause=[1,2,3,4,5])
+        >>> alarm.cause = [2, 3, 4]
         >>> alarm.cause
-        ''
+        [2, 3, 4]
 
-        >>> alarm.cause = "Jim is bringing the potato salad"
-        >>> alarm.cause
-        'Jim is bringing the potato salad'
-
-        >>> alarm.cause = ["Jim will be here soon", "I want potato salad"]
-        Traceback (most recent call last):
-        ...
-        AssertionError: cause for alarm must be a string
+        >>> alarm.cause = "abcd"
+        >>> alarm.cause = datetime.now()
+        >>> alarm.cause = alarm #that's right, it caused itself. The Matrix yo
         """
-        # precondition: cause must be of type string
-        assert isinstance(cause, str), "cause for alarm must be a string"
+        # no assertions, accepts any type
+
         self._cause = cause
 
     @property
@@ -179,7 +212,7 @@ class Alarm:
 
         self._end_time = time
 
-    def activate(self, cause):
+    def activate(self, category):
         """
         start this alarm by setting the start time to now. 
 
@@ -205,7 +238,7 @@ class Alarm:
         # time)
         assert self.start_time is None, "alarm already active"
 
-        self.cause = cause
+        self.category = category
         
         now = datetime.now()
         self.start_time = now

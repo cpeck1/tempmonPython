@@ -16,10 +16,16 @@ class AlarmTest(unittest.TestCase):
         self.alarm = None
 
 class DefaultUninitializedStateTest(AlarmTest):
+    def test_default_category(self):
+        self.assertEqual(
+            self.alarm.category, '', 
+            'incorrect default alarm category')
+
     def test_default_cause(self):
         self.assertEqual(
-            self.alarm.cause, '', 
+            self.alarm.cause, None,
             'incorrect default alarm cause')
+    
     def test_default_start_time(self):
         self.assertEqual(
             self.alarm.start_time, None, 
@@ -42,32 +48,56 @@ class AccessorTest(AlarmTest):
             self.alarm.container_id, container_id,
             'incorrect container id retrieved')
 
-    def test_get_set_cause1(self):
+    def test_get_set_category1(self):
         set_str = ""
-        self.alarm.cause = set_str
-        get_str = self.alarm.cause
+        self.alarm.category = set_str
+        get_str = self.alarm.category
         self.assertEqual(
             set_str, get_str,
-            "incorrect cause set or retrieved")
+            "incorrect category set or retrieved")
 
-    def test_get_set_cause2(self):
+    def test_get_set_category2(self):
         set_str = "Unit test 1"
-        self.alarm.cause = set_str
-        get_str = self.alarm.cause
+        self.alarm.category = set_str
+        get_str = self.alarm.category
         self.assertEqual(
             set_str, get_str, 
+            "incorrect category set or retrieved")
+
+    def set_category(self, category):
+        self.alarm.category = category
+
+    def test_set_category_bad_type1(self):
+        self.assertRaises(
+            AssertionError, self.set_category, None)
+
+    def test_set_category_bad_type2(self):
+        self.assertRaises(
+            AssertionError, self.set_category, ["bad type"])
+
+    def test_get_set_category1(self):
+        set_cause = "test1"
+        self.alarm.cause = set_cause
+        get_cause = self.alarm.cause
+        self.assertEqual(
+            set_cause, get_cause,
             "incorrect cause set or retrieved")
 
-    def set_cause(self, cause):
-        self.alarm.cause = cause
+    def test_get_set_category2(self):
+        set_cause = 123569235
+        self.alarm.cause = set_cause
+        get_cause = self.alarm.cause
+        self.assertEqual(
+            set_cause, get_cause,
+            "incorrect cause set or retrieved")
 
-    def test_set_cause_bad_type1(self):
-        self.assertRaises(
-            AssertionError, self.set_cause, None)
-
-    def test_set_cause_bad_type2(self):
-        self.assertRaises(
-            AssertionError, self.set_cause, ["bad type"])
+    def test_get_set_category3(self):
+        set_cause = ["list of ", "alarm causes ", "could be ", "who knows?"]
+        self.alarm.cause = set_cause
+        get_cause = self.alarm.cause
+        self.assertEqual(
+            set_cause, get_cause,
+            "incorrect cause set or retrieved")
     
     def test_get_set_start_time1(self):
         set_time = datetime(1970, 9, 10, 12, 30)
