@@ -1,11 +1,8 @@
 # append the project bin to the sys search path
-import sys
-sys.path.append("../bin/models")
-sys.path.append("./bin/models")
-
 import unittest
 from datetime import datetime
 import time
+
 from alarm import Alarm
 
 class AlarmTest(unittest.TestCase):
@@ -16,11 +13,6 @@ class AlarmTest(unittest.TestCase):
         self.alarm = None
 
 class DefaultUninitializedStateTest(AlarmTest):
-    def test_default_category(self):
-        self.assertEqual(
-            self.alarm.category, '', 
-            'incorrect default alarm category')
-
     def test_default_cause(self):
         self.assertEqual(
             self.alarm.cause, None,
@@ -63,42 +55,6 @@ class AccessorTest(AlarmTest):
         self.assertEqual(
             set_str, get_str, 
             "incorrect category set or retrieved")
-
-    def set_category(self, category):
-        self.alarm.category = category
-
-    def test_set_category_bad_type1(self):
-        self.assertRaises(
-            AssertionError, self.set_category, None)
-
-    def test_set_category_bad_type2(self):
-        self.assertRaises(
-            AssertionError, self.set_category, ["bad type"])
-
-    def test_get_set_category1(self):
-        set_cause = "test1"
-        self.alarm.cause = set_cause
-        get_cause = self.alarm.cause
-        self.assertEqual(
-            set_cause, get_cause,
-            "incorrect cause set or retrieved")
-
-    def test_get_set_category2(self):
-        set_cause = 123569235
-        self.alarm.cause = set_cause
-        get_cause = self.alarm.cause
-        self.assertEqual(
-            set_cause, get_cause,
-            "incorrect cause set or retrieved")
-
-    def test_get_set_category3(self):
-        set_cause = ["list of ", "alarm causes ", "could be ", "who knows?"]
-        self.alarm.cause = set_cause
-        get_cause = self.alarm.cause
-        self.assertEqual(
-            set_cause, get_cause,
-            "incorrect cause set or retrieved")
-    
     def test_get_set_start_time1(self):
         set_time = datetime(1970, 9, 10, 12, 30)
         self.alarm.start_time = set_time

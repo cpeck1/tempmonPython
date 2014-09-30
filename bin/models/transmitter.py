@@ -295,20 +295,19 @@ class Transmitter:
         ...
         AssertionError: no open method assigned
 
-        >>> trans.set_open_method(print)
+        >>> trans.set_open_method(lambda x,y: x+y)
         >>> trans.open() # do stuff with device
 
         >>> trans.open() # device already open, but no exception raised
         """
-        assert self.method_available('open'),\
-            "no open method assigned"
-        
         assert self.vid_pid_valid(),\
             "insufficient properties to complete transaction"
+
+        assert self.method_available('open'),\
+            "no open method assigned"        
         
         if not self.is_open():
-            self._device = self._open_method(self.vendor_id, 
-                                             self.product_id)
+            self._device = self._open_method(self.vendor_id, self.product_id)
 
     def set_open_method(self, method):
         """
@@ -320,14 +319,15 @@ class Transmitter:
         Usage:
         >>> trans = Transmitter(12345)
         >>> trans.vendor_id = 0x0001
-        >>> trans.vendor_id = 0x0001
+        >>> trans.product_id = 0x0001
         
         >>> trans.set_open_method(1)
         Traceback (most recent call last):
         ...
         AssertionError: method must be callable
 
-        >>> trans.set_open_method(lambda x, y: return x + y)
+        >>> om = lambda x, y: x+y
+        >>> trans.set_open_method(om)
         >>> trans.open()
         >>> trans._device
         2
@@ -348,7 +348,7 @@ class Transmitter:
         >>> trans.is_open()
         False
 
-        >>> trans.set_open_method(lambda x, y: return x + y)
+        >>> trans.set_open_method(lambda x, y: x+y)
         >>> trans.open()
         >>> trans.is_open()
         True
@@ -389,7 +389,7 @@ class Transmitter:
         ...
         AssertionError: no read method assigned
 
-        >>> trans.set_read_method(lambda x: return x)
+        >>> trans.set_read_method(lambda x: x)
         >>> trans.read() # note this just returns the _device property
         2
         """
@@ -419,7 +419,8 @@ class Transmitter:
         ...
         AssertionError: method must be callable
 
-        >>> trans.set_read_method(lambda x: return x)
+        >>> rm = lambda x: x
+        >>> trans.set_read_method(rm)
         """
         assert hasattr(method, '__call__'),\
             "method must be callable"
@@ -450,14 +451,13 @@ class Transmitter:
         Usage:
         >>> trans = Transmitter(12345, "Man1", "Name1", 1, 1)
 
-        >>> trans.set_open_method(lambda x, y: return x+y)
-        >>> trans.set_close_method(lambda x: return x)
+        >>> trans.set_open_method(lambda x, y: x+y)
+        >>> trans.set_close_method(lambda x: x)
 
         >>> trans.close() # device not opened yet
         >>> trans.open() 
 
         >>> trans.close() # device now open, call close method
-        2
 
         >>> trans.close() # device already closed, returns nothing
         """
@@ -488,3 +488,7 @@ class Transmitter:
             "method must be callable"
 
         self._close_method = method
+
+if __name__ == "__main__": 
+    import doctest
+    doctest.testmod()

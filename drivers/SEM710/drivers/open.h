@@ -15,6 +15,6 @@
 #define USB_SET_FLOW_CTRL_FAILED -108
 #define USB_SET_LATENCY_TIMER_FAILED -109
 
-struct ftdi_context *open_device(int vendor_id, int product_id);
+struct ftdi_context *open_device();
 
 #endif /* __INC_SEM_710_OPEN_H */

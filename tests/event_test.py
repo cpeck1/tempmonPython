@@ -1,11 +1,7 @@
-# append the project bin to the sys search path
-import sys
-sys.path.append("../bin/models")
-sys.path.append("./bin/models")
-
 import unittest
 from datetime import datetime
 import time
+
 from event import Event
 
 class EventTest(unittest.TestCase):

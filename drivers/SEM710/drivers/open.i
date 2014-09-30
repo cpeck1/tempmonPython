@@ -6,4 +6,4 @@
 #include "open.h"
 %}
 
-struct ftdi_context *open_device(int vendor_id, int product_id);
+struct ftdi_context *open_device();

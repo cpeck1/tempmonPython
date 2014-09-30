@@ -1,4 +1,0 @@
-To the reader:
-   - Doctests were included in bin files as they demonstrate intended usage of
-methods. They result in some clutter but demonstrate intended usage of each
-function better than a docstring could.

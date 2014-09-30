@@ -2,6 +2,7 @@ from transmitter import Transmitter
 from alarm import Alarm
 from event import Event
 from datetime import datetime
+
 class Context:
     """
     the context in which some kind of reading is measured
@@ -212,7 +213,7 @@ class Context:
 
         Traceback (most recent call last):
         ...
-        AssertionError: expected <class 'transmitter.Transmitter'>, got <class 'context.Context'>
+        AssertionError: expected <class 'transmitter.Transmitter'> got <class 'context.Context'>
         """
         assert isinstance(transmitter, Transmitter),\
             "expected <class 'transmitter.Transmitter'> got "+\
@@ -265,8 +266,8 @@ class Context:
 
         Usage:
         >>> c = Context(12345)
-        >>> c.set_active_alarm(Alarm(c.get_id()))
-        >>> isinstance(c.get_active_alarm(), Alarm)
+        >>> c.active_alarm = Alarm(c.id)
+        >>> isinstance(c.active_alarm, Alarm)
         True
         """
         return self._active_alarm
@@ -284,7 +285,7 @@ class Context:
         AssertionError: expected <class 'alarm.Alarm'> but got <class 'context.Context'>
         """
         assert isinstance(alarm, Alarm),\
-            "expected <class 'alarm.Alarm'> but got " + str(type(alarm))
+            "expected "+str(type(Alarm(1234)))+" but got " + str(type(alarm))
 
         self._active_alarm = alarm
 
@@ -307,7 +308,7 @@ class Context:
         # opted not to use range() here for the oh so common case that the value
         # lands EXACTLY on the upper bound (ub)
         lb = self.measured_field_expected_value - self.measured_field_variance
-        ub = self.measured_field_expected_value - self.measured_field_variance
+        ub = self.measured_field_expected_value + self.measured_field_variance
 
         return ((reading < lb) or (reading > ub))
 
@@ -333,7 +334,7 @@ class Context:
         spawns a new event consisting of the given reading, the time and 
         details about the event found in this context's properties
 
-        >>> Usage:
+        Usage:
         >>> ctx = Context(12345)
         >>> ctx.add_event(50)
         >>> ctx.last_event.field_value
@@ -355,3 +356,7 @@ class Context:
         """
         if self.reading_out_of_range(reading):
             self.activate_alarm("reading out of expected range")
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()

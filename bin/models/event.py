@@ -60,10 +60,10 @@ class Event:
         >>> event.time = "2014-08-06 12:13:43"
         Traceback (most recent call last):
         ...
-        AssertionError: expected <type 'datetime.datetime'>, got <type 'str'>
+        AssertionError: expected <type 'datetime.datetime'> but got <type 'str'>
         """
         assert isinstance(time, datetime), \
-            "expected <type 'datetime.datetime'>, got "+str(type(time))
+            "expected <type 'datetime.datetime'> but got "+str(type(time))
 
         self._time = time
 
@@ -131,6 +131,10 @@ class Event:
         >>> event.field_value = "-84.5"
         Traceback (most recent call last):
         ...
-        AssertionError: expected <type 'int'> or <type 'float'>, got <type 'str'>
+        AssertionError: expected <type 'int'> or <type 'float'> but got <type 'str'>
         """
         self._field_value = temp
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()

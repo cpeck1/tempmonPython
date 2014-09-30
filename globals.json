@@ -1,6 +1,0 @@
-{
-    "containerLabel":"CFN1",
-    "readingFrequencyInSeconds":  900,
-    "logRelativePath":"logs/temperatureLog.csv",
-    "lastReadTime":"2014-09-04 10:54:00"
-}

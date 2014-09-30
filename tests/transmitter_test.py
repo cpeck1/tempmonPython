@@ -1,12 +1,8 @@
-# append the project bin to the sys search path
-import sys
-sys.path.append("../bin/models")
-sys.path.append("./bin/models")
-
 import unittest
 from unittest.mock import MagicMock
 from datetime import datetime
 import time
+
 from transmitter import Transmitter
 
 class TransmitterTest(unittest.TestCase):
@@ -16,7 +12,7 @@ class TransmitterTest(unittest.TestCase):
     def tearDown(self):
         self.transmitter = None
 
-class TransmitterMockTest1(unittest.TestCase):
+class TransmitterMockList(unittest.TestCase):
     def setUp(self):
         def open_device(x, y): return [-80]
         def read_device(x): return x[0]
@@ -357,7 +353,7 @@ class BooleanFunctionTests(TransmitterTest):
             "valid close method yielded false negative")
 
 
-class ListMockTest(TransmitterMockTest1):
+class ListMockTest(TransmitterMockList):
     """
     tests where the transmitter operations involve the setting and returning
     of a simple list

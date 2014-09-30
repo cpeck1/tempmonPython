@@ -17,6 +17,9 @@
 /* #define USB_SET_FLOW_CTRL_FAILED -108 */
 /* #define USB_SET_LATENCY_TIMER_FAILED -109 */
 
+#define vID 0x0403
+#define pID 0xBAB2
+
 int detach_device_kernel(int vendor_id, int product_id)
 {
   int failed;
@@ -104,7 +107,7 @@ int prepare_device(struct ftdi_context *ctx) {
   return 0;
 }
 
-struct ftdi_context *open_device(int vendor_id, int product_id) {
+struct ftdi_context *open_device() {
   int detach_error;
   int init_error;
   int prep_error;
@@ -112,12 +115,12 @@ struct ftdi_context *open_device(int vendor_id, int product_id) {
   struct ftdi_context *ctx = NULL;
   ctx = ftdi_new();
 
-  detach_error = detach_device_kernel(vendor_id, product_id);
+  detach_error = detach_device_kernel(vID, pID);
   if (detach_error) {
     return NULL;
   }
 
-  init_error = init_device(vendor_id, product_id, ctx);
+  init_error = init_device(vID, pID, ctx);
   if (init_error) {
     return NULL;
   }

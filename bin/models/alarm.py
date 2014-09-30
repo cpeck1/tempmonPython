@@ -6,22 +6,20 @@ class Alarm:
     Class for an alarm resulting from something not working as anticipated or
     some condition failing.
     """
-
     def __init__(
-            self, container_id, category=None, cause=None, start_time=None, 
+            self, container_id, cause=None, start_time=None, 
             last_refresh_time=None, end_time=None):
         assert (isinstance(container_id, int))
 
         self._container_id = container_id
-        self._category = ''
         self._cause = None
         self._start_time = None
         self._last_refresh_time = None
         self._end_time = None
 
         # note all preconditions are handled by setters
-        if category is not None:
-            self.category = category
+        if cause is not None:
+            self.cause = cause
         if start_time is not None:
             self.start_time = start_time
         if last_refresh_time is not None:
@@ -38,51 +36,13 @@ class Alarm:
         return self._container_id
 
     @property
-    def category(self):
-        """
-        get the category of this alarm
-        
-        >>> Alarm = Alarm()
-        >>> alarm.category
-        ''
-
-        >>> alarm.category = "Jim needs to get potato salad"
-        >>> alarm.category
-        'Jim needs to get potato salad'
-        """
-        
-        return self._category
-
-    @category.setter
-    def category(self, category):
-        """
-        set the category that set this alarm off. 
-
-        >>> alarm = Alarm()
-        >>> alarm.category
-        ''
-
-        >>> alarm.category = "Jim is bringing the potato salad"
-        >>> alarm.category
-        'Jim is bringing the potato salad'
-
-        >>> alarm.category = ["Jim will be here soon", "I want potato salad"]
-        Traceback (most recent call last):
-        ...
-        AssertionError: category for alarm must be a string
-        """
-        # precondition: category must be of type string
-        assert isinstance(category, str), "category for alarm must be a string"
-        self._category = category
-
-    @property
     def cause(self):
         """
         return the cause of the alarm, usually the object that set it off
 
         Usage:
-        >>> alarm = Alarm(12345, category="list malfunction", cause=[1,2,3,4])
-        >>> alarm.cause
+        >>> a = Alarm(12345, cause=[1,2,3,4])
+        >>> a.cause
         [1, 2, 3, 4]
         """
         return self._cause
@@ -90,20 +50,22 @@ class Alarm:
     @cause.setter
     def cause(self, cause):
         """
-        set the cause of the alarm. Accepts any type
+        set the cause of the alarm. Accepts any type. Preferably something with
+        a nice __str__ method as it will likely be used to describe the alarm 
+        later. The cause is also used to classify the alarm: the cause is 
+        interpreted from the causing object.
         
         Usage:
-        >>> alarm = Alarm(12345, cause=[1,2,3,4,5])
-        >>> alarm.cause = [2, 3, 4]
-        >>> alarm.cause
+        >>> a = Alarm(12345, cause=[1,2,3,4,5])
+        >>> a.cause = [2, 3, 4]
+        >>> a.cause
         [2, 3, 4]
 
-        >>> alarm.cause = "abcd"
-        >>> alarm.cause = datetime.now()
-        >>> alarm.cause = alarm #that's right, it caused itself. The Matrix yo
+        >>> a.cause = "abcd"
+        >>> a.cause = datetime.now()
+        >>> a.cause = alarm #that's right, it caused itself. The Matrix yo
         """
         # no assertions, accepts any type
-
         self._cause = cause
 
     @property
@@ -111,11 +73,11 @@ class Alarm:
         """
         get this alarm's start time
 
-        >>> alarm = Alarm()
+        >>> a = Alarm(12345)
 
         >>> dt1 = datetime(2014, 9, 4, 10, 54)
-        >>> alarm.start_time = dt1
-        >>> alarm.start_time == dt1
+        >>> a.start_time = dt1
+        >>> a.start_time == dt1
         True
         """
         return self._start_time
@@ -125,14 +87,14 @@ class Alarm:
         """
         set this alarm's start time. time must be of type datetime
 
-        >>> alarm = Alarm()
-        >>> alarm.start_time = datetime.now()
+        >>> a = Alarm(12345)
+        >>> a.start_time = datetime.now()
 
-        >>> alarm.start_time = datetime(2014, 9, 4, 10, 54)
-        >>> alarm.start_time = datetime(2014, 9, 4, 10, 54, 12)
-        >>> alarm.start_time = datetime(2014, 9, 4, 10, 54, 22, 54)
+        >>> a.start_time = datetime(2014, 9, 4, 10, 54)
+        >>> a.start_time = datetime(2014, 9, 4, 10, 54, 12)
+        >>> a.start_time = datetime(2014, 9, 4, 10, 54, 22, 54)
         
-        >>> alarm.start_time = "2014-09-04 10:54:00"
+        >>> a.start_time = "2014-09-04 10:54:00"
         Traceback (most recent call last):
         ...
         AssertionError: only times of type datetime accepted
@@ -149,12 +111,12 @@ class Alarm:
         """
         get the last refresh time for this alarm
 
-        >>> alarm = Alarm()
-        >>> alarm.last_refresh_time # None
+        >>> a = Alarm(12345)
+        >>> a.last_refresh_time # None
 
         >>> dt = datetime(2014, 9, 4, 10, 54)
-        >>> alarm.last_refresh_time = dt
-        >>> alarm.last_refresh_time == dt
+        >>> a.last_refresh_time = dt
+        >>> a.last_refresh_time == dt
         True
         """
         return self._last_refresh_time
@@ -164,13 +126,13 @@ class Alarm:
         """
         set the last refresh time for this alarm
 
-        >>> alarm = Alarm()
+        >>> a = Alarm(12345)
 
-        >>> alarm.last_refresh_time = datetime(2014, 9, 4, 10, 54)
-        >>> alarm.last_refresh_time = datetime(2014, 9, 4, 10, 54, 12)
-        >>> alarm.last_refresh_time = datetime(2014, 9, 4, 10, 54, 12, 45)
+        >>> a.last_refresh_time = datetime(2014, 9, 4, 10, 54)
+        >>> a.last_refresh_time = datetime(2014, 9, 4, 10, 54, 12)
+        >>> a.last_refresh_time = datetime(2014, 9, 4, 10, 54, 12, 45)
     
-        >>> alarm.last_refresh_time = "2014-09-04 15:04:31"
+        >>> a.last_refresh_time = "2014-09-04 15:04:31"
         Traceback (most recent call last):
         ...
         AssertionError: only times of type datetime accepted
@@ -184,12 +146,12 @@ class Alarm:
         """
         get this alarm's end time.
 
-        >>> alarm = Alarm()
-        >>> alarm.end_time # None
+        >>> a = Alarm(12345)
+        >>> a.end_time # None
 
         >>> dt1 = datetime(2014, 9, 4, 10, 54)
-        >>> alarm.end_time = dt1
-        >>> alarm.end_time == dt1
+        >>> a.end_time = dt1
+        >>> a.end_time == dt1
         True
         """
         return self._end_time
@@ -199,10 +161,10 @@ class Alarm:
         """
         set this alarm's end time
        
-        >>> alarm = Alarm()
-        >>> alarm.start_time = datetime.now()
+        >>> a = Alarm(12345)
+        >>> a.start_time = datetime.now()
 
-        >>> alarm.start_time = "2014-09-04 10:54:00"
+        >>> a.start_time = "2014-09-04 10:54:00"
         Traceback (most recent call last):
         ...
         AssertionError: only times of type datetime accepted
@@ -212,24 +174,23 @@ class Alarm:
 
         self._end_time = time
 
-    def activate(self, category):
+    def activate(self, cause):
         """
         start this alarm by setting the start time to now. 
 
-        >>> alarm = Alarm()
-
-        >>> alarm.activate()
+        >>> a = Alarm(12345)
+        >>> a.activate()
         Traceback (most recent call last):
         ...
-        TypeError: activate() takes exactly 2 arguments (1 given)
+        TypeError: activate() missing 1 required positional argument: 'cause'
 
-        >>> alarm.activate("Jim brought too much potato salad")
-        >>> alarm.start_time is None
+        >>> a.activate(cause="Jim brought too much potato salad")
+        >>> a.start_time is None
         False
-        >>> alarm.end_time is None
+        >>> a.end_time is None
         True
 
-        >>> alarm.activate("why is there so much potato salad?")
+        >>> a.activate("why is there so much potato salad?")
         Traceback (most recent call last):
         ...
         AssertionError: alarm already active
@@ -238,7 +199,7 @@ class Alarm:
         # time)
         assert self.start_time is None, "alarm already active"
 
-        self.category = category
+        self.cause = cause
         
         now = datetime.now()
         self.start_time = now
@@ -248,17 +209,17 @@ class Alarm:
         """
         Refresh the alarm by setting its last refresh time to now. 
 
-        >>> alarm = Alarm()
-        >>> alarm.refresh()
+        >>> a = Alarm(12345)
+        >>> a.refresh()
         Traceback (most recent call last):
         ...
         AssertionError: cannot refresh inactive alarms
 
-        >>> alarm.activate("running out of potato-salad related emergencies")
-        >>> alarm.refresh() # no return value
+        >>> a.activate("running out of potato-salad related emergencies")
+        >>> a.refresh() # no return value
 
-        >>> alarm.end()
-        >>> alarm.refresh()
+        >>> a.end()
+        >>> a.refresh()
         Traceback (most recent call last):
         ...
         AssertionError: cannot refresh inactive alarms
@@ -273,22 +234,22 @@ class Alarm:
         """
         finish this alarm by setting the end time to now
 
-        >>> alarm = Alarm()
+        >>> a = Alarm(12345)
 
-        >>> alarm.end()
+        >>> a.end()
         Traceback (most recent call last):
         ...
         AssertionError: only active alarms may be ended
 
-        >>> alarm.activate("no one can eat this much potato salad")
-        >>> alarm.end_time is None
+        >>> a.activate("no one can eat this much potato salad")
+        >>> a.end_time is None
         True
         
-        >>> alarm.end()
-        >>> alarm.end_time is None
+        >>> a.end()
+        >>> a.end_time is None
         False
 
-        >>> alarm.end()
+        >>> a.end()
         Traceback (most recent call last):
         ...
         AssertionError: only active alarms may be ended
@@ -299,18 +260,17 @@ class Alarm:
         now = datetime.now()
         self.end_time = now
 
-
     def is_going_off(self):
         """
         this alarm is going off if there is a start time but no end time
         
-        >>> alarm = Alarm()
-        >>> alarm.activate("send Jim to get more potato salad")
-        >>> alarm.is_going_off()
+        >>> a = Alarm(12345)
+        >>> a.activate("send Jim to get more potato salad")
+        >>> a.is_going_off()
         True
 
-        >>> alarm.end()
-        >>> alarm.is_going_off()
+        >>> a.end()
+        >>> a.is_going_off()
         False
         """
         st = self.start_time
@@ -323,20 +283,19 @@ class Alarm:
         """
         returns whether or not this alarm is finished. 
 
-        >>> alarm = Alarm()
-        >>> alarm.activate("now we need more potato salad")
-        >>> alarm.has_ended()
+        >>> a = Alarm(12345)
+        >>> a.activate("now we need more potato salad")
+        >>> a.has_ended()
         False
         
-        >>> alarm.end()
-        >>> alarm.has_ended()
+        >>> a.end()
+        >>> a.has_ended()
         True
         """
         st = self.start_time
         et = self.end_time
 
         return st is not None and et is not None
-
 
 if __name__ == "__main__":
     import doctest
