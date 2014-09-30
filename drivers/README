@@ -5,38 +5,33 @@ directory with the following directory heirarchy:
 |
 |--MODELNAME
    |--drivers
-   |  |--openModule.{py, h}
-   |  |--{openModule.c, any other supporting files}
-   |  |--readModule.{py, h}
-   |  |--{readModule.c, any other supporting files}
-   |  |--closeModule.{py, h}
-   |  |--{closeModule.c, any other supporting files}
-   |  |--decodeErrorModule.{py, h}
-   |  |--{decodeErrorModule.c, any other supporting files}
+   |  |--open.{py, h}
+   |  |--{open.c, any other supporting files}
+   |  |--read.{py, h}
+   |  |--{read.c, any other supporting files}
+   |  |--close.{py, h}
+   |  |--{close.c, any other supporting files}
    |--usbinfo
 
 -------------------------------------
-decodeErrorModule contains the following function:
-int decode_error(int error_code, char *buffer)
-
---------------------------------------
 For the below functions: 
     - a return value of zero indicates a success
     - a negative return value indicates an error with an error code of the 
       return value. 
+    - device_handle refers to whatever context the drivers of the device uses 
+      to handle the hardware
+open contains the following function:
+device_handle *open_device()
 
-openModule contains the following function:
-int open_device(int vendor_id, int product_id, void *device_handle)
-
-readModule contains the following function:
-int read_device(void *device_handle, void *reading)
+read contains the following function:
+float read_device(device_handle *dh)
 
 closeModule contains the following function:
-int close_device(void *device_handle)
+int close_device(device_handle *dh)
 
 ---------------------------------------
 usbinfo consists of:
-modelName=modelName
-manufacturer=manufacturer
-idVendor=idVendor
-idProduct=idProduct
+modelName=[device model name]
+manufacturer=[device manufacturer]
+idVendor=[device vendor ID]
+idProduct=[device product ID]
