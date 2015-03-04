@@ -1,0 +1,2 @@
+idVendor = 0x0001
+idProduct = 0x0001

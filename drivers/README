@@ -14,12 +14,11 @@ directory with the following directory heirarchy:
    |--usbinfo
 
 -------------------------------------
-For the below functions: 
-    - a return value of zero indicates a success
-    - a negative return value indicates an error with an error code of the 
-      return value. 
+For the below functions:	
+    - in the event the operation fails, return a null pointer, which is 
     - device_handle refers to whatever context the drivers of the device uses 
       to handle the hardware
+
 open contains the following function:
 device_handle *open_device()
 
@@ -30,8 +29,6 @@ closeModule contains the following function:
 int close_device(device_handle *dh)
 
 ---------------------------------------
-usbinfo consists of:
-modelName=[device model name]
-manufacturer=[device manufacturer]
+usbinfo.py must contain:
 idVendor=[device vendor ID]
 idProduct=[device product ID]
