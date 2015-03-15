@@ -56,7 +56,8 @@ class AlarmModelTestSuite(AlarmModelTest):
             Alarm.id == test_id
         ).one()
 
-        self.assertEqual(alarm.id, test_id)
+        self.assertEqual(alarm.expectation.units, "Test")
+        self.assertEqual(alarm.reading.units, "Test")
 
     def test_active1(self):
         test_id = 1

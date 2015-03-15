@@ -1,5 +1,8 @@
-from ..models.environment import Environment
-from .controllers.atmospheric_condition_controller import (
+import logging
+logger = logging.getLogger("monitoring_application")
+
+from bin.models.environment import Environment
+from bin.controllers.atmospheric_condition_controller import (
     AtmosphericConditionController
 )
 class EnvironmentController:
@@ -13,6 +16,10 @@ class EnvironmentController:
         for e in self.environments:
             for ac in e.atmospheric_conditions:
                 conditions.append(ac)
-
-        acc = AtmosphericConditionController(conditions)
+                logger.info(
+                    "Creating condition controller with conditions: " + (
+                        repr(conditions)
+                    )
+                )
+        acc = AtmosphericConditionController(self.dbsession, conditions)
         return acc

@@ -115,7 +115,10 @@ class AtmosphericConditionControllerTest(unittest.TestCase):
             self.session.add(c)
         self.session.commit()
 
-        self.condition_controller = AtmosphericConditionController(conditions)
+        self.condition_controller = AtmosphericConditionController(
+            dbsession=self.session,
+            conditions=conditions
+        )
 
     def tearDown(self):
         self.session.close()

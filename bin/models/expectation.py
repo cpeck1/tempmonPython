@@ -23,21 +23,14 @@ class Expectation(Base):
     low = Column(Float)
     high = Column(Float)
 
-    # def __init__(self, units=None, low=None, high=None, 
-    #              recording_frequency=None):
-    #     self.id = None
-    #     self.units = units
-    #     self.low = low
-    #     self.high = high
-    #     self.recording_frequency = recording_frequency
-
     def __repr__(self):
-        return "Expectation(id={!r}, units={!r}, low={!r}, high={!r})".format(self.id, self.units, self.low, self.high)
-
-    def __str__(self):
-        return "Expectation: \n\tid: {!r} \n\tunits: {!r} \n\tlow: {!r} \n\thigh: {!r}".format(self.id, self.units, self.low, self.high)
+        return "Expectation(id={}, units={}, low={}, high={})".format(
+            self.id,
+            self.units,
+            self.low,
+            self.high
+        )
 
     def violated_by(self, reading):
-        # MOVETO controller
         return ((reading.units != self.units) or 
                 not (self.low <= reading.value <= self.high))

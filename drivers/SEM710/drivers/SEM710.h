@@ -2,7 +2,10 @@
 #ifndef __INC_SEM710
 #define __INC_SEM710
 
-#include <ftdi.h>
+#include <libftdi1/ftdi.h>
+#include <libusb-1.0/libusb.h>
+#include <stdio.h>
+#include <math.h>
 
 #define MESSAGE_GENERATION_FAILED -10000
 #define BAD_RESPONSE -10001
@@ -19,8 +22,8 @@
 #define HANDLE_DEINIT_FAILED -300
 #define HANDLE_FREE_FAILED -301
 
-struct ftdi_context *open();
-float read_channel(struct ftdi_context *ctx, int channel_number);
-int close(struct ftdi_context *ctx);
+struct ftdi_context *open_method(int bus, int address);
+float read_channel_method(struct ftdi_context *ctx, int channel_number);
+int close_method(struct ftdi_context *ctx);
 
 #endif /* __INC_SEM_710_READ_H */

@@ -70,17 +70,17 @@ except AttributeError:
 
 
 
-def open_device() -> "struct ftdi_context *" :
-  return _SEM710.open_device()
-open_device = _SEM710.open_device
+def open_method(*args) -> "struct ftdi_context *" :
+  return _SEM710.open_method(*args)
+open_method = _SEM710.open_method
 
-def read_device_channel(*args) -> "float" :
-  return _SEM710.read_device_channel(*args)
-read_device_channel = _SEM710.read_device_channel
+def read_channel_method(*args) -> "float" :
+  return _SEM710.read_channel_method(*args)
+read_channel_method = _SEM710.read_channel_method
 
-def close_device(*args) -> "int" :
-  return _SEM710.close_device(*args)
-close_device = _SEM710.close_device
+def close_method(*args) -> "int" :
+  return _SEM710.close_method(*args)
+close_method = _SEM710.close_method
 # This file is compatible with both classic and new-style classes.
 
 

@@ -3,6 +3,13 @@ from .base import Base
 from sqlalchemy.orm import relationship
 
 class Admin(Base):
+    """Class for an admin of the system
+
+    Attributes:
+    id: the id of this admin assigned by the ORM
+    name: the full name of this admin (First Name Middle Names Last Name)
+    email_addresses: list of this admin's email addresses
+    """
     __tablename__ = 'admin'
 
     id = Column(Integer, primary_key=True)
@@ -17,7 +24,5 @@ class Admin(Base):
     #     self.email = None
 
     def __repr__(self):
-        return "Admin(id={!r}, name={!r}, email={!r})".format(self.id, self.name, self.email)
+        return "Admin(id={!r}, name={!r}, email_addresses={!r})".format(self.id, self.name, self.email)
 
-    def __str__(self):
-        return "Admin: \n\tid: {!r} \n\tname: {!r} \n\temail: {!r}".format(self.id or 0, self.name or "None", self.email or "None")

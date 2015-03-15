@@ -4,10 +4,24 @@ from sqlalchemy import *
 from .base import Base
 from sqlalchemy.orm import relationship
 
-from .alarm import Alarm
-from .reading import Reading
+from bin.models.alarm import Alarm
+from bin.models.reading import Reading, _Reading
 
 class AtmosphericCondition(Base):
+    """An atmospheric condition of an environment, for example 
+    temperature
+
+    Attributes:
+    id: the id of this atmospheric condition assigned by the ORM
+    type: the classification of this atmospheric condition, e.g. 
+    temperature, relative humidity, atmospheric pressure etc
+    channel_bus: the USB bus of the transmitter channel responsible for 
+    monitoring this condition
+    channel_address: the USB bus address of the transmitter channel 
+    responsible for monitoring this condition
+    channel_number: the channel number of the transmitter channel 
+    responsible for monitoring this condition
+    """
     __tablename__ = 'atmospheric_condition'
 
     id = Column(Integer, primary_key=True)
@@ -53,11 +67,18 @@ class AtmosphericCondition(Base):
 
         self.channel = None
 
-        self.environment_id = None
-        self.expectation_id = expectation.id
         self.expectation = expectation
-        self.readings = []
-        self.alarms = []
+
+    def __repr__(self):
+        return "AtmosphericCondition(id={}, type={}, channel_bus={}, channel_address={}, channel_number={}, recording_frequency={}, expectation={})".format(
+            self.id, 
+            self.type, 
+            self.channel_bus, 
+            self.channel_address, 
+            self.channel_number,
+            self._recording_frequency,
+            self.expectation
+        )
 
     @property
     def recording_frequency(self):
@@ -68,7 +89,13 @@ class AtmosphericCondition(Base):
         self._recording_frequency = value
 
     def read_channel(self): 
-        return Reading(value=self.channel.read(), units=self.channel.units)
+        return _Reading(value=self.channel.read(), units=self.channel.units)
+
+    def most_recent_reading(self):
+        try:
+            return self.readings[-1]
+        except IndexError:
+            return None
 
     def most_recent_alarm(self):
         try:
@@ -83,7 +110,7 @@ class AtmosphericCondition(Base):
 
     def record_due(self):
         try:
-            last_reading = self.readings[-1]
+            last_reading = self.most_recent_reading()
             return (datetime.now()-last_reading.time)>self.recording_frequency
-        except IndexError:
+        except AttributeError:
             return True

@@ -2947,6 +2947,11 @@ static swig_module_info swig_module = {swig_types, 2, 0, 0, 0, 0};
 
 #define SWIG_FILE_WITH_INIT
 #include "SEM710.h"
+#include <libftdi1/ftdi.h>
+#include <libusb-1.0/libusb.h>
+#include <stdio.h>
+#include <math.h>
+
 
 
 #include <limits.h>
@@ -3113,12 +3118,30 @@ SWIGINTERNINLINE PyObject*
 #ifdef __cplusplus
 extern "C" {
 #endif
-SWIGINTERN PyObject *_wrap_open_device(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_open_method(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
+  int arg1 ;
+  int arg2 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
   struct ftdi_context *result = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)":open_device")) SWIG_fail;
-  result = (struct ftdi_context *)open_device();
+  if (!PyArg_ParseTuple(args,(char *)"OO:open_method",&obj0,&obj1)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "open_method" "', argument " "1"" of type '" "int""'");
+  } 
+  arg1 = (int)(val1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "open_method" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  result = (struct ftdi_context *)open_method(arg1,arg2);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_ftdi_context, 0 |  0 );
   return resultobj;
 fail:
@@ -3126,7 +3149,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_read_device_channel(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_read_channel_method(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   struct ftdi_context *arg1 = (struct ftdi_context *) 0 ;
   int arg2 ;
@@ -3138,18 +3161,18 @@ SWIGINTERN PyObject *_wrap_read_device_channel(PyObject *SWIGUNUSEDPARM(self), P
   PyObject * obj1 = 0 ;
   float result;
   
-  if (!PyArg_ParseTuple(args,(char *)"OO:read_device_channel",&obj0,&obj1)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"OO:read_channel_method",&obj0,&obj1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_ftdi_context, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "read_device_channel" "', argument " "1"" of type '" "struct ftdi_context *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "read_channel_method" "', argument " "1"" of type '" "struct ftdi_context *""'"); 
   }
   arg1 = (struct ftdi_context *)(argp1);
   ecode2 = SWIG_AsVal_int(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "read_device_channel" "', argument " "2"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "read_channel_method" "', argument " "2"" of type '" "int""'");
   } 
   arg2 = (int)(val2);
-  result = (float)read_device_channel(arg1,arg2);
+  result = (float)read_channel_method(arg1,arg2);
   resultobj = SWIG_From_float((float)(result));
   return resultobj;
 fail:
@@ -3157,7 +3180,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_close_device(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_close_method(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   struct ftdi_context *arg1 = (struct ftdi_context *) 0 ;
   void *argp1 = 0 ;
@@ -3165,13 +3188,13 @@ SWIGINTERN PyObject *_wrap_close_device(PyObject *SWIGUNUSEDPARM(self), PyObject
   PyObject * obj0 = 0 ;
   int result;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:close_device",&obj0)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"O:close_method",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_ftdi_context, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "close_device" "', argument " "1"" of type '" "struct ftdi_context *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "close_method" "', argument " "1"" of type '" "struct ftdi_context *""'"); 
   }
   arg1 = (struct ftdi_context *)(argp1);
-  result = (int)close_device(arg1);
+  result = (int)close_method(arg1);
   resultobj = SWIG_From_int((int)(result));
   return resultobj;
 fail:
@@ -3181,9 +3204,9 @@ fail:
 
 static PyMethodDef SwigMethods[] = {
 	 { (char *)"SWIG_PyInstanceMethod_New", (PyCFunction)SWIG_PyInstanceMethod_New, METH_O, NULL},
-	 { (char *)"open_device", _wrap_open_device, METH_VARARGS, NULL},
-	 { (char *)"read_device_channel", _wrap_read_device_channel, METH_VARARGS, NULL},
-	 { (char *)"close_device", _wrap_close_device, METH_VARARGS, NULL},
+	 { (char *)"open_method", _wrap_open_method, METH_VARARGS, NULL},
+	 { (char *)"read_channel_method", _wrap_read_channel_method, METH_VARARGS, NULL},
+	 { (char *)"close_method", _wrap_close_method, METH_VARARGS, NULL},
 	 { NULL, NULL, 0, NULL }
 };
 

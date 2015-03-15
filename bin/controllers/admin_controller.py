@@ -1,4 +1,7 @@
-from models.admin import Admin
+import logging
+from bin.models.admin import Admin
+
+logger = logging.getLogger("monitoring_application")
 
 class AdminController:
     def __init__(self, dbsession):
@@ -6,4 +9,4 @@ class AdminController:
         self.admins = dbsession.query(Admin).all()
 
     def report(self, stuff):
-        pass
+        logger.debug(repr(stuff))

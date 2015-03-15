@@ -1,9 +1,11 @@
 /* File: SEM710.c */
 
-#include <ftdi.h>
+#include <libftdi1/ftdi.h>
+#include <usb.h>
 #include <libusb-1.0/libusb.h>
 #include <stdio.h>
 #include <math.h>
+#include <assert.h>
 
 #include "SEM710.h"
 
@@ -15,21 +17,45 @@
 #define vID 0x0403
 #define pID 0xBAB2
 
-int detach_device_kernel(int vendor_id, int product_id)
-{
+int find_device(int bus, 
+		int address, 
+		libusb_context *ctx, 
+		libusb_device **device) {
+  int failed, rc;
+  uint8_t device_bus, device_address;
+  int device_vendor_id, device_product_id;
+  size_t i;
+  ssize_t num_devices;
+
+  libusb_device **device_list = NULL; 
+  libusb_device *dev = NULL;
+
+  num_devices = libusb_get_device_list(ctx, &device_list);
+  for (i = 0; i < num_devices; i++) {
+    dev = device_list[i];
+    struct libusb_device_descriptor desc = {0};
+
+    device_bus = libusb_get_bus_number(dev);
+    if (device_bus == bus) {
+      device_address = libusb_get_device_address(dev);
+      if (device_address == address) {
+	rc = libusb_get_device_descriptor(dev, &desc);
+	if (rc != 0) { return 1; }
+	if ((desc.idVendor == vID) && (desc.idProduct == pID)) {
+	  *device = dev;
+	  return 0;
+	}
+      }
+    }
+  }
+  return 1;
+}
+
+int detach_device_kernel(libusb_context *ctx, libusb_device *device) {
   int failed;
-  libusb_context *ctx;
-  libusb_device_handle *handle;
+  libusb_device_handle *handle = NULL;
+  failed = libusb_open(device, &handle);
 
-  ctx = NULL;
-  handle = NULL;
-
-  libusb_init(&ctx);
-  libusb_set_debug(ctx, 3);
-
-  handle = libusb_open_device_with_vid_pid(ctx, 
-					   vendor_id,
-					   product_id);
   if (handle == NULL) {
     return USB_DEVICE_MISSING;
   }
@@ -42,22 +68,27 @@ int detach_device_kernel(int vendor_id, int product_id)
   }
   libusb_release_interface(handle, 0);
   libusb_close(handle);
-  libusb_exit(ctx);
 
   return 0;
 }
 
-int init_device(int vendor_id, int product_id, struct ftdi_context *ctx) {
+/* int init_device(struct ftdi_context **ctx, libusb_device **dev) { */
+/*   int failed; */
+
+/*   failed = ftdi_usb_open_dev(*ctx, *dev); */
+/*   if (failed) { */
+/*     return USB_OPEN_FAILED; */
+/*   } */
+
+/*   return 0; */
+/* } */
+
+int init_device(struct ftdi_context *ctx, libusb_device *dev) {
   int failed;
 
-  failed = ftdi_init(ctx);
+  failed = ftdi_usb_open_dev(ctx, dev);
   if (failed) {
-    return CONTEXT_INIT_FAILED;
-  }
-
-  failed = ftdi_usb_open(ctx, vendor_id, product_id);
-  if (failed) {
-    return USB_OPEN_FAILED;
+    return failed;
   }
 
   return 0;
@@ -102,21 +133,36 @@ int prepare_device(struct ftdi_context *ctx) {
   return 0;
 }
 
-struct ftdi_context *open() {
+struct ftdi_context *open_method(bus, address) {
+  int device_not_found;
   int detach_error;
   int init_error;
   int prep_error;
 
+  libusb_context *libusb_ctx = NULL; 
+  libusb_device *dev = NULL;
   struct ftdi_context *ctx = NULL;
-  ctx = ftdi_new();
+  
+  init_error = libusb_init(&libusb_ctx);
 
-  detach_error = detach_device_kernel(vID, pID);
+  ctx = ftdi_new();
+  ftdi_init(ctx); 
+
+  device_not_found = find_device(bus, address, libusb_ctx, &dev);
+
+  if (device_not_found) {
+    return NULL;
+  }
+
+  detach_error = detach_device_kernel(libusb_ctx, dev);
   if (detach_error) {
     return NULL;
   }
 
-  init_error = init_device(vID, pID, ctx);
-  if (init_error) {
+  device_not_found = find_device(bus, address, libusb_ctx, &dev);
+
+  init_error = init_device(ctx, dev);
+  if (init_error!=0) {
     return NULL;
   }
 
@@ -289,7 +335,7 @@ int extract_temperature_from_buffer(uint8_t *buffer)
   return float_from_byte_array(buffer, 11);
 }
 
-float read_channel(struct ftdi_context *ctx, int channel_number)
+float read_channel_method(struct ftdi_context *ctx, int channel_number)
 {
   /*
      sends a read command to the device, and returns the length of the 
@@ -347,7 +393,7 @@ float read_channel(struct ftdi_context *ctx, int channel_number)
   return (float) extract_temperature_from_buffer(incoming_bytes);
 }
 
-int close(struct ftdi_context *ctx) {
+int close_method(struct ftdi_context *ctx) {
   ftdi_deinit(ctx);
   ftdi_free(ctx);
   

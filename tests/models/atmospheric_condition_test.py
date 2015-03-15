@@ -118,6 +118,7 @@ class AtmosphericConditionModelTestSuite(AtmosphericConditionModelTest):
 
         self.assertEqual(ac.type, expected_type)
 
+
     def test_modify1(self):
         test_id = 1
         altered_expectation_units = "It's A Test!"
@@ -142,6 +143,31 @@ class AtmosphericConditionModelTestSuite(AtmosphericConditionModelTest):
         self.assertEqual(
             same_ac.expectation.units, 
             altered_expectation_units
+        )
+
+    def test_add_reading(self):
+        test_id = 1
+        ac = self.session.query(AtmosphericCondition).filter(
+            AtmosphericCondition.id == test_id
+        ).one()
+
+        ac.readings.append(Reading(units="Test1234", value=123456.789))
+
+        self.session.add(ac)
+        self.session.commit()
+
+        same_ac = self.session.query(AtmosphericCondition).filter(
+            AtmosphericCondition.id == test_id
+        ).one()
+
+        last_reading = same_ac.most_recent_reading()
+
+        self.assertEqual(
+            last_reading.units, "Test1234"
+        )
+
+        self.assertEqual(
+            last_reading.value, 123456.789
         )
 
     def test_most_recent_alarm1(self):

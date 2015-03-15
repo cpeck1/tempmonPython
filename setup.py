@@ -13,7 +13,7 @@ VERSION = '0.1'
 SEM710_dir = "drivers/SEM710/drivers/"
 SEM710_module = Extension(
     "_SEM710",
-    libraries=["ftdi", "usb-1.0"],
+    libraries=["ftdi1", "usb-1.0"],
     library_dirs=["/usr/local/lib", "/usr/local/lib/libusb-1.0"],
     sources=[SEM710_dir+"SEM710.c", SEM710_dir+"SEM710_wrap.c"]
 )
