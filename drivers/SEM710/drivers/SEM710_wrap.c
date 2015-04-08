@@ -3204,9 +3204,9 @@ fail:
 
 static PyMethodDef SwigMethods[] = {
 	 { (char *)"SWIG_PyInstanceMethod_New", (PyCFunction)SWIG_PyInstanceMethod_New, METH_O, NULL},
-	 { (char *)"open_method", _wrap_open_method, METH_VARARGS, NULL},
-	 { (char *)"read_channel_method", _wrap_read_channel_method, METH_VARARGS, NULL},
-	 { (char *)"close_method", _wrap_close_method, METH_VARARGS, NULL},
+	 { (char *)"open_method", _wrap_open_method, METH_VARARGS, (char *)"open_method(int bus, int address) -> struct ftdi_context *"},
+	 { (char *)"read_channel_method", _wrap_read_channel_method, METH_VARARGS, (char *)"read_channel_method(struct ftdi_context * ctx, int channel_number) -> float"},
+	 { (char *)"close_method", _wrap_close_method, METH_VARARGS, (char *)"close_method(struct ftdi_context * ctx) -> int"},
 	 { NULL, NULL, 0, NULL }
 };
 

@@ -2,20 +2,15 @@ from sqlalchemy import *
 from .base import Base
 from sqlalchemy.orm import relationship
 
-# TODO replace with REAL conversion package
-class SomeConversionPackage:
-    def convert(reading, units):
-        # convert reading with properties units and value to given units
-        if reading.units == 'Celsius' and units == 'Fahrenheit':
-            nv = (reading.value*(9/5)) + 32
-            return reading(nv, units)
-        elif reading.units == 'Fahrenheit' and units == 'Celsius':
-            nv = (reading.value - 32)*(5/9)
-            return reading(nv, units)
-        else:
-            return None
-
 class Expectation(Base):
+    """Class representing an expectation for some measurement, 
+    consisting of an expected range and expected units.
+    
+    Attributes:
+    units: The units of the measurement expected
+    low: the low end of the measurement expected
+    high: the high end of the measurement expected
+    """
     __tablename__ = 'expectation'
 
     id = Column(Integer, primary_key=True)
@@ -32,5 +27,11 @@ class Expectation(Base):
         )
 
     def violated_by(self, reading):
+        """Whether the given measurement (reading) violates this 
+        expectation
+
+        Arguments:
+        reading: the measurement being tested
+        """
         return ((reading.units != self.units) or 
                 not (self.low <= reading.value <= self.high))

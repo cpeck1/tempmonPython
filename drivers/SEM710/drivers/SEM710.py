@@ -7,6 +7,11 @@
 
 
 
+"""
+The SEM710 module contains the functions needed to open, read and close
+a SEM710 temperature transmitter by Status Instruments
+"""
+
 
 from sys import version_info
 if version_info >= (2,6,0):
@@ -71,16 +76,16 @@ except AttributeError:
 
 
 def open_method(*args) -> "struct ftdi_context *" :
+  """open_method(int bus, int address) -> struct ftdi_context *"""
   return _SEM710.open_method(*args)
-open_method = _SEM710.open_method
 
 def read_channel_method(*args) -> "float" :
+  """read_channel_method(struct ftdi_context * ctx, int channel_number) -> float"""
   return _SEM710.read_channel_method(*args)
-read_channel_method = _SEM710.read_channel_method
 
 def close_method(*args) -> "int" :
+  """close_method(struct ftdi_context * ctx) -> int"""
   return _SEM710.close_method(*args)
-close_method = _SEM710.close_method
 # This file is compatible with both classic and new-style classes.
 
 

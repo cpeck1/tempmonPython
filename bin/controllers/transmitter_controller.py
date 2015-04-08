@@ -1,27 +1,16 @@
-import logging, usb.core
-
-logger = logging.getLogger("monitoring_application")
-
-from bin.models.transmitter import Transmitter
-from bin.services.transmitter_index import TransmitterIndex
+import sys
+from infrastructure.comm_bus import CommBus
 
 class TransmitterController:
-    def __init__(self):
-        # load transmitters
-        self.transmitters = TransmitterIndex.filter(
-            [usb_device for usb_device in usb.core.find(find_all=True)]
-        )
-        self.channels = []
-        
-    def open_all_channels(self):
-        channels = []
-        for transmitter in self.transmitters:
-            transmitter.open()
-            channels = channels + transmitter.channels 
-        logger.info("Opened channels: " + str(channels))
- 
-        return channels
+    def __init__(self, transmitter):
+        self.transmitter = transmitter
 
-    def close_all_channels(self):
-        for transmitter in self.transmitters:
-            transmitter.close() 
+    def stop(self, _signo, _stack_frame):
+        self.transmitter.close()
+        sys.exit(0)
+
+    def run(self):
+        for channel in self.transmitter.channels:
+            updated = channel.update()
+            if updated:
+                CommBus.publish(channel.to_json())

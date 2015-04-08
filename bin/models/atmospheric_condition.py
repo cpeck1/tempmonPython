@@ -21,6 +21,14 @@ class AtmosphericCondition(Base):
     responsible for monitoring this condition
     channel_number: the channel number of the transmitter channel 
     responsible for monitoring this condition
+    channel: the channel object responsible for monitoring this 
+    condition
+    recording_frequency: the rate at which logs are recorded for this
+    atmospheric condition in minutes
+    expectation: what the readings for this atmospheric condition should
+    conform to
+    readings: the readings recorded for this condition
+    alarms: the alarms started for this condition
     """
     __tablename__ = 'atmospheric_condition'
 
@@ -82,33 +90,47 @@ class AtmosphericCondition(Base):
 
     @property
     def recording_frequency(self):
+        """converts the recording frequency assigned for this condition
+        which was implicitly understood to be in minutes into a 
+        timedelta object actually representing minutes 
+        """
         return timedelta(0, self._recording_frequency, 0) 
                 
     @recording_frequency.setter
     def recording_frequency(self, value):
+        """set the recording frequency into a value implicitly 
+        understood to be in minutes 
+        """
         self._recording_frequency = value
 
     def read_channel(self): 
+        """return a _Reading case class consisting of the value gathered
+        from this condition's channel and units
+        """
         return _Reading(value=self.channel.read(), units=self.channel.units)
 
     def most_recent_reading(self):
+        """return the last reading recorded for this condition"""
         try:
             return self.readings[-1]
         except IndexError:
             return None
 
     def most_recent_alarm(self):
+        """return the last alarm created for this condition"""
         try:
             return self.alarms[-1]
         except IndexError:
             return None
 
     def alarm_active(self):
+        """return whether an alarm is active for this condition"""
         if self.most_recent_alarm() is None: return False
 
         return self.most_recent_alarm().active()
 
     def record_due(self):
+        """return whether a reading is due for this condition"""
         try:
             last_reading = self.most_recent_reading()
             return (datetime.now()-last_reading.time)>self.recording_frequency

@@ -7,18 +7,13 @@ from sqlalchemy.orm import relationship
 
 from bin.models.alarm import Alarm
 
-class SomeCsvService:
-    # for recording readings, this service will likely be the csv library 
-    # native to python, although it may require some kind of wrapper
-    def read_row():
-        pass
-
-    def write_row(csvdir, leadrow, wrow):
-        print("Writing header: ", leadrow)
-        print("Writing row: ", wrow)
-        print("To file: ", csvdir)
-
 class Environment(Base):
+    """Class representing an environment with conditions to be monitored
+
+    Attributes:
+    name: The name given to this environment
+    serial: the unique identifier assigned to this environment
+    """
     __tablename__ = 'environment'
 
     id = Column(Integer, primary_key=True)

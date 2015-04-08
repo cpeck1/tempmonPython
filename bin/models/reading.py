@@ -20,6 +20,15 @@ class _Reading:
         )
 
 class Reading(Base):
+    """Class representing a measurement of some kind.
+
+    Attributes:
+    units: the units of the measurement
+    value: the value of the measurement
+    time: the time at which the measurement was taken
+    atmospheric_condition_id: the id of the condition to which this 
+    reading belongs
+    """
     __tablename__='reading'
 
     id = Column(Integer, primary_key=True)

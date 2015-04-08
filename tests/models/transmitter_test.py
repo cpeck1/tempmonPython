@@ -28,18 +28,17 @@ class TransmitterModelTest(unittest.TestCase):
 class TransmitterModelTestSuite(TransmitterModelTest):
     def test_open1(self):
         self.transmitter.open_method = lambda x,y: x+y
-
-        rvalue = self.transmitter.open()
+        self.transmitter.open()
         
-        # bus + address
-        self.assertEqual(rvalue, None)
+        # device_handle=bus+address
+        self.assertEqual(self.transmitter.device_handle, 2)
 
     def test_open2(self):
         self.transmitter.open_method = lambda x, y: x + y
         self.transmitter.read_channel_method = lambda x: x
         
-        rvalue = self.transmitter.open()
-
+        self.transmitter.open() 
+        # opened channels
         self.assertTrue(self.transmitter.channels)
 
     def test_open3(self):
@@ -52,7 +51,6 @@ class TransmitterModelTestSuite(TransmitterModelTest):
 
         self.assertEqual(channel.read_method, func)
 
-
     def test_close1(self):
         def test_open_func(v1, v2):
             return v1+v2
@@ -64,9 +62,7 @@ class TransmitterModelTestSuite(TransmitterModelTest):
 
         self.transmitter.open()
 
-        value = self.transmitter.close()
-#        self.assertTrue(self.transmitter.device_handle is not None)
-#        self.assertEqual(self.transmitter.device_handle, 2)
+        self.transmitter.close()
         self.assertTrue(self.transmitter.device_handle is None)
 
     def test_close2(self):
@@ -80,7 +76,5 @@ class TransmitterModelTestSuite(TransmitterModelTest):
 
         self.transmitter.open()
 
-        value = self.transmitter.close()
-#        self.assertTrue(self.transmitter.device_handle is not None)
-#        self.assertEqual(self.transmitter.device_handle, 2)
-        self.assertTrue(self.transmitter.device_handle is not None)
+        self.transmitter.close()
+        self.assertTrue(self.transmitter.device_handle is None)
