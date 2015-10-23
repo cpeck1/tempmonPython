@@ -6,18 +6,19 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from bin.models import base
 
-from bin.controllers.monitoring_controller import MonitoringController
+from bin.controllers.usb_port_controller import UsbPortController
+from bin.controllers.transmitter_application_controller import (
+    TransmitterApplicationController
+)
 
-# need to import models in this order so that each is added to the 
+# need to import models in this order so that each is added to the
 # declarative base of sqlalchemy
 from bin.models import environment, transmitter, admin, address
 from bin.models import atmospheric_condition, channel
 from bin.models import expectation
 from bin.models import reading, alarm
 
-from bin.services.message_writer import MessageWriter
-
-if __name__ == "__main__": 
+if __name__ == "__main__":
     # parse arguments from stdin
     parser = argparse.ArgumentParser(
         description="Placeholder description"
@@ -28,7 +29,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     # load the DB engine using SQLAlchemy
-    engine = create_engine("sqlite:////home/connor/workspace/test/test1.db")
+    engine = create_engine("sqlite:////home/connor/workspace/test1.db")
     base.Base.metadata.create_all(engine, checkfirst=True)
     Session = sessionmaker(bind=engine)
     session = Session()
@@ -36,7 +37,7 @@ if __name__ == "__main__":
     # set up system loggers
     logger = logging.getLogger("monitoring_application")
     logger.setLevel(logging.DEBUG)
-    
+
     fh = logging.FileHandler("./logs/"+str(date.today())+".log")
     fh.setLevel(logging.INFO)
 
@@ -54,8 +55,13 @@ if __name__ == "__main__":
     logger.addHandler(ch)
 
     # initialize the process controllers
-    mc = MonitoringController(session)
+    usb_port_controller = UsbPortController()
+    upc = Process(target=usb_port_controller.run)
+    upc.daemon = False
+    upc.start()
 
-    # run the processes via python multiprocessing
-    monitoring_process = Process(target=mc.run)
-    monitoring_process.start()
+    transmitter_application_controller = TransmitterApplicationController()
+    tap = Process(target=transmitter_application_controller.run)
+    tap.daemon = False
+    tap.start()
+

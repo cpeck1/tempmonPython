@@ -7,21 +7,28 @@ from bin.models.transmitter import Transmitter
 from bin.models.channel import Channel
 from bin.models.exceptions import *
 
+class FakeUsbDevice:
+    def __init__(self):
+        self.path = '/'
+        self.bus = 1
+        self.device = 1
+        self.port = 1
+        self.idVendor = 1
+        self.idProduct = 1
+        self.manufacturer = 'fake_manufacturer'
+        self.product = 'fake_product'
+
+
 class ChannelModelTest(unittest.TestCase):
     def setUp(self):
         class _DeviceHandleShell:
             def __init__(self):
                 self.read_value = 14
-        def _open_method(bus, address):
+        def _open_method(bus, port):
             return _DeviceHandleShell()
 
         self.transmitter = Transmitter(
-            bus=1,
-            address=1,
-            manufacturer="Test Manufacturer",
-            name="Test Name",
-            vendor_id=0,
-            product_id=0,
+            usb_device=FakeUsbDevice(),
             num_channels=1,
             channel_units=["Test"],
             open_method=_open_method,
@@ -38,44 +45,44 @@ class ChannelModelTestSuite(ChannelModelTest):
 
         self.transmitter.open()
         channel = self.transmitter.channels[0]
-        
-        try: 
-            channel.read()
-        except Exception as e:
-            self.assertTrue(isinstance(e, InvalidReadMethod))
 
-    def test_read2(self):
-        self.transmitter.read_channel_method = lambda x, y: x + y
-        
-        self.transmitter.open()
-        channel = self.transmitter.channels[0]
-        
-        channel.device_handle = None
-        
         try:
             channel.read()
         except Exception as e:
-            self.assertTrue(isinstance(e, NoDeviceHandle))
+            self.assertTrue(isinstance(e, InvalidReadMethodError))
+
+    def test_read2(self):
+        self.transmitter.read_channel_method = lambda x, y: x + y
+
+        self.transmitter.open()
+        channel = self.transmitter.channels[0]
+
+        channel.device_handle = None
+
+        try:
+            channel.read()
+        except Exception as e:
+            self.assertTrue(isinstance(e, NoDeviceHandleError))
 
     def test_read3(self):
         self.transmitter.read_channel_method = lambda x, y: x + y
 
         self.transmitter.open()
         channel = self.transmitter.channels[0]
-        
+
         channel.channel_number = None
 
         try:
             channel.read()
         except Exception as e:
-            self.assertTrue(isinstance(e, NoChannelNumber))
+            self.assertTrue(isinstance(e, NoChannelNumberError))
 
     def test_read4(self):
         def _read_method(handle, channel_number):
             return handle.read_value
 
         self.transmitter.read_channel_method = _read_method
-        
+
         self.transmitter.open()
         channel = self.transmitter.channels[0]
         value = channel.read()

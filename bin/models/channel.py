@@ -1,9 +1,12 @@
-import json
+import json, logging
 from bin.models.exceptions import *
+from datetime import datetime
+
+logger = logging.getLogger("monitoring_application")
 
 class Channel:
     """A single channel of a transmitter object. The channel contains
-    information about some external state, and 
+    information about some external state, and
 
     Attributes:
     bus: the USB bus this channel is plugged into
@@ -12,25 +15,23 @@ class Channel:
     channel belongs
     device_handle: the device handle of the transmitter object so that
     each channel may read itself
-    units: the units that this channel associates to any value it 
+    units: the units that this channel associates to any value it
     gathers from a reading
     """
     def __init__(
-            self, 
-            bus,
-            port,
-            channel_number, 
-            device_handle, 
+            self,
+            usb_device,
+            channel_number,
+            device_handle,
             read_method,
             units
     ):
-        self.bus = bus
-        self.port = port
+        self.usb_device = usb_device
         self.channel_number = channel_number
         self.device_handle = device_handle
         self.read_method = read_method
         self.units = units
-        
+
         self.current_state_value = None
         self.last_update_time = None
 
@@ -44,17 +45,22 @@ class Channel:
             raise NoChannelNumberError
         try:
             return self.read_method(self.device_handle, self.channel_number)
-        except TypeError: 
+        except TypeError:
             # so read_method is callable but does not take 2 arguments
             raise InvalidReadMethodError
 
     def update(self):
-        """attempt to update this channel's state and return whether 
+        """attempt to update this channel's state and return whether
         an update occurred
         """
-        read_value = self.read()
+        try:
+            read_value = self.read()
+        except:
+            logger.error(
+                "Critical driver error in channel "+repr(self)
+            )
         if read_value:
             self.current_state_value = read_value
-            self.last_update_time = datetime.now()
+            self.last_update_time = datetime.now().isoformat()
             return True # indicate state updated
         return False # implied by None but bool return type instead

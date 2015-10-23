@@ -1,6 +1,6 @@
 import os
 
-name="Test1"
+product="Test1"
 manufacturer="Test Manufacturer1"
 idVendor=0x0001
 idProduct=0x0001

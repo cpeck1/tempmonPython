@@ -1,0 +1,384 @@
+EE.EEEEEEEEEE....................................EEEE....................EEEEE.FFF..EEEEEE...F
+======================================================================
+ERROR: Failure: ImportError (No module named 'test')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/nose/failure.py", line 39, in runTest
+    raise self.exc_val.with_traceback(self.tb)
+  File "/usr/lib/python3/dist-packages/nose/loader.py", line 414, in loadTestsFromName
+    addr.filename, addr.module)
+  File "/usr/lib/python3/dist-packages/nose/importer.py", line 47, in importFromPath
+    return self.importFromDir(dir_path, fqname)
+  File "/usr/lib/python3/dist-packages/nose/importer.py", line 79, in importFromDir
+    fh, filename, desc = find_module(part, path)
+  File "/usr/lib/python3.4/imp.py", line 297, in find_module
+    raise ImportError(_ERR_MSG.format(name), name=name)
+ImportError: No module named 'test'
+
+======================================================================
+ERROR: Failure: ImportError (No module named 'test')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/nose/failure.py", line 39, in runTest
+    raise self.exc_val.with_traceback(self.tb)
+  File "/usr/lib/python3/dist-packages/nose/loader.py", line 414, in loadTestsFromName
+    addr.filename, addr.module)
+  File "/usr/lib/python3/dist-packages/nose/importer.py", line 47, in importFromPath
+    return self.importFromDir(dir_path, fqname)
+  File "/usr/lib/python3/dist-packages/nose/importer.py", line 79, in importFromDir
+    fh, filename, desc = find_module(part, path)
+  File "/usr/lib/python3.4/imp.py", line 297, in find_module
+    raise ImportError(_ERR_MSG.format(name), name=name)
+ImportError: No module named 'test'
+
+======================================================================
+ERROR: test_assign_channels_some_channels_missing (tests.controllers.atmospheric_condition_controller_test.AtmosphericConditionControllerTestSuite)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/connor/workspace/tempmonPython/tests/controllers/atmospheric_condition_controller_test.py", line 145, in test_assign_channels_some_channels_missing
+    units="Celsius"
+TypeError: __init__() got an unexpected keyword argument 'address'
+
+======================================================================
+ERROR: test_assign_channels_success (tests.controllers.atmospheric_condition_controller_test.AtmosphericConditionControllerTestSuite)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/connor/workspace/tempmonPython/tests/controllers/atmospheric_condition_controller_test.py", line 209, in test_assign_channels_success
+    units="Celsius"
+TypeError: __init__() got an unexpected keyword argument 'address'
+
+======================================================================
+ERROR: test_gather_readings_few_alarms (tests.controllers.atmospheric_condition_controller_test.AtmosphericConditionControllerTestSuite)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/connor/workspace/tempmonPython/tests/controllers/atmospheric_condition_controller_test.py", line 395, in test_gather_readings_few_alarms
+    units="Celsius"
+TypeError: __init__() got an unexpected keyword argument 'address'
+
+======================================================================
+ERROR: test_gather_readings_many_alarms (tests.controllers.atmospheric_condition_controller_test.AtmosphericConditionControllerTestSuite)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/connor/workspace/tempmonPython/tests/controllers/atmospheric_condition_controller_test.py", line 304, in test_gather_readings_many_alarms
+    units="Celsius"
+TypeError: __init__() got an unexpected keyword argument 'address'
+
+======================================================================
+ERROR: test_gather_readings_no_alarms (tests.controllers.atmospheric_condition_controller_test.AtmosphericConditionControllerTestSuite)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/connor/workspace/tempmonPython/tests/controllers/atmospheric_condition_controller_test.py", line 486, in test_gather_readings_no_alarms
+    units="Celsius"
+TypeError: __init__() got an unexpected keyword argument 'address'
+
+======================================================================
+ERROR: test_open_all_channels1 (tests.controllers.transmitter_controller_test.TransmitterControllerTestSuite)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/connor/workspace/tempmonPython/tests/controllers/transmitter_controller_test.py", line 22, in setUp
+    self.transmitter_controller = TransmitterController()
+TypeError: __init__() missing 1 required positional argument: 'transmitter'
+
+======================================================================
+ERROR: test_open_all_channels2 (tests.controllers.transmitter_controller_test.TransmitterControllerTestSuite)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/connor/workspace/tempmonPython/tests/controllers/transmitter_controller_test.py", line 22, in setUp
+    self.transmitter_controller = TransmitterController()
+TypeError: __init__() missing 1 required positional argument: 'transmitter'
+
+======================================================================
+ERROR: test_open_all_channels3 (tests.controllers.transmitter_controller_test.TransmitterControllerTestSuite)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/connor/workspace/tempmonPython/tests/controllers/transmitter_controller_test.py", line 22, in setUp
+    self.transmitter_controller = TransmitterController()
+TypeError: __init__() missing 1 required positional argument: 'transmitter'
+
+======================================================================
+ERROR: test_open_all_channels4 (tests.controllers.transmitter_controller_test.TransmitterControllerTestSuite)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/connor/workspace/tempmonPython/tests/controllers/transmitter_controller_test.py", line 22, in setUp
+    self.transmitter_controller = TransmitterController()
+TypeError: __init__() missing 1 required positional argument: 'transmitter'
+
+======================================================================
+ERROR: test_open_all_channels5 (tests.controllers.transmitter_controller_test.TransmitterControllerTestSuite)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/connor/workspace/tempmonPython/tests/controllers/transmitter_controller_test.py", line 22, in setUp
+    self.transmitter_controller = TransmitterController()
+TypeError: __init__() missing 1 required positional argument: 'transmitter'
+
+======================================================================
+ERROR: test_read1 (tests.models.channel_test.ChannelModelTestSuite)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/connor/workspace/tempmonPython/tests/models/channel_test.py", line 29, in setUp
+    close_method=None
+TypeError: __init__() got an unexpected keyword argument 'manufacturer'
+
+======================================================================
+ERROR: test_read2 (tests.models.channel_test.ChannelModelTestSuite)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/connor/workspace/tempmonPython/tests/models/channel_test.py", line 29, in setUp
+    close_method=None
+TypeError: __init__() got an unexpected keyword argument 'manufacturer'
+
+======================================================================
+ERROR: test_read3 (tests.models.channel_test.ChannelModelTestSuite)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/connor/workspace/tempmonPython/tests/models/channel_test.py", line 29, in setUp
+    close_method=None
+TypeError: __init__() got an unexpected keyword argument 'manufacturer'
+
+======================================================================
+ERROR: test_read4 (tests.models.channel_test.ChannelModelTestSuite)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/connor/workspace/tempmonPython/tests/models/channel_test.py", line 29, in setUp
+    close_method=None
+TypeError: __init__() got an unexpected keyword argument 'manufacturer'
+
+======================================================================
+ERROR: test_close1 (tests.models.transmitter_test.TransmitterModelTestSuite)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/connor/workspace/tempmonPython/tests/models/transmitter_test.py", line 22, in setUp
+    close_method=None
+TypeError: __init__() got an unexpected keyword argument 'manufacturer'
+
+======================================================================
+ERROR: test_close2 (tests.models.transmitter_test.TransmitterModelTestSuite)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/connor/workspace/tempmonPython/tests/models/transmitter_test.py", line 22, in setUp
+    close_method=None
+TypeError: __init__() got an unexpected keyword argument 'manufacturer'
+
+======================================================================
+ERROR: test_open1 (tests.models.transmitter_test.TransmitterModelTestSuite)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/connor/workspace/tempmonPython/tests/models/transmitter_test.py", line 22, in setUp
+    close_method=None
+TypeError: __init__() got an unexpected keyword argument 'manufacturer'
+
+======================================================================
+ERROR: test_open2 (tests.models.transmitter_test.TransmitterModelTestSuite)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/connor/workspace/tempmonPython/tests/models/transmitter_test.py", line 22, in setUp
+    close_method=None
+TypeError: __init__() got an unexpected keyword argument 'manufacturer'
+
+======================================================================
+ERROR: test_open3 (tests.models.transmitter_test.TransmitterModelTestSuite)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/connor/workspace/tempmonPython/tests/models/transmitter_test.py", line 22, in setUp
+    close_method=None
+TypeError: __init__() got an unexpected keyword argument 'manufacturer'
+
+======================================================================
+ERROR: test_filter1 (tests.services.transmitter_index_test.TransmitterIndexServiceTestSuite)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/connor/workspace/tempmonPython/tests/services/transmitter_index_test.py", line 219, in test_filter1
+    matching = TransmitterIndex.filter(devices, self.cache)
+  File "/home/connor/workspace/tempmonPython/bin/services/transmitter_index.py", line 180, in filter
+    for device in usb_list.devices:
+nose.proxy.AttributeError: 'list' object has no attribute 'devices'
+-------------------- >> begin captured logging << --------------------
+monitoring_application: INFO: Transmitter cache contents:
+monitoring_application: INFO: ---------------------------
+monitoring_application: INFO: _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+monitoring_application: INFO: ---------------------------
+--------------------- >> end captured logging << ---------------------
+
+======================================================================
+ERROR: test_filter2 (tests.services.transmitter_index_test.TransmitterIndexServiceTestSuite)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/connor/workspace/tempmonPython/tests/services/transmitter_index_test.py", line 234, in test_filter2
+    matching = TransmitterIndex.filter(devices, self.cache)
+  File "/home/connor/workspace/tempmonPython/bin/services/transmitter_index.py", line 180, in filter
+    for device in usb_list.devices:
+nose.proxy.AttributeError: 'list' object has no attribute 'devices'
+-------------------- >> begin captured logging << --------------------
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/few_without_broken/Test2/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/few_without_broken/Test4/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/few_without_broken/Test1/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/few_without_broken/Test3/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: INFO: Transmitter cache contents:
+monitoring_application: INFO: ---------------------------
+monitoring_application: INFO: _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+monitoring_application: INFO: ---------------------------
+--------------------- >> end captured logging << ---------------------
+
+======================================================================
+ERROR: test_filter3 (tests.services.transmitter_index_test.TransmitterIndexServiceTestSuite)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/connor/workspace/tempmonPython/tests/services/transmitter_index_test.py", line 251, in test_filter3
+    matching = TransmitterIndex.filter(devices, self.cache)
+  File "/home/connor/workspace/tempmonPython/bin/services/transmitter_index.py", line 180, in filter
+    for device in usb_list.devices:
+nose.proxy.AttributeError: 'list' object has no attribute 'devices'
+-------------------- >> begin captured logging << --------------------
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/few_without_broken/Test2/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/few_without_broken/Test4/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/few_without_broken/Test1/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/few_without_broken/Test3/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: INFO: Transmitter cache contents:
+monitoring_application: INFO: ---------------------------
+monitoring_application: INFO: _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+monitoring_application: INFO: ---------------------------
+--------------------- >> end captured logging << ---------------------
+
+======================================================================
+ERROR: test_filter4 (tests.services.transmitter_index_test.TransmitterIndexServiceTestSuite)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/connor/workspace/tempmonPython/tests/services/transmitter_index_test.py", line 268, in test_filter4
+    matching = TransmitterIndex.filter(devices, self.cache)
+  File "/home/connor/workspace/tempmonPython/bin/services/transmitter_index.py", line 180, in filter
+    for device in usb_list.devices:
+nose.proxy.AttributeError: 'list' object has no attribute 'devices'
+-------------------- >> begin captured logging << --------------------
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/few_without_broken/Test2/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/few_without_broken/Test4/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/few_without_broken/Test1/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/few_without_broken/Test3/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: INFO: Transmitter cache contents:
+monitoring_application: INFO: ---------------------------
+monitoring_application: INFO: _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+monitoring_application: INFO: ---------------------------
+--------------------- >> end captured logging << ---------------------
+
+======================================================================
+ERROR: test_filter5 (tests.services.transmitter_index_test.TransmitterIndexServiceTestSuite)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/connor/workspace/tempmonPython/tests/services/transmitter_index_test.py", line 284, in test_filter5
+    matching = TransmitterIndex.filter(devices, self.cache)
+  File "/home/connor/workspace/tempmonPython/bin/services/transmitter_index.py", line 180, in filter
+    for device in usb_list.devices:
+nose.proxy.AttributeError: 'list' object has no attribute 'devices'
+-------------------- >> begin captured logging << --------------------
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/many_without_broken/Test8/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/many_without_broken/Test2/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/many_without_broken/Test4/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/many_without_broken/Test5/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/many_without_broken/Test1/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/many_without_broken/Test3/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/many_without_broken/Test7/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/many_without_broken/Test6/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/many_without_broken/Test9/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: INFO: Transmitter cache contents:
+monitoring_application: INFO: ---------------------------
+monitoring_application: INFO: _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+monitoring_application: INFO: ---------------------------
+--------------------- >> end captured logging << ---------------------
+
+======================================================================
+ERROR: test_filter6 (tests.services.transmitter_index_test.TransmitterIndexServiceTestSuite)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/connor/workspace/tempmonPython/tests/services/transmitter_index_test.py", line 298, in test_filter6
+    matching = TransmitterIndex.filter(devices, self.cache)
+  File "/home/connor/workspace/tempmonPython/bin/services/transmitter_index.py", line 180, in filter
+    for device in usb_list.devices:
+nose.proxy.AttributeError: 'list' object has no attribute 'devices'
+-------------------- >> begin captured logging << --------------------
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/many_without_broken/Test8/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/many_without_broken/Test2/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/many_without_broken/Test4/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/many_without_broken/Test5/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/many_without_broken/Test1/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/many_without_broken/Test3/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/many_without_broken/Test7/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/many_without_broken/Test6/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/many_without_broken/Test9/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: INFO: Transmitter cache contents:
+monitoring_application: INFO: ---------------------------
+monitoring_application: INFO: _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+monitoring_application: INFO: ---------------------------
+--------------------- >> end captured logging << ---------------------
+
+======================================================================
+FAIL: test_cache_constructor1 (tests.services.transmitter_index_test.TransmitterIndexServiceTestSuite)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/connor/workspace/tempmonPython/tests/services/transmitter_index_test.py", line 88, in test_cache_constructor1
+    {1, 2, 3, 4}
+nose.proxy.AssertionError: Items in the second set but not the first:
+1
+2
+3
+4
+-------------------- >> begin captured logging << --------------------
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/few_without_broken/Test2/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/few_without_broken/Test4/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/few_without_broken/Test1/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/few_without_broken/Test3/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+--------------------- >> end captured logging << ---------------------
+
+======================================================================
+FAIL: test_cache_constructor2 (tests.services.transmitter_index_test.TransmitterIndexServiceTestSuite)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/connor/workspace/tempmonPython/tests/services/transmitter_index_test.py", line 99, in test_cache_constructor2
+    {1}
+nose.proxy.AssertionError: Items in the second set but not the first:
+1
+-------------------- >> begin captured logging << --------------------
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/few_with_broken/Test2/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/few_with_broken/Test4/usbinfo.py contained the following error: name 'path' is not defined
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/few_with_broken/Test1/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/few_with_broken/Test3/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+--------------------- >> end captured logging << ---------------------
+
+======================================================================
+FAIL: test_cache_constructor3 (tests.services.transmitter_index_test.TransmitterIndexServiceTestSuite)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/connor/workspace/tempmonPython/tests/services/transmitter_index_test.py", line 110, in test_cache_constructor3
+    {1, 2, 3, 4, 5, 6, 7, 8, 9}
+nose.proxy.AssertionError: Items in the second set but not the first:
+1
+2
+3
+4
+5
+6
+7
+8
+9
+-------------------- >> begin captured logging << --------------------
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/many_without_broken/Test8/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/many_without_broken/Test2/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/many_without_broken/Test4/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/many_without_broken/Test5/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/many_without_broken/Test1/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/many_without_broken/Test3/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/many_without_broken/Test7/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/many_without_broken/Test6/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+monitoring_application: ERROR: The transmitter file in the path /home/connor/workspace/tempmonPython/tests/services/transmitter_index_test_dirs/many_without_broken/Test9/usbinfo.py contained the following error: 'module' object has no attribute 'product'
+--------------------- >> end captured logging << ---------------------
+
+======================================================================
+FAIL: test_transmitter_id_matches4 (tests.services.transmitter_index_test.TransmitterIndexServiceTestSuite)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/connor/workspace/tempmonPython/tests/services/transmitter_index_test.py", line 210, in test_transmitter_id_matches4
+    self.assertTrue(ident.matches(device.idVendor, device.idProduct))
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 94 tests in 1.024s
+
+FAILED (errors=27, failures=4)

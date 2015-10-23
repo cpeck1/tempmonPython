@@ -15,7 +15,7 @@ class AtmosphericConditionController:
             for channel in channels:
                 match_found = (
                     (condition.channel_bus == channel.bus) and
-                    (condition.channel_address == channel.address) and
+                    (condition.channel_port == channel.port) and
                     (condition.channel_number == channel.channel_number)
                 )
                 if match_found:
@@ -32,9 +32,9 @@ class AtmosphericConditionController:
     def gather_readings(self):
         alarms = [] # alarms that are starting as well as ending
         for ac in self.atmospheric_conditions:
-            if ac.channel is None: 
+            if ac.channel is None:
                 continue
-            
+
             reading = ac.read_channel()
             if reading is None:
                 logger.error(repr(ac.channel)+" failed to gather reading.")
@@ -46,11 +46,11 @@ class AtmosphericConditionController:
                     repr(reading)+" violated expectation "+repr(ac.expectation)
                 )
                 if ac.alarm_active():
-                    if ac.record_due(): 
+                    if ac.record_due():
                         ac.readings.append(
                             Reading(
-                                units=reading.units, 
-                                value=reading.value, 
+                                units=reading.units,
+                                value=reading.value,
                                 time=reading.time
                             )
                         )
@@ -58,8 +58,8 @@ class AtmosphericConditionController:
                 else: # alarm not active, reading activates alarm
                     ac.readings.append(
                         Reading(
-                            units=reading.units, 
-                            value=reading.value, 
+                            units=reading.units,
+                            value=reading.value,
                             time=reading.time
                         )
                     )
@@ -76,16 +76,16 @@ class AtmosphericConditionController:
             elif ac.alarm_active(): # reading in safe range ends alarm
                 ac.readings.append(
                     Reading(
-                        units=reading.units, 
-                        value=reading.value, 
+                        units=reading.units,
+                        value=reading.value,
                         time=reading.time
                     )
                 )
                 alarm = ac.most_recent_alarm()
                 alarm.end()
-                logger.debug("Alarm "+repr(alarm)+" ended by reading") 
+                logger.debug("Alarm "+repr(alarm)+" ended by reading")
                 alarms.append(alarm)
-                
+
                 self.dbsession.add(ac)
 
             else: # reading within safe range and no alarm active
@@ -93,8 +93,8 @@ class AtmosphericConditionController:
                     logger.debug("Record due, recording reading...")
                     ac.readings.append(
                         Reading(
-                            units=reading.units, 
-                            value=reading.value, 
+                            units=reading.units,
+                            value=reading.value,
                             time=reading.time
                         )
                     )

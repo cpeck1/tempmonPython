@@ -1,5 +1,5 @@
 import os
-name="few_without_broken4"
+product="few_without_broken4"
 manufacturer="few_without_broken_manufacturer4"
 idVendor=0x0004
 idProduct=0x0004

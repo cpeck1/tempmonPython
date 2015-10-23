@@ -6,7 +6,7 @@ from bin.models import base
 
 from bin.controllers.monitoring_controller import MonitoringController
 
-# need to import models in this order so that each is added to the 
+# need to import models in this order so that each is added to the
 # declarative base of sqlalchemy
 from bin.models import environment, transmitter, admin, address
 from bin.models import atmospheric_condition, channel
@@ -20,7 +20,7 @@ from bin.models.environment import Environment
 from bin.models.channel import Channel
 from bin.models.transmitter import Transmitter
 
-engine = create_engine("sqlite:////home/connor/workspace/test/test1.db")
+engine = create_engine("sqlite:////home/connor/workspace/test1.db")
 base.Base.metadata.create_all(engine, checkfirst=True)
 Session = sessionmaker(bind=engine)
 session = Session()

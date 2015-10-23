@@ -6,15 +6,21 @@ import unittest, random
 from bin.models.transmitter import Transmitter
 from bin.models.channel import Channel
 
+class FakeUsbDevice:
+    def __init__(self):
+        self.path = '/'
+        self.bus = 1
+        self.device = 1
+        self.port = 1
+        self.idVendor = 1
+        self.idProduct = 1
+        self.manufacturer = 'fake_manufacturer'
+        self.product = 'fake_product'
+
 class TransmitterModelTest(unittest.TestCase):
     def setUp(self):
         self.transmitter = Transmitter(
-            bus=1,
-            address=1,
-            manufacturer="Test Manufacturer",
-            name="Test Name",
-            vendor_id=0,
-            product_id=0,
+            usb_device = FakeUsbDevice(),
             num_channels=1,
             channel_units=["Test"],
             open_method=None,
@@ -29,15 +35,15 @@ class TransmitterModelTestSuite(TransmitterModelTest):
     def test_open1(self):
         self.transmitter.open_method = lambda x,y: x+y
         self.transmitter.open()
-        
+
         # device_handle=bus+address
         self.assertEqual(self.transmitter.device_handle, 2)
 
     def test_open2(self):
         self.transmitter.open_method = lambda x, y: x + y
         self.transmitter.read_channel_method = lambda x: x
-        
-        self.transmitter.open() 
+
+        self.transmitter.open()
         # opened channels
         self.assertTrue(self.transmitter.channels)
 

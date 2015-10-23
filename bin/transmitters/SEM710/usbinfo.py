@@ -1,4 +1,4 @@
-name="SEM710"
+product="SEM710"
 manufacturer="Status Instruments"
 idVendor=0x0403
 idProduct=0xBAB2

@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 from distutils.core import setup, Extension
 
 PACKAGE = "edcra"
@@ -14,14 +13,14 @@ SEM710_dir = "drivers/SEM710/drivers/"
 SEM710_module = Extension(
     "_SEM710",
     libraries=["ftdi1", "usb-1.0"],
-    library_dirs=["/usr/local/lib", "/usr/local/lib/libusb-1.0"],
+    library_dirs=["/usr/local/lib", "/usr/lib/i386-linux-gnu" "/usr/local/lib/libusb-1.0", "/usr/lib/x86_64-linux-gnu"],
     sources=[SEM710_dir+"SEM710.c", SEM710_dir+"SEM710_wrap.c"]
 )
 
 setup(
     name=NAME,
     version=VERSION,
-    description=DESCRIPTION, 
+    description=DESCRIPTION,
     author=AUTHOR,
     author_email=AUTHOR_EMAIL,
     license="BSD",

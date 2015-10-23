@@ -1,0 +1,12 @@
+2015-09-29 13:23:35,739 - monitoring_application - INFO - Usb Port Controller starting
+2015-09-29 13:23:35,846 - monitoring_application - INFO - Usb Port Controller starting
+2015-09-29 13:23:35,907 - monitoring_application - INFO - Transmitter cache contents:
+2015-09-29 13:23:35,907 - monitoring_application - INFO - ---------------------------
+2015-09-29 13:23:35,907 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-09-29 13:23:35,907 - monitoring_application - INFO - ---------------------------
+2015-09-29 13:23:35,911 - monitoring_application - INFO - Usb Observer started
+2015-09-29 13:23:35,911 - monitoring_application - INFO - Transmitter cache contents:
+2015-09-29 13:23:35,912 - monitoring_application - INFO - ---------------------------
+2015-09-29 13:23:35,912 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-09-29 13:23:35,912 - monitoring_application - INFO - ---------------------------
+2015-09-29 13:23:35,916 - monitoring_application - INFO - Usb Observer started

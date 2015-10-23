@@ -1,0 +1,227 @@
+2015-10-14 15:04:40,395 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-14 15:04:40,442 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-14 15:04:40,442 - monitoring_application - INFO - ---------------------------
+2015-10-14 15:04:40,442 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-14 15:04:40,442 - monitoring_application - INFO - ---------------------------
+2015-10-14 15:05:32,442 - monitoring_application - INFO - Usb Port Controller starting
+2015-10-14 15:06:11,042 - monitoring_application - INFO - Usb Port Controller starting
+2015-10-14 15:06:21,834 - monitoring_application - INFO - Usb Port Controller starting
+2015-10-14 15:06:58,195 - monitoring_application - INFO - Usb Port Controller starting
+2015-10-14 15:07:28,756 - monitoring_application - INFO - Usb Port Controller starting
+2015-10-14 15:07:44,275 - monitoring_application - INFO - Usb Port Controller starting
+2015-10-14 15:07:44,371 - monitoring_application - INFO - Usb Observer started
+2015-10-14 15:07:59,434 - monitoring_application - INFO - Usb Port Controller starting
+2015-10-14 15:09:36,084 - monitoring_application - INFO - Usb Port Controller starting
+2015-10-14 15:09:36,142 - monitoring_application - INFO - Usb Observer started
+2015-10-14 15:21:27,649 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-14 15:21:39,917 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-14 15:21:39,942 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-14 15:21:39,942 - monitoring_application - INFO - ---------------------------
+2015-10-14 15:21:39,942 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-14 15:21:39,942 - monitoring_application - INFO - ---------------------------
+2015-10-14 15:27:40,165 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-14 15:27:40,183 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-14 15:27:40,183 - monitoring_application - INFO - ---------------------------
+2015-10-14 15:27:40,183 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-14 15:27:40,184 - monitoring_application - INFO - ---------------------------
+2015-10-14 15:27:57,196 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-14 15:27:57,199 - monitoring_application - INFO - Usb Port Controller starting
+2015-10-14 15:27:57,214 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-14 15:27:57,214 - monitoring_application - INFO - ---------------------------
+2015-10-14 15:27:57,214 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-14 15:27:57,214 - monitoring_application - INFO - ---------------------------
+2015-10-14 15:27:57,259 - monitoring_application - INFO - Usb Observer started
+2015-10-14 15:31:16,742 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-14 15:31:16,748 - monitoring_application - INFO - Usb Port Controller starting
+2015-10-14 15:31:16,767 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-14 15:31:16,767 - monitoring_application - INFO - ---------------------------
+2015-10-14 15:31:16,767 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-14 15:31:16,767 - monitoring_application - INFO - ---------------------------
+2015-10-14 15:31:16,823 - monitoring_application - INFO - Usb Observer started
+2015-10-14 15:46:51,265 - monitoring_application - INFO - USB Port Controller stopping
+2015-10-14 15:47:06,424 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-14 15:47:06,427 - monitoring_application - INFO - Usb Port Controller starting
+2015-10-14 15:47:06,442 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-14 15:47:06,442 - monitoring_application - INFO - ---------------------------
+2015-10-14 15:47:06,442 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-14 15:47:06,442 - monitoring_application - INFO - ---------------------------
+2015-10-14 15:47:35,754 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-14 15:47:35,757 - monitoring_application - INFO - Usb Port Controller starting
+2015-10-14 15:47:35,773 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-14 15:47:35,773 - monitoring_application - INFO - ---------------------------
+2015-10-14 15:47:35,773 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-14 15:47:35,773 - monitoring_application - INFO - ---------------------------
+2015-10-14 15:47:35,818 - monitoring_application - INFO - Usb Observer started
+2015-10-14 15:50:31,574 - monitoring_application - INFO - USB Port Controller stopping
+2015-10-14 15:50:34,053 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-14 15:50:34,058 - monitoring_application - INFO - Usb Port Controller starting
+2015-10-14 15:50:34,080 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-14 15:50:34,080 - monitoring_application - INFO - ---------------------------
+2015-10-14 15:50:34,080 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-14 15:50:34,080 - monitoring_application - INFO - ---------------------------
+2015-10-14 15:53:16,947 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-14 15:53:16,951 - monitoring_application - INFO - Usb Port Controller starting
+2015-10-14 15:53:16,966 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-14 15:53:16,966 - monitoring_application - INFO - ---------------------------
+2015-10-14 15:53:16,967 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-14 15:53:16,967 - monitoring_application - INFO - ---------------------------
+2015-10-14 15:56:46,658 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-14 15:56:46,661 - monitoring_application - INFO - Usb Port Controller starting
+2015-10-14 15:56:46,677 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-14 15:56:46,677 - monitoring_application - INFO - ---------------------------
+2015-10-14 15:56:46,677 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-14 15:56:46,678 - monitoring_application - INFO - ---------------------------
+2015-10-14 15:56:46,723 - monitoring_application - INFO - Usb Observer started
+2015-10-14 16:00:21,579 - monitoring_application - INFO - USB Port Controller stopping
+2015-10-14 16:00:23,064 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-14 16:00:23,069 - monitoring_application - INFO - Usb Port Controller starting
+2015-10-14 16:00:23,090 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-14 16:00:23,090 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:00:23,090 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-14 16:00:23,090 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:00:23,140 - monitoring_application - INFO - Usb Observer started
+2015-10-14 16:00:40,717 - monitoring_application - INFO - USB Port Controller stopping
+2015-10-14 16:02:56,900 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-14 16:02:56,905 - monitoring_application - INFO - Usb Port Controller starting
+2015-10-14 16:02:56,925 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-14 16:02:56,925 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:02:56,925 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-14 16:02:56,925 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:02:56,977 - monitoring_application - INFO - Usb Observer started
+2015-10-14 16:15:08,237 - monitoring_application - INFO - USB Port Controller stopping
+2015-10-14 16:15:09,299 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-14 16:15:09,303 - monitoring_application - INFO - Usb Port Controller starting
+2015-10-14 16:15:09,318 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-14 16:15:09,318 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:15:09,318 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-14 16:15:09,318 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:15:09,366 - monitoring_application - INFO - Usb Observer started
+2015-10-14 16:15:21,297 - monitoring_application - INFO - USB Port Controller stopping
+2015-10-14 16:15:43,197 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-14 16:15:43,201 - monitoring_application - INFO - Usb Port Controller starting
+2015-10-14 16:15:43,220 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-14 16:15:43,220 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:15:43,221 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-14 16:15:43,221 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:15:43,278 - monitoring_application - INFO - Usb Observer started
+2015-10-14 16:15:49,084 - monitoring_application - INFO - USB Port Controller stopping
+2015-10-14 16:17:01,010 - monitoring_application - INFO - Usb Port Controller starting
+2015-10-14 16:17:01,077 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-14 16:17:01,082 - monitoring_application - INFO - Usb Observer started
+2015-10-14 16:17:06,099 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-14 16:17:06,099 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:17:06,099 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-14 16:17:06,100 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:17:11,122 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-14 16:17:11,122 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:17:11,123 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-14 16:17:11,123 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:17:16,141 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-14 16:17:16,141 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:17:16,141 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-14 16:17:16,141 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:17:21,155 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-14 16:17:21,156 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:17:21,156 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-14 16:17:21,156 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:17:26,174 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-14 16:17:26,174 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:17:26,174 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-14 16:17:26,174 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:17:31,192 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-14 16:17:31,192 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:17:31,192 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-14 16:17:31,192 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:17:36,209 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-14 16:17:36,209 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:17:36,209 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-14 16:17:36,209 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:17:41,226 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-14 16:17:41,226 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:17:41,226 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-14 16:17:41,226 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:17:46,245 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-14 16:17:46,245 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:17:46,245 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-14 16:17:46,245 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:17:51,259 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-14 16:17:51,259 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:17:51,260 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-14 16:17:51,260 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:17:56,276 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-14 16:17:56,276 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:17:56,276 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-14 16:17:56,276 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:18:01,296 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-14 16:18:01,296 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:18:01,296 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-14 16:18:01,296 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:18:06,315 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-14 16:18:06,315 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:18:06,315 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-14 16:18:06,315 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:18:11,334 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-14 16:18:11,335 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:18:11,335 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-14 16:18:11,335 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:18:16,354 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-14 16:18:16,355 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:18:16,355 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-14 16:18:16,355 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:18:21,370 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-14 16:18:21,370 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:18:21,370 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-14 16:18:21,370 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:18:26,387 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-14 16:18:26,387 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:18:26,387 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-14 16:18:26,387 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:18:31,402 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-14 16:18:31,402 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:18:31,402 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-14 16:18:31,402 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:18:36,419 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-14 16:18:36,419 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:18:36,419 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-14 16:18:36,419 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:18:41,435 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-14 16:18:41,436 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:18:41,436 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-14 16:18:41,436 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:18:46,453 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-14 16:18:46,453 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:18:46,453 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-14 16:18:46,453 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:18:51,470 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-14 16:18:51,470 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:18:51,470 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-14 16:18:51,470 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:18:51,696 - monitoring_application - INFO - USB Port Controller stopping
+2015-10-14 16:19:22,034 - monitoring_application - INFO - Usb Port Controller starting
+2015-10-14 16:19:22,088 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-14 16:19:22,093 - monitoring_application - INFO - Usb Observer started
+2015-10-14 16:19:27,108 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-14 16:19:27,109 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:19:27,109 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-14 16:19:27,109 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:19:30,531 - monitoring_application - INFO - USB Port Controller stopping
+2015-10-14 16:19:34,335 - monitoring_application - INFO - Usb Port Controller starting
+2015-10-14 16:19:34,390 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-14 16:19:34,395 - monitoring_application - INFO - Usb Observer started
+2015-10-14 16:19:39,413 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-14 16:19:39,413 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:19:39,413 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-14 16:19:39,413 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:19:44,434 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-14 16:19:44,435 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:19:44,435 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-14 16:19:44,435 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:19:49,458 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-14 16:19:49,458 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:19:49,458 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-14 16:19:49,458 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:19:54,478 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-14 16:19:54,478 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:19:54,479 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-14 16:19:54,479 - monitoring_application - INFO - ---------------------------
+2015-10-14 16:19:54,513 - monitoring_application - INFO - USB Port Controller stopping

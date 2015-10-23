@@ -16,7 +16,7 @@ from bin.services.transmitter_index import (
 )
 
 from tests.services.transmitter_index_test_dirs import (
-    none, few_without_broken, few_with_broken, many_without_broken, 
+    none, few_without_broken, few_with_broken, many_without_broken,
     many_with_broken
 )
 
@@ -28,14 +28,14 @@ class TransmitterIndexServiceTest(unittest.TestCase):
         self.cache_test_directory_none = (
             apn[:-len("__init__.py")] if apn.endswith("__init__.py") else apn
         )
-        
+
         apnb = os.path.abspath(
             few_without_broken.__file__
         )
         self.cache_test_directory_few_without_broken = (
             apnb[:-len("__init__.py")] if apnb.endswith("__init__.py") else (
                 apnb
-            ) 
+            )
         )
 
         apfb = os.path.abspath(
@@ -44,7 +44,7 @@ class TransmitterIndexServiceTest(unittest.TestCase):
         self.cache_test_directory_few_with_broken = (
             apfb[:-len("__init__.py")] if apfb.endswith("__init__.py") else (
                 apfb
-            ) 
+            )
         )
 
         apm = os.path.abspath(many_without_broken.__file__)
@@ -60,7 +60,7 @@ class TransmitterIndexServiceTest(unittest.TestCase):
             aphb[:-len("__init__.py")] if aphb.endswith("__init__.py") else (
                 aphb
             )
-        )        
+        )
 
     def tearDown(self):
         pass
@@ -70,7 +70,7 @@ class TransmitterIndexServiceTestSuite(TransmitterIndexServiceTest):
         self.cache.build(self.cache_test_directory_none)
         ids = []
         for item in self.cache.cache:
-            ids.append(item.vendor_id)
+            ids.append(item.idVendor)
 
         self.assertEqual(
             ids,
@@ -81,7 +81,7 @@ class TransmitterIndexServiceTestSuite(TransmitterIndexServiceTest):
         self.cache.build(self.cache_test_directory_few_without_broken)
         ids = []
         for item in self.cache.cache:
-            ids.append(item.vendor_id)
+            ids.append(item.idVendor)
 
         self.assertEqual(
             set(ids),
@@ -92,7 +92,7 @@ class TransmitterIndexServiceTestSuite(TransmitterIndexServiceTest):
         self.cache.build(self.cache_test_directory_few_with_broken)
         ids = []
         for item in self.cache.cache:
-            ids.append(item.vendor_id)
+            ids.append(item.idVendor)
 
         self.assertEqual(
             set(ids),
@@ -103,7 +103,7 @@ class TransmitterIndexServiceTestSuite(TransmitterIndexServiceTest):
         self.cache.build(self.cache_test_directory_many_without_broken)
         ids = []
         for item in self.cache.cache:
-            ids.append(item.vendor_id)
+            ids.append(item.idVendor)
 
         self.assertEqual(
             set(ids),
@@ -114,7 +114,7 @@ class TransmitterIndexServiceTestSuite(TransmitterIndexServiceTest):
         self.cache.build(self.cache_test_directory_many_with_broken)
         ids = []
         for item in self.cache.cache:
-            ids.append(item.vendor_id)
+            ids.append(item.idVendor)
 
         self.assertEqual(
             ids,
@@ -123,7 +123,7 @@ class TransmitterIndexServiceTestSuite(TransmitterIndexServiceTest):
 
     def test_cache_constructor5(self):
         self.cache.build("fake/ass/directory/that/in/no/way/could/exist/without/some/user/reading/this")
-        
+
         self.assertEqual(
             self.cache.cache,
             []
@@ -135,16 +135,16 @@ class TransmitterIndexServiceTestSuite(TransmitterIndexServiceTest):
         j = 2
 
         ident = _TransmitterIdent(
-            "TestManufacturer"+str(i),
-            "TestName"+str(i),
             i, # vid
             i, # pid
+            "TestManufacturer"+str(i),
+            "TestName"+str(i),
             ["TestUnit" + str(i)],
             lambda x: x,
             lambda x: x,
             lambda x: x
         )
-        
+
         device = FakeUsbDevice(j, j, j, j)
 
         self.assertFalse(ident.matches(device.idVendor, device.idProduct))
@@ -155,16 +155,16 @@ class TransmitterIndexServiceTestSuite(TransmitterIndexServiceTest):
         j = 2
 
         ident = _TransmitterIdent(
-            "TestManufacturer"+str(i),
-            "TestName"+str(i),
             i, # vid
             i, # pid
+            "TestManufacturer"+str(i),
+            "TestName"+str(i),
             ["TestUnit" + str(i)],
             lambda x: x,
             lambda x: x,
             lambda x: x
-        )        
-        
+        )
+
         device = FakeUsbDevice(j, j, i, j)
 
         self.assertFalse(ident.matches(device.idVendor, device.idProduct))
@@ -175,16 +175,16 @@ class TransmitterIndexServiceTestSuite(TransmitterIndexServiceTest):
         j = 2
 
         ident = _TransmitterIdent(
-            "TestManufacturer"+str(i),
-            "TestName"+str(i),
             i, # vid
             i, # pid
+            "TestManufacturer"+str(i),
+            "TestName"+str(i),
             ["TestUnit" + str(i)],
             lambda x: x,
             lambda x: x,
             lambda x: x
-        )        
-        
+        )
+
         device = FakeUsbDevice(j, j, j, i)
 
         self.assertFalse(ident.matches(device.idVendor, device.idProduct))
@@ -195,16 +195,16 @@ class TransmitterIndexServiceTestSuite(TransmitterIndexServiceTest):
         j = 2
 
         ident = _TransmitterIdent(
-            "TestManufacturer"+str(i),
-            "TestName"+str(i),
             i, # vid
             i, # pid
+            "TestManufacturer"+str(i),
+            "TestName"+str(i),
             ["TestUnit" + str(i)],
             lambda x: x,
             lambda x: x,
             lambda x: x
-        )        
-        
+        )
+
         device = FakeUsbDevice(j, j, i, i)
 
         self.assertTrue(ident.matches(device.idVendor, device.idProduct))
@@ -213,12 +213,12 @@ class TransmitterIndexServiceTestSuite(TransmitterIndexServiceTest):
     # Test case: >=1 devices, 0 transmitters defined
     def test_filter1(self):
         self.cache.build(self.cache_test_directory_none)
-        
+
         devices = [FakeUsbDevice(i+1, i+1, i+1, i+1) for i in range(0, 25)]
 
         matching = TransmitterIndex.filter(devices, self.cache)
-        
-        ids = [x.vendor_id for x in matching]
+
+        ids = [x.idVendor for x in matching]
         self.assertEqual(
             set(ids),
             set()
@@ -227,13 +227,13 @@ class TransmitterIndexServiceTestSuite(TransmitterIndexServiceTest):
     # Test case: 0 devices, >=1 transmitters defined, 0 matches
     def test_filter2(self):
         self.cache.build(self.cache_test_directory_few_without_broken)
-        
+
         devices = [
         ]
 
         matching = TransmitterIndex.filter(devices, self.cache)
-        
-        ids = [x.vendor_id for x in matching]
+
+        ids = [x.idVendor for x in matching]
         self.assertEqual(
             set(ids),
             set()
@@ -242,15 +242,15 @@ class TransmitterIndexServiceTestSuite(TransmitterIndexServiceTest):
     # Test case: >=1 devices, >=1 transmitters defined, 0 matches
     def test_filter3(self):
         self.cache.build(self.cache_test_directory_few_without_broken)
-        
+
         devices = [
             FakeUsbDevice(15, 16, 2012, 4021),
             FakeUsbDevice(12, 19, 20123, 19421)
         ]
 
         matching = TransmitterIndex.filter(devices, self.cache)
-        
-        ids = [x.vendor_id for x in matching]
+
+        ids = [x.idVendor for x in matching]
         self.assertEqual(
             set(ids),
             set()
@@ -259,15 +259,15 @@ class TransmitterIndexServiceTestSuite(TransmitterIndexServiceTest):
     # Test case: >=1 devices, >=1 transmitters defined, >=1 matches
     def test_filter4(self):
         self.cache.build(self.cache_test_directory_few_without_broken)
-        
+
         devices = [
             FakeUsbDevice(1, 1, 1, 1),
             FakeUsbDevice(4, 4, 4, 4)
         ]
 
         matching = TransmitterIndex.filter(devices, self.cache)
-        
-        ids = [x.vendor_id for x in matching]
+
+        ids = [x.usb_device.idVendor for x in matching]
         self.assertEqual(
             set(ids),
             {1, 4}
@@ -276,28 +276,28 @@ class TransmitterIndexServiceTestSuite(TransmitterIndexServiceTest):
     # Test case: many devices, many transmitters defined, 0 matches
     def test_filter5(self):
         self.cache.build(self.cache_test_directory_many_without_broken)
-        
+
         devices = [FakeUsbDevice(i+1, i+1, i+1, i+1) for i in range(
             100, 150, 1
         )]
 
         matching = TransmitterIndex.filter(devices, self.cache)
-        
-        ids = [x.vendor_id for x in matching]
+
+        ids = [x.usb_device.idVendor for x in matching]
         self.assertEqual(
             set(ids),
             set()
         )
-     
+
     # Test case: many devices, many transmitters defined, many matches
     def test_filter6(self):
         self.cache.build(self.cache_test_directory_many_without_broken)
-        
+
         devices = [FakeUsbDevice(i+1, i+1, i+1, i+1) for i in range(25)]
 
         matching = TransmitterIndex.filter(devices, self.cache)
-        
-        ids = [x.vendor_id for x in matching]
+
+        ids = [x.usb_device.idVendor for x in matching]
         self.assertEqual(
             set(ids),
             set([i+1 for i in range(9)])

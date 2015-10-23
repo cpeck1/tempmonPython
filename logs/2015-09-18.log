@@ -1,0 +1,4 @@
+2015-09-18 15:55:28,151 - monitoring_application - INFO - Transmitter cache contents:
+2015-09-18 15:55:28,152 - monitoring_application - INFO - ---------------------------
+2015-09-18 15:55:28,152 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-09-18 15:55:28,152 - monitoring_application - INFO - ---------------------------

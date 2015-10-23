@@ -1,0 +1,31 @@
+2015-10-09 12:39:29,723 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-09 12:40:01,664 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-09 12:40:18,103 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-09 12:40:27,540 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-09 13:33:27,618 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-09 13:35:04,924 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-09 13:42:18,159 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-09 13:45:19,157 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-09 13:45:56,089 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-09 13:46:10,175 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-09 13:57:48,735 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-09 14:20:20,069 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-09 14:23:34,176 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-09 14:23:57,353 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-09 14:38:22,239 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-09 14:38:59,745 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-09 14:42:00,803 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-09 14:42:16,211 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-09 14:42:34,474 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-09 14:42:59,914 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-09 14:44:12,476 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-09 14:47:52,463 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-09 14:47:52,486 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-09 14:47:52,487 - monitoring_application - INFO - ---------------------------
+2015-10-09 14:47:52,487 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-09 14:47:52,487 - monitoring_application - INFO - ---------------------------
+2015-10-09 14:48:11,984 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-09 14:48:12,001 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-09 14:48:12,001 - monitoring_application - INFO - ---------------------------
+2015-10-09 14:48:12,001 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-09 14:48:12,001 - monitoring_application - INFO - ---------------------------

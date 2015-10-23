@@ -9,9 +9,9 @@ transmitter_file_name = "usbinfo.py"
 # sort of a case class, shell for holding a few pieces of data
 class _TransmitterIdent:
     def __init__(
-            self, 
+            self,
             idVendor,
-            idProduct, 
+            idProduct,
             manufacturer,
             product,
             channel_units,
@@ -38,13 +38,13 @@ class _TransmitterIdent:
         )
 
     def matches(self, vid, pid):
-        return ((self.vendor_id == vid) and (self.product_id == pid))
+        return ((self.idVendor == vid) and (self.idProduct == pid))
 
 class _TransmitterCache:
     """
     cache of transmitters from the transmitter package based on
-    the transmitter_file_name modules inside, which contain the 
-    manufacturer, product, product and vendor ids of each transmitter 
+    the transmitter_file_name modules inside, which contain the
+    manufacturer, product, product and vendor ids of each transmitter
     within the system
     """
     def __init__(self):
@@ -58,12 +58,14 @@ class _TransmitterCache:
                     paths.append(os.path.abspath(os.path.join(dirpath, f)))
         return paths
 
-    def load_driver_package(self, module):
+    def load_driver_package(self, module, n):
+        # module: the python package the driver package is coming from
+        # n: identifier for driver package, helps reduce redundancies
         try:
-            driver_package = None 
+            driver_package = None
             try:
                 driver_package_path = (
-                    transfile.driver_package_path
+                    module.driver_package_path
                 )
                 # then driver package given as file path
                 driver_loader = (
@@ -74,19 +76,22 @@ class _TransmitterCache:
                 )
                 # may raise FileNotFoundError
                 driver_package = driver_loader.load_module()
-            except AttributeError: 
+                return driver_package
+            except AttributeError as e:
                 # then driver package given as module somewhere in
                 # system $PATH (maybe)
-                driver_package_name = transfile.driver_package_name
+                driver_package_name = module.driver_package_name
                 # may raise AttributeError..$
                 driver_package = __import__(driver_package_name)
-        except AttributeError:
+                return driver_package
+        except (AttributeError, FileNotFoundError) as e:
+            logger.error("Failed to import driver package: " + str(e))
             return None
 
     def build(self, directory):
-        # find all files in the transmitter directory with the name 
+        # find all files in the transmitter directory with the name
         # usbinfo.py
-        paths = get_paths_to(directory, transmitter_file_name)
+        paths = self.get_paths_to(directory, transmitter_file_name)
         n = 0
         for p in paths:
             module_name = "transmitter_file_" + str(n)
@@ -98,7 +103,7 @@ class _TransmitterCache:
             loader = importlib.machinery.SourceFileLoader(module_name, p)
             try:
                 module = loader.load_module()
-            except Exception as e: 
+            except Exception as e:
                 # exceptions will only occur if there are exceptions in
                 # the usbinfo.py file; literally any exception may occur
                 # in the file so don't try to predict end user stupidity
@@ -107,16 +112,16 @@ class _TransmitterCache:
                     "the following error: " + str(e)
                 )
                 continue
-            
-            driver_package = load_driver_package(module)
+
+            driver_package = self.load_driver_package(module, n)
             # assigning these methods may raise AttributeError
             try:
                 self.cache.append(
                     _TransmitterIdent(
-                        module.manufacturer, 
-                        module.product,
                         module.idVendor,
                         module.idProduct,
+                        module.manufacturer,
+                        module.product,
                         module.channel_units,
                         driver_package.open_method,
                         driver_package.read_channel_method,
@@ -163,7 +168,7 @@ class TransmitterIndex:
                 channel_units=transmitter.channel_units,
                 open_method=transmitter.open_method,
                 read_channel_method=transmitter.read_channel_method,
-                close_method=transmitter.close_method 
+                close_method=transmitter.close_method
             )
 
     def filter(usb_list, cache=None):
@@ -175,7 +180,7 @@ class TransmitterIndex:
 
         if cache is None: cache = t_cache # allows for testing
         transmitter_list = []
-        for device in usb_list:
+        for device in usb_list.devices:
             transmitter = cache.find_by_vid_pid(
                 device.idVendor,
                 device.idProduct

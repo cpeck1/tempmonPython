@@ -1,0 +1,23 @@
+2015-09-16 16:07:36,823 - monitoring_application - INFO - Transmitter cache contents:
+2015-09-16 16:07:36,823 - monitoring_application - INFO - ---------------------------
+2015-09-16 16:07:36,823 - monitoring_application - INFO - ---------------------------
+2015-09-16 16:08:45,571 - monitoring_application - INFO - Transmitter cache contents:
+2015-09-16 16:08:45,571 - monitoring_application - INFO - ---------------------------
+2015-09-16 16:08:45,571 - monitoring_application - INFO - ---------------------------
+2015-09-16 16:09:24,148 - monitoring_application - INFO - Transmitter cache contents:
+2015-09-16 16:09:24,148 - monitoring_application - INFO - ---------------------------
+2015-09-16 16:09:24,148 - monitoring_application - INFO - ---------------------------
+2015-09-16 16:21:46,087 - monitoring_application - INFO - Transmitter cache contents:
+2015-09-16 16:21:46,087 - monitoring_application - INFO - ---------------------------
+2015-09-16 16:21:46,087 - monitoring_application - INFO - ---------------------------
+2015-09-16 16:22:04,718 - monitoring_application - INFO - Transmitter cache contents:
+2015-09-16 16:22:04,718 - monitoring_application - INFO - ---------------------------
+2015-09-16 16:22:04,718 - monitoring_application - INFO - ---------------------------
+2015-09-16 16:22:35,499 - monitoring_application - INFO - Transmitter cache contents:
+2015-09-16 16:22:35,499 - monitoring_application - INFO - ---------------------------
+2015-09-16 16:22:35,499 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-09-16 16:22:35,499 - monitoring_application - INFO - ---------------------------
+2015-09-16 16:22:58,897 - monitoring_application - INFO - Transmitter cache contents:
+2015-09-16 16:22:58,897 - monitoring_application - INFO - ---------------------------
+2015-09-16 16:22:58,897 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-09-16 16:22:58,897 - monitoring_application - INFO - ---------------------------

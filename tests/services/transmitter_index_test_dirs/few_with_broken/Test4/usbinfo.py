@@ -1,6 +1,6 @@
 import os
 
-name="This one just sucks!"
+product="This one just sucks!"
 # no manufacturer?
 idVendor="A string for a vendor id?" # thanks to python duck typing this works
 idProduct=[1, 2, 3, 4, 5, 6, 7] # same for this

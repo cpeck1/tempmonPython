@@ -1,6 +1,6 @@
 import os
 
-name="This one broke"
+product="This one broke"
 manufacturer="All good so far"
 idVendor=0x0001
 idProduct=0x0001
