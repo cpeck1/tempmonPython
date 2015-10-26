@@ -65,3 +65,5 @@ if __name__ == "__main__":
     tap.daemon = False
     tap.start()
 
+    upc.join()
+    tap.join()

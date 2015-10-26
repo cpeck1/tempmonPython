@@ -1,5 +1,5 @@
 import signal, logging, random, time
-import sys, json
+import json
 
 from multiprocessing import Process
 
@@ -9,6 +9,9 @@ logger = logging.getLogger("monitoring_application")
 
 class TransmitterController:
     def __init__(self, transmitter):
+        signal.signal(signal.SIGTERM, self.stop)
+        signal.signal(signal.SIGINT, self.stop)
+
         self.transmitter = transmitter
 
         self.transmitter.open()
@@ -23,6 +26,7 @@ class TransmitterController:
             "Transmitter controller application stopped using " +
             repr(self.transmitter)
         )
+        exit(0)
 
     def run(self):
         while True:
@@ -36,3 +40,4 @@ class TransmitterController:
                             default=lambda o: o.__dict__
                         )
                     )
+

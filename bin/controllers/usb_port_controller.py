@@ -48,6 +48,7 @@ class UsbPortController:
         self.observer.stop()
 
         logger.info("USB Port Controller stopping")
+        exit(0)
 
     def handle_event(self, action, device):
         '''
@@ -72,9 +73,6 @@ class UsbPortController:
         self.observer = pyudev.MonitorObserver(monitor, self.handle_event)
         self.observer.start()
 
-        try:
-            while True:
-                pass
-        except KeyboardInterrupt:
-            self.stop(None, None)
-
+        while True:
+            logger.info("USB Port Controller running")
+            time.sleep(1)

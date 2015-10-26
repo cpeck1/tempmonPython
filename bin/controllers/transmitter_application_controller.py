@@ -37,13 +37,14 @@ class CommunicationsBus:
         pass
 
     def listen(self):
-        print("message received")
+        time.sleep(5)
+        logger.info("message received")
         return Message(random.choice(['add', 'remove']))
 
     def send(self, message):
         print(message)
 
-class __TransmitterApplication:
+class _TransmitterApplication:
     """
     Class for holding a transmitter application and its python
     multiprocessing process. Less clunky than dealing with a tuple
@@ -55,7 +56,6 @@ class __TransmitterApplication:
 class TransmitterApplicationController:
     def __init__(self):
         signal.signal(signal.SIGTERM, self.stop)
-        self.process = Process(target=self.run)
 
         self.comm_bus = CommunicationsBus()
         self.transmitter_applications = []
@@ -67,6 +67,7 @@ class TransmitterApplicationController:
             pass
 
         logger.info("Transmitter Application Controller stopping")
+        exit(0)
 
     def start_transmitter_application_using(self, transmitter):
         for app in self.transmitter_applications:
@@ -78,14 +79,16 @@ class TransmitterApplicationController:
 
         controller = TransmitterController(transmitter)
         process = Process(target=controller.run)
+        process.daemon = True
         process.start()
         self.transmitter_applications.append(
-            __TransmitterApplication(controller, process)
+            _TransmitterApplication(controller, process)
         )
 
     def stop_transmitter_application_using(self, transmitter):
         for app in self.transmitter_applications:
             if app.controller.transmitter.usb_device == transmitter.usb_device:
+                logger.info("Terminating process with "+repr(transmitter))
                 app.process.terminate()
                 self.transmitter_applications.remove(app)
 
@@ -97,7 +100,7 @@ class TransmitterApplicationController:
                 try:
                     usb_device = UsbDevice.from_json(message.usb_device)
                 except:
-                    print("No device found matching those attributes")
+                    logger.error("No device found matching those attributes")
 
                 transmitter = TransmitterIndex.find_matching(usb_device)
                 if transmitter:
@@ -114,4 +117,3 @@ class TransmitterApplicationController:
                         self.start_transmitter_application_using(transmitter)
                     elif message.action == 'remove':
                         self.stop_transmitter_application_using(transmitter)
-            time.sleep(5)
