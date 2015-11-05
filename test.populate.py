@@ -9,12 +9,12 @@ from bin.controllers.monitoring_controller import MonitoringController
 # need to import models in this order so that each is added to the
 # declarative base of sqlalchemy
 from bin.models import environment, transmitter, admin, address
-from bin.models import atmospheric_condition, channel
+from bin.models import quantitative_property, channel
 from bin.models import expectation
 from bin.models import reading, alarm
 
 from bin.models.expectation import Expectation
-from bin.models.atmospheric_condition import AtmosphericCondition
+from bin.models.quantitative_property import QuantitativeProperty
 from bin.models.environment import Environment
 
 from bin.models.channel import Channel
@@ -30,7 +30,7 @@ exp = [
 ]
 
 ac = [
-    AtmosphericCondition(
+    QuantitativeProperty(
         type="Temperature",
         channel_bus = 3,
         channel_address = 7,
@@ -38,7 +38,7 @@ ac = [
         rec_freq=15,
         expectation=exp[0]
     ),
-    AtmosphericCondition(
+    QuantitativeProperty(
         type="Temperature",
         channel_bus = 3,
         channel_address = 8,
@@ -46,7 +46,7 @@ ac = [
         rec_freq=15,
         expectation=exp[0]
     ),
-    AtmosphericCondition(
+    QuantitativeProperty(
         type="Temperature",
         channel_bus = 1,
         channel_address = 7,
@@ -60,17 +60,17 @@ env = [
     Environment(
         name="Chest Freezer",
         serial="6",
-        atmospheric_conditions=[ac[0]]
+        quantitative_properties=[ac[0]]
     ),
     Environment(
         name="Chest Freezer",
         serial="5",
-        atmospheric_conditions=[ac[1]]
+        quantitative_properties=[ac[1]]
     ),
     Environment(
         name="Chest Freezer",
         serial="12",
-        atmospheric_conditions=[ac[2]]
+        quantitative_properties=[ac[2]]
     )
 ]
 

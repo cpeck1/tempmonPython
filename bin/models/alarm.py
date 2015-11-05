@@ -33,8 +33,8 @@ class Alarm(Base):
     expectation_id = Column(Integer, ForeignKey('expectation.id'))
     expectation = relationship("Expectation")
 
-    atmospheric_condition_id = Column(Integer, 
-                                      ForeignKey('atmospheric_condition.id'))
+    quantitative_property_id = Column(Integer, 
+                                      ForeignKey('quantitative_property.id'))
     
     def __init__(self, reading=None, expectation=None, start_time=None):
         self.start_time = start_time if start_time else datetime.now()

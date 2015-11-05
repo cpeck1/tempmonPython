@@ -663,3 +663,445 @@
 2015-10-26 13:07:57,180 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
 2015-10-26 13:07:57,181 - monitoring_application - INFO - ---------------------------
 2015-10-26 13:07:58,091 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:19:11,969 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-26 13:19:11,970 - monitoring_application - INFO - Usb Port Controller starting
+2015-10-26 13:19:11,976 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:19:12,978 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:19:13,979 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:19:14,981 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:19:15,982 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:19:16,977 - monitoring_application - INFO - message received
+2015-10-26 13:19:16,983 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:19:17,006 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-26 13:19:17,007 - monitoring_application - INFO - ---------------------------
+2015-10-26 13:19:17,007 - monitoring_application - INFO - _TransmitterIdent(['Test'], <function open_method at 0x7fd6cee22e18>, <function read_channel_method at 0x7fd6cee22f28>, <function close_method at 0x7fd6ceba2048>)
+2015-10-26 13:19:17,007 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-26 13:19:17,007 - monitoring_application - INFO - ---------------------------
+2015-10-26 13:29:57,764 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-26 13:29:57,765 - monitoring_application - INFO - Usb Port Controller starting
+2015-10-26 13:29:57,769 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:29:58,771 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:29:59,772 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:30:00,774 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:30:21,466 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-26 13:30:21,466 - monitoring_application - INFO - Usb Port Controller starting
+2015-10-26 13:30:21,471 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:30:21,492 - monitoring_application - INFO - Environment controller started
+2015-10-26 13:30:21,493 - monitoring_application - INFO - Environment controller running
+2015-10-26 13:30:22,473 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:30:23,474 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:30:24,475 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:30:25,477 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:30:26,473 - monitoring_application - INFO - message received
+2015-10-26 13:30:26,478 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:30:26,498 - monitoring_application - INFO - Environment controller running
+2015-10-26 13:30:26,501 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-26 13:30:26,501 - monitoring_application - INFO - ---------------------------
+2015-10-26 13:30:26,502 - monitoring_application - INFO - _TransmitterIdent(['Test'], <function open_method at 0x7f02fc856e18>, <function read_channel_method at 0x7f02fc856f28>, <function close_method at 0x7f02fc5d7048>)
+2015-10-26 13:30:26,502 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-26 13:30:26,502 - monitoring_application - INFO - ---------------------------
+2015-10-26 13:30:27,479 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:30:28,481 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:30:29,482 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:30:30,484 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:30:31,485 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:30:31,504 - monitoring_application - INFO - Environment controller running
+2015-10-26 13:30:31,507 - monitoring_application - INFO - message received
+2015-10-26 13:30:31,537 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-26 13:30:31,538 - monitoring_application - INFO - ---------------------------
+2015-10-26 13:30:31,538 - monitoring_application - INFO - _TransmitterIdent(['Test'], <function open_method at 0x7f02fc856e18>, <function read_channel_method at 0x7f02fc856f28>, <function close_method at 0x7f02fc5d7048>)
+2015-10-26 13:30:31,538 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-26 13:30:31,538 - monitoring_application - INFO - ---------------------------
+2015-10-26 13:30:31,538 - monitoring_application - INFO - Transmitter controller application started using Transmitter(num_channels=1, channel_units=['Test'])
+2015-10-26 13:30:32,487 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:30:32,544 - monitoring_application - INFO - {"usb_device": {"idVendor": 1452, "path": "/devices/pci0000:00/0000:00:14.0/usb1/1-2", "device": 5, "product": "iPod", "idProduct": 4705, "port": [2], "bus": 1, "manufacturer": "Apple Inc."}, "read_method": {}, "current_state_value": 0.42654702325738036, "device_handle": {"value": 0.42654702325738036}, "last_update_time": "2015-10-26T13:30:32.542976", "channel_number": 1, "units": "Test"}
+2015-10-26 13:30:33,488 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:30:33,545 - monitoring_application - INFO - {"usb_device": {"idVendor": 1452, "path": "/devices/pci0000:00/0000:00:14.0/usb1/1-2", "device": 5, "product": "iPod", "idProduct": 4705, "port": [2], "bus": 1, "manufacturer": "Apple Inc."}, "read_method": {}, "current_state_value": 0.42654702325738036, "device_handle": {"value": 0.42654702325738036}, "last_update_time": "2015-10-26T13:30:33.545653", "channel_number": 1, "units": "Test"}
+2015-10-26 13:30:34,490 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:30:34,547 - monitoring_application - INFO - {"usb_device": {"idVendor": 1452, "path": "/devices/pci0000:00/0000:00:14.0/usb1/1-2", "device": 5, "product": "iPod", "idProduct": 4705, "port": [2], "bus": 1, "manufacturer": "Apple Inc."}, "read_method": {}, "current_state_value": 0.42654702325738036, "device_handle": {"value": 0.42654702325738036}, "last_update_time": "2015-10-26T13:30:34.547300", "channel_number": 1, "units": "Test"}
+2015-10-26 13:30:34,569 - monitoring_application - INFO - Transmitter controller application stopped using Transmitter(num_channels=1, channel_units=['Test'])
+2015-10-26 13:30:34,570 - monitoring_application - INFO - Transmitter controller application stopped using Transmitter(num_channels=1, channel_units=['Test'])
+2015-10-26 13:30:37,479 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-26 13:30:37,480 - monitoring_application - INFO - Usb Port Controller starting
+2015-10-26 13:30:37,485 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:30:37,509 - monitoring_application - INFO - Environment controller started
+2015-10-26 13:30:37,509 - monitoring_application - INFO - Environment controller running
+2015-10-26 13:30:38,486 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:30:39,488 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:30:40,489 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:30:41,491 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:30:42,487 - monitoring_application - INFO - message received
+2015-10-26 13:30:42,492 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:30:42,513 - monitoring_application - INFO - Environment controller running
+2015-10-26 13:30:42,515 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-26 13:30:42,515 - monitoring_application - INFO - ---------------------------
+2015-10-26 13:30:42,515 - monitoring_application - INFO - _TransmitterIdent(['Test'], <function open_method at 0x7fc86bacfe18>, <function read_channel_method at 0x7fc86bacff28>, <function close_method at 0x7fc86b850048>)
+2015-10-26 13:30:42,515 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-26 13:30:42,515 - monitoring_application - INFO - ---------------------------
+2015-10-26 13:30:42,516 - monitoring_application - INFO - Transmitter controller application started using Transmitter(num_channels=1, channel_units=['Test'])
+2015-10-26 13:30:43,494 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:30:43,520 - monitoring_application - INFO - {"read_method": {}, "last_update_time": "2015-10-26T13:30:43.520010", "channel_number": 1, "device_handle": {"value": 0.8798607299971929}, "usb_device": {"idProduct": 4705, "product": "iPod", "port": [2], "bus": 1, "manufacturer": "Apple Inc.", "idVendor": 1452, "device": 5, "path": "/devices/pci0000:00/0000:00:14.0/usb1/1-2"}, "units": "Test", "current_state_value": 0.8798607299971929}
+2015-10-26 13:30:44,496 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:30:44,521 - monitoring_application - INFO - {"read_method": {}, "last_update_time": "2015-10-26T13:30:44.521560", "channel_number": 1, "device_handle": {"value": 0.8798607299971929}, "usb_device": {"idProduct": 4705, "product": "iPod", "port": [2], "bus": 1, "manufacturer": "Apple Inc.", "idVendor": 1452, "device": 5, "path": "/devices/pci0000:00/0000:00:14.0/usb1/1-2"}, "units": "Test", "current_state_value": 0.8798607299971929}
+2015-10-26 13:30:45,497 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:30:45,523 - monitoring_application - INFO - {"read_method": {}, "last_update_time": "2015-10-26T13:30:45.522895", "channel_number": 1, "device_handle": {"value": 0.8798607299971929}, "usb_device": {"idProduct": 4705, "product": "iPod", "port": [2], "bus": 1, "manufacturer": "Apple Inc.", "idVendor": 1452, "device": 5, "path": "/devices/pci0000:00/0000:00:14.0/usb1/1-2"}, "units": "Test", "current_state_value": 0.8798607299971929}
+2015-10-26 13:30:46,499 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:30:46,524 - monitoring_application - INFO - {"read_method": {}, "last_update_time": "2015-10-26T13:30:46.524307", "channel_number": 1, "device_handle": {"value": 0.8798607299971929}, "usb_device": {"idProduct": 4705, "product": "iPod", "port": [2], "bus": 1, "manufacturer": "Apple Inc.", "idVendor": 1452, "device": 5, "path": "/devices/pci0000:00/0000:00:14.0/usb1/1-2"}, "units": "Test", "current_state_value": 0.8798607299971929}
+2015-10-26 13:30:47,500 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:30:47,519 - monitoring_application - INFO - Environment controller running
+2015-10-26 13:30:47,522 - monitoring_application - INFO - message received
+2015-10-26 13:30:47,526 - monitoring_application - INFO - {"read_method": {}, "last_update_time": "2015-10-26T13:30:47.526065", "channel_number": 1, "device_handle": {"value": 0.8798607299971929}, "usb_device": {"idProduct": 4705, "product": "iPod", "port": [2], "bus": 1, "manufacturer": "Apple Inc.", "idVendor": 1452, "device": 5, "path": "/devices/pci0000:00/0000:00:14.0/usb1/1-2"}, "units": "Test", "current_state_value": 0.8798607299971929}
+2015-10-26 13:30:47,537 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-26 13:30:47,538 - monitoring_application - INFO - ---------------------------
+2015-10-26 13:30:47,538 - monitoring_application - INFO - _TransmitterIdent(['Test'], <function open_method at 0x7fc86bacfe18>, <function read_channel_method at 0x7fc86bacff28>, <function close_method at 0x7fc86b850048>)
+2015-10-26 13:30:47,538 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-26 13:30:47,538 - monitoring_application - INFO - ---------------------------
+2015-10-26 13:30:47,538 - monitoring_application - INFO - Terminating process with Transmitter(num_channels=1, channel_units=['Test'])
+2015-10-26 13:30:47,538 - monitoring_application - INFO - Transmitter controller application stopped using Transmitter(num_channels=1, channel_units=['Test'])
+2015-10-26 13:30:48,502 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:30:49,504 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:30:50,505 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:30:51,507 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:30:52,508 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:30:52,524 - monitoring_application - INFO - Environment controller running
+2015-10-26 13:30:52,543 - monitoring_application - INFO - message received
+2015-10-26 13:30:52,555 - monitoring_application - INFO - Transmitter cache contents:
+2015-10-26 13:30:52,555 - monitoring_application - INFO - ---------------------------
+2015-10-26 13:30:52,556 - monitoring_application - INFO - _TransmitterIdent(['Test'], <function open_method at 0x7fc86bacfe18>, <function read_channel_method at 0x7fc86bacff28>, <function close_method at 0x7fc86b850048>)
+2015-10-26 13:30:52,556 - monitoring_application - INFO - _TransmitterIdent(['Celsius'], <built-in function open_method>, <built-in function read_channel_method>, <built-in function close_method>)
+2015-10-26 13:30:52,556 - monitoring_application - INFO - ---------------------------
+2015-10-26 13:30:52,556 - monitoring_application - INFO - Transmitter controller application started using Transmitter(num_channels=1, channel_units=['Test'])
+2015-10-26 13:30:53,510 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:30:53,559 - monitoring_application - INFO - {"read_method": {}, "last_update_time": "2015-10-26T13:30:53.559113", "channel_number": 1, "device_handle": {"value": 0.04022141804835078}, "usb_device": {"idProduct": 4705, "product": "iPod", "port": [2], "bus": 1, "manufacturer": "Apple Inc.", "idVendor": 1452, "device": 5, "path": "/devices/pci0000:00/0000:00:14.0/usb1/1-2"}, "units": "Test", "current_state_value": 0.04022141804835078}
+2015-10-26 13:30:54,512 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:30:54,561 - monitoring_application - INFO - {"read_method": {}, "last_update_time": "2015-10-26T13:30:54.561052", "channel_number": 1, "device_handle": {"value": 0.04022141804835078}, "usb_device": {"idProduct": 4705, "product": "iPod", "port": [2], "bus": 1, "manufacturer": "Apple Inc.", "idVendor": 1452, "device": 5, "path": "/devices/pci0000:00/0000:00:14.0/usb1/1-2"}, "units": "Test", "current_state_value": 0.04022141804835078}
+2015-10-26 13:30:55,513 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:30:55,563 - monitoring_application - INFO - {"read_method": {}, "last_update_time": "2015-10-26T13:30:55.562864", "channel_number": 1, "device_handle": {"value": 0.04022141804835078}, "usb_device": {"idProduct": 4705, "product": "iPod", "port": [2], "bus": 1, "manufacturer": "Apple Inc.", "idVendor": 1452, "device": 5, "path": "/devices/pci0000:00/0000:00:14.0/usb1/1-2"}, "units": "Test", "current_state_value": 0.04022141804835078}
+2015-10-26 13:30:56,515 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:30:56,564 - monitoring_application - INFO - {"read_method": {}, "last_update_time": "2015-10-26T13:30:56.564352", "channel_number": 1, "device_handle": {"value": 0.04022141804835078}, "usb_device": {"idProduct": 4705, "product": "iPod", "port": [2], "bus": 1, "manufacturer": "Apple Inc.", "idVendor": 1452, "device": 5, "path": "/devices/pci0000:00/0000:00:14.0/usb1/1-2"}, "units": "Test", "current_state_value": 0.04022141804835078}
+2015-10-26 13:30:57,254 - monitoring_application - INFO - Transmitter controller application stopped using Transmitter(num_channels=1, channel_units=['Test'])
+2015-10-26 13:30:57,254 - monitoring_application - INFO - Transmitter controller application stopped using Transmitter(num_channels=1, channel_units=['Test'])
+2015-10-26 13:32:25,743 - monitoring_application - INFO - Transmitter Application Controller starting
+2015-10-26 13:32:25,744 - monitoring_application - INFO - Usb Port Controller starting
+2015-10-26 13:32:25,751 - monitoring_application - INFO - USB Port Controller running
+2015-10-26 13:32:25,775 - monitoring_application - INFO - Environment Controller started
+2015-10-26 13:32:25,775 - monitoring_application - INFO - Environment Controller running
+2015-10-26 13:35:24,534 - monitoring_application - INFO - Environment Controller started
+2015-10-26 13:35:32,645 - monitoring_application - INFO - Environment Controller started
+2015-10-26 13:35:41,740 - monitoring_application - INFO - Environment Controller started
+2015-10-26 13:35:57,150 - monitoring_application - INFO - Environment Controller started
+2015-10-26 13:35:57,150 - monitoring_application - INFO - Environment Controller received message: Hey there
+2015-10-26 13:35:59,153 - monitoring_application - INFO - Environment Controller received message: Hey there
+2015-10-26 13:36:01,155 - monitoring_application - INFO - Environment Controller received message: Hey there
+2015-10-26 13:36:03,158 - monitoring_application - INFO - Environment Controller received message: Hey there
+2015-10-26 13:45:46,768 - monitoring_application - INFO - Environment Controller started
+2015-10-26 13:45:46,768 - monitoring_application - INFO - Environment Controller received message: Hey there
+2015-10-26 13:45:48,770 - monitoring_application - INFO - Environment Controller received message: Hey there
+2015-10-26 13:46:30,617 - monitoring_application - INFO - Environment Controller started
+2015-10-26 13:46:30,617 - monitoring_application - INFO - Environment Controller received message: Hey there
+2015-10-26 13:48:40,485 - monitoring_application - INFO - Environment Controller started
+2015-10-26 13:48:40,485 - monitoring_application - INFO - Environment Controller received message: Hey there
+2015-10-26 13:49:36,763 - monitoring_application - INFO - Environment Controller started
+2015-10-26 13:49:36,763 - monitoring_application - INFO - Environment Controller received message: Hey there
+2015-10-26 13:50:01,369 - monitoring_application - INFO - Environment Controller started
+2015-10-26 13:50:01,370 - monitoring_application - INFO - Environment Controller received message: Hey there
+2015-10-26 16:59:49,105 - monitoring_application - INFO - message received
+2015-10-26 16:59:49,113 - monitoring_application - INFO - message received
+2015-10-26 16:59:49,113 - monitoring_application - INFO - message received
+2015-10-26 16:59:49,113 - monitoring_application - INFO - message received
+2015-10-26 16:59:49,114 - monitoring_application - INFO - message received
+2015-10-26 16:59:49,114 - monitoring_application - INFO - message received
+2015-10-26 16:59:49,114 - monitoring_application - INFO - message received
+2015-10-26 17:00:18,967 - monitoring_application - INFO - message received
+2015-10-26 17:00:18,974 - monitoring_application - INFO - message received
+2015-10-26 17:00:18,974 - monitoring_application - INFO - message received
+2015-10-26 17:00:18,974 - monitoring_application - INFO - message received
+2015-10-26 17:00:18,975 - monitoring_application - INFO - message received
+2015-10-26 17:00:18,975 - monitoring_application - INFO - message received
+2015-10-26 17:00:47,893 - monitoring_application - INFO - message received
+2015-10-26 17:00:47,902 - monitoring_application - INFO - message received
+2015-10-26 17:00:47,902 - monitoring_application - INFO - message received
+2015-10-26 17:00:47,902 - monitoring_application - INFO - message received
+2015-10-26 17:00:47,903 - monitoring_application - INFO - message received
+2015-10-26 17:00:47,904 - monitoring_application - INFO - message received
+2015-10-26 17:01:08,001 - monitoring_application - INFO - message received
+2015-10-26 17:01:08,007 - monitoring_application - INFO - message received
+2015-10-26 17:01:08,007 - monitoring_application - INFO - message received
+2015-10-26 17:01:08,008 - monitoring_application - INFO - message received
+2015-10-26 17:01:08,008 - monitoring_application - INFO - message received
+2015-10-26 17:01:08,009 - monitoring_application - INFO - message received
+2015-10-26 17:01:08,009 - monitoring_application - INFO - message received
+2015-10-26 17:01:13,007 - monitoring_application - INFO - message received
+2015-10-26 17:01:13,014 - monitoring_application - INFO - message received
+2015-10-26 17:01:13,014 - monitoring_application - INFO - message received
+2015-10-26 17:01:13,014 - monitoring_application - INFO - message received
+2015-10-26 17:01:13,015 - monitoring_application - INFO - message received
+2015-10-26 17:01:13,015 - monitoring_application - INFO - message received
+2015-10-26 17:01:13,015 - monitoring_application - INFO - message received
+2015-10-26 17:03:38,771 - monitoring_application - INFO - Environment Application Controller starting
+2015-10-26 17:03:38,781 - monitoring_application - INFO - Environment controller starting with Environment(id=1, name=Chest Freezer, serial=6, properties=[QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:03:38,785 - monitoring_application - INFO - Environment controller starting with Environment(id=2, name=Chest Freezer, serial=5, properties=[QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:03:38,790 - monitoring_application - INFO - Environment controller starting with Environment(id=3, name=Chest Freezer, serial=12, properties=[QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:03:47,024 - monitoring_application - INFO - Environment Application Controller starting
+2015-10-26 17:03:47,033 - monitoring_application - INFO - Environment controller starting with Environment(id=1, name=Chest Freezer, serial=6, properties=[QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:03:47,036 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:03:47,039 - monitoring_application - INFO - Environment controller starting with Environment(id=2, name=Chest Freezer, serial=5, properties=[QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:03:47,041 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:03:47,044 - monitoring_application - INFO - Environment controller starting with Environment(id=3, name=Chest Freezer, serial=12, properties=[QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:03:47,046 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:13:31,826 - monitoring_application - INFO - Environment Application Controller starting
+2015-10-26 17:13:31,836 - monitoring_application - INFO - Environment controller starting with Environment(id=1, name=Chest Freezer, serial=6, properties=[QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:13:31,839 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:13:31,843 - monitoring_application - INFO - Environment controller starting with Environment(id=2, name=Chest Freezer, serial=5, properties=[QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:13:31,845 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:13:31,847 - monitoring_application - INFO - Environment controller starting with Environment(id=3, name=Chest Freezer, serial=12, properties=[QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:13:31,849 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:13:36,846 - monitoring_application - INFO - message received
+2015-10-26 17:13:36,847 - monitoring_application - INFO - message received
+2015-10-26 17:13:36,848 - monitoring_application - INFO - message received
+2015-10-26 17:13:36,848 - monitoring_application - INFO - message received
+2015-10-26 17:13:36,853 - monitoring_application - INFO - message received
+2015-10-26 17:13:36,855 - monitoring_application - INFO - message received
+2015-10-26 17:13:36,856 - monitoring_application - INFO - message received
+2015-10-26 17:14:21,270 - monitoring_application - INFO - Environment Application Controller starting
+2015-10-26 17:14:21,279 - monitoring_application - INFO - Environment controller starting with Environment(id=1, name=Chest Freezer, serial=6, properties=[QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:14:21,282 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:14:21,286 - monitoring_application - INFO - Environment controller starting with Environment(id=2, name=Chest Freezer, serial=5, properties=[QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:14:21,288 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:14:21,291 - monitoring_application - INFO - Environment controller starting with Environment(id=3, name=Chest Freezer, serial=12, properties=[QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:14:21,294 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:14:22,155 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:14:22,155 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:14:22,155 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:14:22,155 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:14:22,157 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:14:22,158 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:14:22,158 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:14:22,158 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:14:52,282 - monitoring_application - INFO - Environment Application Controller starting
+2015-10-26 17:14:52,292 - monitoring_application - INFO - Environment controller starting with Environment(id=1, name=Chest Freezer, serial=6, properties=[QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:14:52,294 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:14:52,297 - monitoring_application - INFO - Environment controller starting with Environment(id=2, name=Chest Freezer, serial=5, properties=[QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:14:52,299 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:14:52,302 - monitoring_application - INFO - Environment controller starting with Environment(id=3, name=Chest Freezer, serial=12, properties=[QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:14:52,305 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:14:52,978 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:14:52,979 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:14:52,979 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:14:52,979 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:14:52,980 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:14:52,981 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:14:52,984 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:14:52,987 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:25:17,445 - monitoring_application - INFO - Environment Application Controller starting
+2015-10-26 17:25:17,455 - monitoring_application - INFO - Environment controller starting with Environment(id=1, name=Chest Freezer, serial=6, properties=[QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:25:17,457 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:25:17,460 - monitoring_application - INFO - Environment controller starting with Environment(id=2, name=Chest Freezer, serial=5, properties=[QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:25:17,463 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:25:17,465 - monitoring_application - INFO - Environment controller starting with Environment(id=3, name=Chest Freezer, serial=12, properties=[QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:25:17,468 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:25:18,214 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:25:18,214 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:25:18,214 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:25:18,214 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:25:18,217 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:25:18,217 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:25:52,563 - monitoring_application - INFO - Environment Application Controller starting
+2015-10-26 17:25:52,573 - monitoring_application - INFO - Environment controller starting with Environment(id=1, name=Chest Freezer, serial=6, properties=[QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:25:52,577 - monitoring_application - INFO - Environment controller starting with Environment(id=2, name=Chest Freezer, serial=5, properties=[QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:25:52,582 - monitoring_application - INFO - Environment controller starting with Environment(id=3, name=Chest Freezer, serial=12, properties=[QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:25:53,970 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:25:53,970 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:27:04,765 - monitoring_application - INFO - Environment Application Controller starting
+2015-10-26 17:27:04,775 - monitoring_application - INFO - Environment controller starting with Environment(id=1, name=Chest Freezer, serial=6, properties=[QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:27:04,777 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:27:04,781 - monitoring_application - INFO - Environment controller starting with Environment(id=2, name=Chest Freezer, serial=5, properties=[QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:27:04,783 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:27:04,785 - monitoring_application - INFO - Environment controller starting with Environment(id=3, name=Chest Freezer, serial=12, properties=[QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:27:04,787 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:27:05,835 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:27:05,835 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:27:05,835 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:27:05,835 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:27:05,837 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:27:05,838 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:27:05,840 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:27:05,840 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:27:05,855 - monitoring_application - INFO - Quantitative Property Controller stopping with QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:27:05,855 - monitoring_application - INFO - Quantitative Property Controller stopping with QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:27:05,858 - monitoring_application - INFO - Quantitative Property Controller stopping with QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:27:05,863 - monitoring_application - INFO - Quantitative Property Controller stopping with QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:27:05,863 - monitoring_application - INFO - Quantitative Property Controller stopping with QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:28:23,463 - monitoring_application - INFO - Environment Application Controller starting
+2015-10-26 17:28:23,473 - monitoring_application - INFO - Environment controller starting with Environment(id=1, name=Chest Freezer, serial=6, properties=[QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:28:23,475 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:28:23,478 - monitoring_application - INFO - Environment controller starting with Environment(id=2, name=Chest Freezer, serial=5, properties=[QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:28:23,481 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:28:23,483 - monitoring_application - INFO - Environment controller starting with Environment(id=3, name=Chest Freezer, serial=12, properties=[QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:28:23,485 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:28:25,769 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:28:25,769 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:28:25,769 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:28:25,769 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:28:25,772 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:28:25,773 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:28:25,787 - monitoring_application - INFO - Quantitative Property Controller stopping with QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:28:25,790 - monitoring_application - INFO - Quantitative Property Controller stopping with QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:28:25,801 - monitoring_application - INFO - Quantitative Property Controller stopping with QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:28:54,437 - monitoring_application - INFO - Environment Application Controller starting
+2015-10-26 17:28:54,446 - monitoring_application - INFO - Environment controller starting with Environment(id=1, name=Chest Freezer, serial=6, properties=[QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:28:54,448 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:28:54,452 - monitoring_application - INFO - Environment controller starting with Environment(id=2, name=Chest Freezer, serial=5, properties=[QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:28:54,454 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:28:54,457 - monitoring_application - INFO - Environment controller starting with Environment(id=3, name=Chest Freezer, serial=12, properties=[QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:28:54,459 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:28:55,871 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:28:55,871 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:28:55,871 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:28:55,871 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:28:55,875 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:28:55,877 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:28:55,878 - monitoring_application - INFO - Environment application controller stopping
+2015-10-26 17:28:55,892 - monitoring_application - INFO - Quantitative Property Controller stopping with QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:28:55,892 - monitoring_application - INFO - Quantitative Property Controller stopping with QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:28:55,893 - monitoring_application - INFO - Quantitative Property Controller stopping with QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:36:32,525 - monitoring_application - INFO - Environment Application Controller starting
+2015-10-26 17:36:32,542 - monitoring_application - INFO - Environment controller starting with Environment(id=1, name=Chest Freezer, serial=6, properties=[QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:36:32,545 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:36:32,549 - monitoring_application - INFO - Environment controller starting with Environment(id=2, name=Chest Freezer, serial=5, properties=[QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:36:32,551 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:36:32,555 - monitoring_application - INFO - Environment controller starting with Environment(id=3, name=Chest Freezer, serial=12, properties=[QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:36:32,559 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:36:33,820 - monitoring_application - INFO - Environment Application Controller stopping
+2015-10-26 17:36:33,820 - monitoring_application - INFO - Environment Application Controller stopping
+2015-10-26 17:36:33,820 - monitoring_application - INFO - Environment Application Controller stopping
+2015-10-26 17:36:33,823 - monitoring_application - INFO - Environment Application Controller stopping
+2015-10-26 17:36:33,827 - monitoring_application - INFO - Environment Application Controller stopping
+2015-10-26 17:36:33,829 - monitoring_application - INFO - Environment Application Controller stopping
+2015-10-26 17:36:33,835 - monitoring_application - INFO - Quantitative Property Controller stopping with QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:36:33,835 - monitoring_application - INFO - Quantitative Property Controller stopping with QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:36:33,837 - monitoring_application - INFO - Quantitative Property Controller stopping with QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:36:33,840 - monitoring_application - INFO - Quantitative Property Controller stopping with QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:38:48,434 - monitoring_application - INFO - Environment Application Controller starting
+2015-10-26 17:38:48,444 - monitoring_application - INFO - Environment controller starting with Environment(id=1, name=Chest Freezer, serial=6, properties=[QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:38:48,446 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:38:48,450 - monitoring_application - INFO - Environment controller starting with Environment(id=2, name=Chest Freezer, serial=5, properties=[QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:38:48,453 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:38:48,455 - monitoring_application - INFO - Environment controller starting with Environment(id=3, name=Chest Freezer, serial=12, properties=[QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:38:48,457 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:38:49,112 - monitoring_application - INFO - Environment Application Controller stopping
+2015-10-26 17:38:49,112 - monitoring_application - INFO - Environment Application Controller stopping
+2015-10-26 17:38:49,112 - monitoring_application - INFO - Environment Application Controller stopping
+2015-10-26 17:38:49,115 - monitoring_application - INFO - Environment Application Controller stopping
+2015-10-26 17:38:49,115 - monitoring_application - INFO - Environment Application Controller stopping
+2015-10-26 17:38:49,123 - monitoring_application - INFO - Environment Application Controller stopping
+2015-10-26 17:38:49,136 - monitoring_application - INFO - Quantitative Property Controller stopping with QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:38:49,136 - monitoring_application - INFO - Quantitative Property Controller stopping with QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:46:48,334 - monitoring_application - INFO - Environment Application Controller starting
+2015-10-26 17:46:48,344 - monitoring_application - INFO - Environment controller starting with Environment(id=1, name=Chest Freezer, serial=6, properties=[QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:46:48,347 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:46:48,350 - monitoring_application - INFO - Environment controller starting with Environment(id=2, name=Chest Freezer, serial=5, properties=[QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:46:48,352 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:46:48,354 - monitoring_application - INFO - Environment controller starting with Environment(id=3, name=Chest Freezer, serial=12, properties=[QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:46:48,356 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:46:50,821 - monitoring_application - INFO - Environment Application Controller stopping
+2015-10-26 17:46:50,821 - monitoring_application - INFO - Environment Application Controller stopping
+2015-10-26 17:46:50,822 - monitoring_application - INFO - Environment Application Controller stopping
+2015-10-26 17:46:50,826 - monitoring_application - INFO - Environment Application Controller stopping
+2015-10-26 17:46:50,828 - monitoring_application - INFO - Environment Application Controller stopping
+2015-10-26 17:46:50,830 - monitoring_application - INFO - Environment Application Controller stopping
+2015-10-26 17:46:50,839 - monitoring_application - INFO - Quantitative Property Controller stopping with QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:46:50,841 - monitoring_application - INFO - Quantitative Property Controller stopping with QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:47:32,131 - monitoring_application - INFO - Environment Application Controller starting
+2015-10-26 17:47:32,145 - monitoring_application - INFO - Environment controller starting with Environment(id=1, name=Chest Freezer, serial=6, properties=[QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:47:32,148 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:47:32,151 - monitoring_application - INFO - Environment controller starting with Environment(id=2, name=Chest Freezer, serial=5, properties=[QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:47:32,153 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:47:32,156 - monitoring_application - INFO - Environment controller starting with Environment(id=3, name=Chest Freezer, serial=12, properties=[QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:47:32,158 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:47:33,176 - monitoring_application - INFO - Quantitative Property Controller stopping with QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:47:33,182 - monitoring_application - INFO - Quantitative Property Controller stopping with QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:47:41,641 - monitoring_application - INFO - Environment Application Controller starting
+2015-10-26 17:47:41,654 - monitoring_application - INFO - Environment controller starting with Environment(id=1, name=Chest Freezer, serial=6, properties=[QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:47:41,658 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:47:41,661 - monitoring_application - INFO - Environment controller starting with Environment(id=2, name=Chest Freezer, serial=5, properties=[QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:47:41,664 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:47:41,666 - monitoring_application - INFO - Environment controller starting with Environment(id=3, name=Chest Freezer, serial=12, properties=[QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:47:41,668 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:47:44,596 - monitoring_application - INFO - Quantitative Property Controller stopping with QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:47:44,598 - monitoring_application - INFO - Quantitative Property Controller stopping with QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:50:42,448 - monitoring_application - INFO - Environment Application Controller starting
+2015-10-26 17:50:42,462 - monitoring_application - INFO - Environment controller starting with Environment(id=1, name=Chest Freezer, serial=6, properties=[QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:50:42,465 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:50:42,468 - monitoring_application - INFO - Environment controller starting with Environment(id=2, name=Chest Freezer, serial=5, properties=[QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:50:42,471 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:50:42,473 - monitoring_application - INFO - Environment controller starting with Environment(id=3, name=Chest Freezer, serial=12, properties=[QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:50:42,476 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:50:43,408 - monitoring_application - INFO - Quantitative Property Controller stopping with QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:51:07,404 - monitoring_application - INFO - Environment Application Controller starting
+2015-10-26 17:51:07,414 - monitoring_application - INFO - Environment controller starting with Environment(id=1, name=Chest Freezer, serial=6, properties=[QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:51:07,416 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:51:07,420 - monitoring_application - INFO - Environment controller starting with Environment(id=2, name=Chest Freezer, serial=5, properties=[QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:51:07,422 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:51:07,425 - monitoring_application - INFO - Environment controller starting with Environment(id=3, name=Chest Freezer, serial=12, properties=[QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:51:07,428 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:51:08,022 - monitoring_application - INFO - Quantitative Property Controller stopping with QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:51:08,024 - monitoring_application - INFO - Quantitative Property Controller stopping with QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:53:15,393 - monitoring_application - INFO - Environment Application Controller starting
+2015-10-26 17:53:15,403 - monitoring_application - INFO - Environment controller starting with Environment(id=1, name=Chest Freezer, serial=6, properties=[QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:53:15,405 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:53:15,408 - monitoring_application - INFO - Environment controller starting with Environment(id=2, name=Chest Freezer, serial=5, properties=[QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:53:15,412 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:53:15,414 - monitoring_application - INFO - Environment controller starting with Environment(id=3, name=Chest Freezer, serial=12, properties=[QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))])
+2015-10-26 17:53:15,417 - monitoring_application - INFO - Quantitative Property Controller starting with QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:53:16,385 - monitoring_application - INFO - Environment Application Controller stopping
+2015-10-26 17:53:16,396 - monitoring_application - INFO - Quantitative Property Controller stopping with QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:53:16,397 - monitoring_application - INFO - Quantitative Property Controller stopping with QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:53:16,397 - monitoring_application - INFO - message received
+2015-10-26 17:53:16,397 - monitoring_application - INFO - message received
+2015-10-26 17:53:16,400 - monitoring_application - INFO - Quantitative Property Controller stopping with QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:53:16,400 - monitoring_application - INFO - message received
+2015-10-26 17:53:16,400 - monitoring_application - INFO - Quantitative Property Controller stopping with QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:53:16,401 - monitoring_application - INFO - message received
+2015-10-26 17:53:16,403 - monitoring_application - INFO - Quantitative Property Controller stopping with QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:53:16,404 - monitoring_application - INFO - message received
+2015-10-26 17:53:16,406 - monitoring_application - INFO - Quantitative Property Controller stopping with QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:53:16,406 - monitoring_application - INFO - message received
+2015-10-26 17:53:21,406 - monitoring_application - INFO - message received
+2015-10-26 17:53:21,407 - monitoring_application - INFO - message received
+2015-10-26 17:53:21,411 - monitoring_application - INFO - message received
+2015-10-26 17:53:22,202 - monitoring_application - INFO - Environment Application Controller stopping
+2015-10-26 17:53:22,207 - monitoring_application - INFO - Quantitative Property Controller stopping with QuantitativeProperty(id=3, type=Temperature, channel_bus=1, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:53:22,209 - monitoring_application - INFO - message received
+2015-10-26 17:53:22,210 - monitoring_application - INFO - Quantitative Property Controller stopping with QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=7, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:53:22,210 - monitoring_application - INFO - Quantitative Property Controller stopping with QuantitativeProperty(id=2, type=Temperature, channel_bus=3, channel_address=8, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-10-26 17:53:22,210 - monitoring_application - INFO - message received
+2015-10-26 17:53:22,211 - monitoring_application - INFO - message received
+2015-10-26 17:53:27,215 - monitoring_application - INFO - message received
+2015-10-26 17:53:27,216 - monitoring_application - INFO - message received
+2015-10-26 17:53:27,216 - monitoring_application - INFO - message received
+2015-10-26 17:53:32,221 - monitoring_application - INFO - message received
+2015-10-26 17:53:32,222 - monitoring_application - INFO - message received
+2015-10-26 17:53:32,222 - monitoring_application - INFO - message received
+2015-10-26 17:53:37,227 - monitoring_application - INFO - message received
+2015-10-26 17:53:37,227 - monitoring_application - INFO - message received
+2015-10-26 17:53:37,227 - monitoring_application - INFO - message received
+2015-10-26 17:53:42,232 - monitoring_application - INFO - message received
+2015-10-26 17:53:42,232 - monitoring_application - INFO - message received
+2015-10-26 17:53:42,232 - monitoring_application - INFO - message received
+2015-10-26 17:53:47,238 - monitoring_application - INFO - message received
+2015-10-26 17:53:47,238 - monitoring_application - INFO - message received
+2015-10-26 17:53:47,238 - monitoring_application - INFO - message received
+2015-10-26 17:53:52,240 - monitoring_application - INFO - message received
+2015-10-26 17:53:52,243 - monitoring_application - INFO - message received
+2015-10-26 17:53:52,243 - monitoring_application - INFO - message received
+2015-10-26 17:53:57,246 - monitoring_application - INFO - message received
+2015-10-26 17:53:57,248 - monitoring_application - INFO - message received
+2015-10-26 17:53:57,249 - monitoring_application - INFO - message received
+2015-10-26 17:54:02,254 - monitoring_application - INFO - message received
+2015-10-26 17:54:02,254 - monitoring_application - INFO - message received
+2015-10-26 17:54:07,256 - monitoring_application - INFO - message received
+2015-10-26 17:54:12,260 - monitoring_application - INFO - message received
+2015-10-26 17:54:17,265 - monitoring_application - INFO - message received
+2015-10-26 17:54:22,271 - monitoring_application - INFO - message received
+2015-10-26 17:54:27,276 - monitoring_application - INFO - message received

@@ -4,7 +4,7 @@ Mostly test interaction with the ORM
 from datetime import datetime
 
 from bin.models.environment import Environment
-from bin.models.atmospheric_condition import AtmosphericCondition
+from bin.models.quantitative_property import QuantitativeProperty
 from bin.models.expectation import Expectation
 from bin.models.alarm import Alarm
 from bin.models.reading import Reading
@@ -27,7 +27,7 @@ class ReadingModelTest(unittest.TestCase):
 
         test_expectation = Expectation(units="Test", low=0, high=0)
 
-        condition = AtmosphericCondition(
+        condition = QuantitativeProperty(
             type="Test1",
             channel_bus=0,
             channel_address=0,

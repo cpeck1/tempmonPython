@@ -32,42 +32,42 @@ Traceback (most recent call last):
 ImportError: No module named 'test'
 
 ======================================================================
-ERROR: test_assign_channels_some_channels_missing (tests.controllers.atmospheric_condition_controller_test.AtmosphericConditionControllerTestSuite)
+ERROR: test_assign_channels_some_channels_missing (tests.controllers.quantitative_property_controller_test.QuantitativePropertyControllerTestSuite)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/home/connor/workspace/tempmonPython/tests/controllers/atmospheric_condition_controller_test.py", line 145, in test_assign_channels_some_channels_missing
+  File "/home/connor/workspace/tempmonPython/tests/controllers/quantitative_property_controller_test.py", line 145, in test_assign_channels_some_channels_missing
     units="Celsius"
 TypeError: __init__() got an unexpected keyword argument 'address'
 
 ======================================================================
-ERROR: test_assign_channels_success (tests.controllers.atmospheric_condition_controller_test.AtmosphericConditionControllerTestSuite)
+ERROR: test_assign_channels_success (tests.controllers.quantitative_property_controller_test.QuantitativePropertyControllerTestSuite)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/home/connor/workspace/tempmonPython/tests/controllers/atmospheric_condition_controller_test.py", line 209, in test_assign_channels_success
+  File "/home/connor/workspace/tempmonPython/tests/controllers/quantitative_property_controller_test.py", line 209, in test_assign_channels_success
     units="Celsius"
 TypeError: __init__() got an unexpected keyword argument 'address'
 
 ======================================================================
-ERROR: test_gather_readings_few_alarms (tests.controllers.atmospheric_condition_controller_test.AtmosphericConditionControllerTestSuite)
+ERROR: test_gather_readings_few_alarms (tests.controllers.quantitative_property_controller_test.QuantitativePropertyControllerTestSuite)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/home/connor/workspace/tempmonPython/tests/controllers/atmospheric_condition_controller_test.py", line 395, in test_gather_readings_few_alarms
+  File "/home/connor/workspace/tempmonPython/tests/controllers/quantitative_property_controller_test.py", line 395, in test_gather_readings_few_alarms
     units="Celsius"
 TypeError: __init__() got an unexpected keyword argument 'address'
 
 ======================================================================
-ERROR: test_gather_readings_many_alarms (tests.controllers.atmospheric_condition_controller_test.AtmosphericConditionControllerTestSuite)
+ERROR: test_gather_readings_many_alarms (tests.controllers.quantitative_property_controller_test.QuantitativePropertyControllerTestSuite)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/home/connor/workspace/tempmonPython/tests/controllers/atmospheric_condition_controller_test.py", line 304, in test_gather_readings_many_alarms
+  File "/home/connor/workspace/tempmonPython/tests/controllers/quantitative_property_controller_test.py", line 304, in test_gather_readings_many_alarms
     units="Celsius"
 TypeError: __init__() got an unexpected keyword argument 'address'
 
 ======================================================================
-ERROR: test_gather_readings_no_alarms (tests.controllers.atmospheric_condition_controller_test.AtmosphericConditionControllerTestSuite)
+ERROR: test_gather_readings_no_alarms (tests.controllers.quantitative_property_controller_test.QuantitativePropertyControllerTestSuite)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/home/connor/workspace/tempmonPython/tests/controllers/atmospheric_condition_controller_test.py", line 486, in test_gather_readings_no_alarms
+  File "/home/connor/workspace/tempmonPython/tests/controllers/quantitative_property_controller_test.py", line 486, in test_gather_readings_no_alarms
     units="Celsius"
 TypeError: __init__() got an unexpected keyword argument 'address'
 

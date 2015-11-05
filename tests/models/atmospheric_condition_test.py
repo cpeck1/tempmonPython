@@ -2,7 +2,7 @@
 Mostly test interaction with the ORM
 """
 from bin.models.environment import Environment
-from bin.models.atmospheric_condition import AtmosphericCondition
+from bin.models.quantitative_property import QuantitativeProperty
 from bin.models.expectation import Expectation
 from bin.models.alarm import Alarm
 from bin.models.reading import Reading
@@ -15,7 +15,7 @@ from sqlalchemy.orm.exc import NoResultFound
 from bin.models import base
 from sqlalchemy.sql import exists
 
-class AtmosphericConditionModelTest(unittest.TestCase):
+class QuantitativePropertyModelTest(unittest.TestCase):
     def setUp(self):
         engine = create_engine("sqlite:///:memory:")
         base.Base.metadata.create_all(engine, checkfirst=True)
@@ -25,7 +25,7 @@ class AtmosphericConditionModelTest(unittest.TestCase):
         test_expectation = Expectation(units="Test", low=0, high=0)
 
         conditions = [
-            AtmosphericCondition(
+            QuantitativeProperty(
                 type="Test1",
                 channel_bus=0,
                 channel_address=0,
@@ -33,7 +33,7 @@ class AtmosphericConditionModelTest(unittest.TestCase):
                 rec_freq=0,
                 expectation=test_expectation
             ),
-            AtmosphericCondition(
+            QuantitativeProperty(
                 type="Test2",
                 channel_bus=1,
                 channel_address=1,
@@ -41,7 +41,7 @@ class AtmosphericConditionModelTest(unittest.TestCase):
                 rec_freq=0,
                 expectation=test_expectation
             ),
-            AtmosphericCondition(
+            QuantitativeProperty(
                 type="Test3",
                 channel_bus=2,
                 channel_address=2,
@@ -49,7 +49,7 @@ class AtmosphericConditionModelTest(unittest.TestCase):
                 rec_freq=2,
                 expectation=test_expectation
             ),
-            AtmosphericCondition(
+            QuantitativeProperty(
                 type="Test4",
                 channel_bus=3,
                 channel_address=3,
@@ -79,12 +79,12 @@ class AtmosphericConditionModelTest(unittest.TestCase):
     def tearDown(self):
         self.session.close()
     
-class AtmosphericConditionModelTestSuite(AtmosphericConditionModelTest):
+class QuantitativePropertyModelTestSuite(QuantitativePropertyModelTest):
     def test_access1(self):
         test_id = 1
         expected_type = "Test1"
-        ac = self.session.query(AtmosphericCondition).filter(
-            AtmosphericCondition.id == test_id
+        ac = self.session.query(QuantitativeProperty).filter(
+            QuantitativeProperty.id == test_id
         ).one()
         
         self.assertEqual(ac.type, expected_type)
@@ -93,8 +93,8 @@ class AtmosphericConditionModelTestSuite(AtmosphericConditionModelTest):
         test_id = 2
         expected_type = "Test2"
 
-        ac = self.session.query(AtmosphericCondition).filter(
-            AtmosphericCondition.id == test_id
+        ac = self.session.query(QuantitativeProperty).filter(
+            QuantitativeProperty.id == test_id
         ).one()
 
         self.assertEqual(ac.type, expected_type)
@@ -103,8 +103,8 @@ class AtmosphericConditionModelTestSuite(AtmosphericConditionModelTest):
         test_id = 3
         expected_type = "Test3"
 
-        ac = self.session.query(AtmosphericCondition).filter(
-            AtmosphericCondition.id == test_id
+        ac = self.session.query(QuantitativeProperty).filter(
+            QuantitativeProperty.id == test_id
         ).one()
         self.assertEqual(ac.type, expected_type)
 
@@ -112,8 +112,8 @@ class AtmosphericConditionModelTestSuite(AtmosphericConditionModelTest):
         test_id = 4
         expected_type = "Test4"
 
-        ac = self.session.query(AtmosphericCondition).filter(
-            AtmosphericCondition.id == test_id
+        ac = self.session.query(QuantitativeProperty).filter(
+            QuantitativeProperty.id == test_id
         ).one()
 
         self.assertEqual(ac.type, expected_type)
@@ -128,16 +128,16 @@ class AtmosphericConditionModelTestSuite(AtmosphericConditionModelTest):
             high=10000
         )
 
-        ac = self.session.query(AtmosphericCondition).filter(
-            AtmosphericCondition.id == test_id
+        ac = self.session.query(QuantitativeProperty).filter(
+            QuantitativeProperty.id == test_id
         ).one()
         ac.expectation = altered_expectation
 
         self.session.add(ac)
         self.session.commit()
         
-        same_ac = self.session.query(AtmosphericCondition).filter(
-            AtmosphericCondition.id == test_id
+        same_ac = self.session.query(QuantitativeProperty).filter(
+            QuantitativeProperty.id == test_id
         ).one()
 
         self.assertEqual(
@@ -147,8 +147,8 @@ class AtmosphericConditionModelTestSuite(AtmosphericConditionModelTest):
 
     def test_add_reading(self):
         test_id = 1
-        ac = self.session.query(AtmosphericCondition).filter(
-            AtmosphericCondition.id == test_id
+        ac = self.session.query(QuantitativeProperty).filter(
+            QuantitativeProperty.id == test_id
         ).one()
 
         ac.readings.append(Reading(units="Test1234", value=123456.789))
@@ -156,8 +156,8 @@ class AtmosphericConditionModelTestSuite(AtmosphericConditionModelTest):
         self.session.add(ac)
         self.session.commit()
 
-        same_ac = self.session.query(AtmosphericCondition).filter(
-            AtmosphericCondition.id == test_id
+        same_ac = self.session.query(QuantitativeProperty).filter(
+            QuantitativeProperty.id == test_id
         ).one()
 
         last_reading = same_ac.most_recent_reading()
@@ -172,16 +172,16 @@ class AtmosphericConditionModelTestSuite(AtmosphericConditionModelTest):
 
     def test_most_recent_alarm1(self):
         test_id = 1
-        ac = self.session.query(AtmosphericCondition).filter(
-            AtmosphericCondition.id == test_id
+        ac = self.session.query(QuantitativeProperty).filter(
+            QuantitativeProperty.id == test_id
         ).one()
 
         self.assertTrue(ac.most_recent_alarm() is None)
 
     def test_most_recent_alarm2(self):
         test_id = 1
-        ac = self.session.query(AtmosphericCondition).filter(
-            AtmosphericCondition.id == test_id
+        ac = self.session.query(QuantitativeProperty).filter(
+            QuantitativeProperty.id == test_id
         ).one()
         
         alarm = Alarm() 
@@ -192,8 +192,8 @@ class AtmosphericConditionModelTestSuite(AtmosphericConditionModelTest):
 
         actual_most_recent_alarm_id = alarm.id
 
-        ac = self.session.query(AtmosphericCondition).filter(
-            AtmosphericCondition.id == test_id
+        ac = self.session.query(QuantitativeProperty).filter(
+            QuantitativeProperty.id == test_id
         ).one()
         
         self.assertEqual(
@@ -203,8 +203,8 @@ class AtmosphericConditionModelTestSuite(AtmosphericConditionModelTest):
 
     def test_alarm_active1(self):
         test_id = 1
-        ac = self.session.query(AtmosphericCondition).filter(
-            AtmosphericCondition.id == test_id
+        ac = self.session.query(QuantitativeProperty).filter(
+            QuantitativeProperty.id == test_id
         ).one()
         
         alarm = Alarm() 
@@ -213,16 +213,16 @@ class AtmosphericConditionModelTestSuite(AtmosphericConditionModelTest):
         self.session.add(ac)
         self.session.commit()
 
-        ac = self.session.query(AtmosphericCondition).filter(
-            AtmosphericCondition.id == test_id
+        ac = self.session.query(QuantitativeProperty).filter(
+            QuantitativeProperty.id == test_id
         ).one()
         
         self.assertTrue(ac.alarm_active())
 
     def test_alarm_active2(self):
         test_id = 1
-        ac = self.session.query(AtmosphericCondition).filter(
-            AtmosphericCondition.id == test_id
+        ac = self.session.query(QuantitativeProperty).filter(
+            QuantitativeProperty.id == test_id
         ).one()
         
         alarm = Alarm() 
@@ -232,8 +232,8 @@ class AtmosphericConditionModelTestSuite(AtmosphericConditionModelTest):
         self.session.add(ac)
         self.session.commit()
 
-        ac = self.session.query(AtmosphericCondition).filter(
-            AtmosphericCondition.id == test_id
+        ac = self.session.query(QuantitativeProperty).filter(
+            QuantitativeProperty.id == test_id
         ).one()
 
         self.assertFalse(
@@ -244,8 +244,8 @@ class AtmosphericConditionModelTestSuite(AtmosphericConditionModelTest):
         # no record committed for conditions[0]
         test_id = 1
         
-        ac = self.session.query(AtmosphericCondition).filter(
-            AtmosphericCondition.id == test_id
+        ac = self.session.query(QuantitativeProperty).filter(
+            QuantitativeProperty.id == test_id
         ).one()
                        
         self.assertTrue(
@@ -255,8 +255,8 @@ class AtmosphericConditionModelTestSuite(AtmosphericConditionModelTest):
     def test_record_due2(self):
         test_id = 2
         
-        ac = self.session.query(AtmosphericCondition).filter(
-            AtmosphericCondition.id == test_id
+        ac = self.session.query(QuantitativeProperty).filter(
+            QuantitativeProperty.id == test_id
         ).one()
                        
         self.assertTrue(
@@ -266,16 +266,16 @@ class AtmosphericConditionModelTestSuite(AtmosphericConditionModelTest):
     def test_record_due3(self):
         test_id = 2
         
-        ac = self.session.query(AtmosphericCondition).filter(
-            AtmosphericCondition.id == test_id
+        ac = self.session.query(QuantitativeProperty).filter(
+            QuantitativeProperty.id == test_id
         ).one()
         
         ac.recording_frequency = 15
         self.session.add(ac)
         self.session.commit()
 
-        ac = self.session.query(AtmosphericCondition).filter(
-            AtmosphericCondition.id == test_id
+        ac = self.session.query(QuantitativeProperty).filter(
+            QuantitativeProperty.id == test_id
         ).one()
 
         self.assertFalse(
@@ -286,8 +286,8 @@ class AtmosphericConditionModelTestSuite(AtmosphericConditionModelTest):
         # make sure orphans are removed
         test_id = 3
 
-        ac = self.session.query(AtmosphericCondition).filter(
-            AtmosphericCondition.id == test_id
+        ac = self.session.query(QuantitativeProperty).filter(
+            QuantitativeProperty.id == test_id
         ).one()
 
         ac.readings = []
@@ -295,7 +295,7 @@ class AtmosphericConditionModelTestSuite(AtmosphericConditionModelTest):
         self.session.commit()
 
         q = self.session.query(Reading).filter(
-            Reading.atmospheric_condition_id==test_id
+            Reading.quantitative_property_id==test_id
         ).all()
 
         self.assertEqual(q, [])
@@ -304,8 +304,8 @@ class AtmosphericConditionModelTestSuite(AtmosphericConditionModelTest):
         # make sure orphans are removed
         test_id = 4
 
-        ac = self.session.query(AtmosphericCondition).filter(
-            AtmosphericCondition.id == test_id
+        ac = self.session.query(QuantitativeProperty).filter(
+            QuantitativeProperty.id == test_id
         ).one()
 
         ac.alarms = []
@@ -313,7 +313,7 @@ class AtmosphericConditionModelTestSuite(AtmosphericConditionModelTest):
         self.session.commit()
 
         q = self.session.query(Alarm).filter(
-            Alarm.atmospheric_condition_id==test_id
+            Alarm.quantitative_property_id==test_id
         ).all()
 
         self.assertEqual(q, [])
@@ -322,15 +322,15 @@ class AtmosphericConditionModelTestSuite(AtmosphericConditionModelTest):
     def test_delete1(self):
         test_id = 3
         
-        ac = self.session.query(AtmosphericCondition).filter(
-            AtmosphericCondition.id == test_id
+        ac = self.session.query(QuantitativeProperty).filter(
+            QuantitativeProperty.id == test_id
         ).one()
         
         self.session.delete(ac)
         self.session.commit()
 
-        ac = self.session.query(AtmosphericCondition).filter(
-            AtmosphericCondition.id == test_id
+        ac = self.session.query(QuantitativeProperty).filter(
+            QuantitativeProperty.id == test_id
         ).all()
 
         self.assertEqual(ac, [])
@@ -339,15 +339,15 @@ class AtmosphericConditionModelTestSuite(AtmosphericConditionModelTest):
         # make sure delete cascades 1
         test_id = 1
         
-        ac = self.session.query(AtmosphericCondition).filter(
-            AtmosphericCondition.id == test_id
+        ac = self.session.query(QuantitativeProperty).filter(
+            QuantitativeProperty.id == test_id
         ).one()
         
         self.session.delete(ac)
         self.session.commit()
 
         q = self.session.query(Reading).filter(
-            Reading.atmospheric_condition_id==test_id
+            Reading.quantitative_property_id==test_id
         ).all()
 
         self.assertEqual(q, [])
@@ -356,15 +356,15 @@ class AtmosphericConditionModelTestSuite(AtmosphericConditionModelTest):
         # make sure delete cascades 2
         test_id = 4
         
-        ac = self.session.query(AtmosphericCondition).filter(
-            AtmosphericCondition.id == test_id
+        ac = self.session.query(QuantitativeProperty).filter(
+            QuantitativeProperty.id == test_id
         ).one()
         
         self.session.delete(ac)
         self.session.commit()
 
         q = self.session.query(Alarm).filter(
-            Alarm.atmospheric_condition_id==test_id
+            Alarm.quantitative_property_id==test_id
         ).all()
 
         self.assertEqual(q, [])

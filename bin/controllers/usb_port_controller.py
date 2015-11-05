@@ -4,51 +4,22 @@ import json
 
 from multiprocessing import Process
 
+from bin.models.usb_operation import UsbOperation
+
 from bin.services.transmitter_index import TransmitterIndex
 from bin.infrastructure.usb_bus import *
-
+from bin.infrastructure.networking_library import NetworkingManager
 logger = logging.getLogger("monitoring_application")
-
-class Message():
-    def __init__(self, action, usb_device):
-        self.source = 'usb_port_controller'
-        self.usb_device = usb_device
-        self.action = action
-
-    def jsonify(self):
-        return json.dumps(self, default=lambda o: o.__dict__)
-
-class CommunicationsBus:
-    def __init__(self):
-        pass
-
-    def listen(self):
-        return Message()
-
-    def send(self, destination, message):
-        print(message.jsonify())
-
 
 class UsbPortController:
     def __init__(self):
-        signal.signal(signal.SIGTERM, self.stop)
-
-        self.comm_bus = CommunicationsBus()
         self.observer = None
-
         self.usb_bus = UsbBus.Instance()
 
-        # initially filter through the usb devices already present
-        # in the system
-        for usb_device in self.usb_bus.devices:
-            message = Message('add', usb_device)
-            self.comm_bus.send('transmitter_application_controller', message)
-
-    def stop(self, _signo, _stack_frame):
-        self.observer.stop()
-
-        logger.info("USB Port Controller stopping")
-        exit(0)
+        self.operations_pending = []
+        for device in self.usb_bus.devices:
+            new_op = UsbOperation(device, 'add')
+            self.operations_pending.append(new_op)
 
     def handle_event(self, action, device):
         '''
@@ -57,15 +28,23 @@ class UsbPortController:
         '''
         if not device.attributes:
             usb_device = self.usb_bus.find_with(path=device.device_path)
+            new_op = UsbOperation(usb_device, 'remove')
+            self.operations_pending.append(new_op)
+            self.usb_bus.remove(usb_device)
         else:
             usb_device = UsbDevice(device)
+            logger.info("New USB device: "+repr(usb_device))
             self.usb_bus.add(usb_device)
+            new_op = UsbOperation(usb_device, 'add')
+            self.operations_pending.append(new_op)
 
-        message = Message(action, usb_device)
-        self.comm_bus.send('transmitter_application_controller', message)
+    def dispatch_operations(self, pair):
+        if self.operations_pending:
+            operation = self.operations_pending[0]
+            pair.send_string(operation.to_json())
 
     def run(self):
-        logger.info("Usb Port Controller starting")
+        logger.info("USB Port Controller starting")
 
         context = pyudev.Context()
         monitor = pyudev.Monitor.from_netlink(context)
@@ -73,6 +52,35 @@ class UsbPortController:
         self.observer = pyudev.MonitorObserver(monitor, self.handle_event)
         self.observer.start()
 
+        # Kill broadcast subscriber
+        kbsubscriber = NetworkingManager.KillBroadcastSubscriber()
+        usb_monitor_pair = NetworkingManager.UsbMonitorPairServer()
+
+        poller = NetworkingManager.Poller()
+        poller.register(kbsubscriber, NetworkingManager.POLLIN)
+        poller.register(usb_monitor_pair, NetworkingManager.POLLIN)
+
         while True:
-            logger.info("USB Port Controller running")
-            time.sleep(1)
+            self.dispatch_operations(usb_monitor_pair)
+
+            socks = dict(poller.poll(50))
+
+            if usb_monitor_pair.contained_in(socks):
+                #TODO: replace with function
+                message = usb_monitor_pair.recv_string()
+                operation = UsbOperation.from_json(message)
+                try:
+                    self.operations_pending.remove(operation)
+                except ValueError:
+                    logger.info(
+                        "Operation not found in pending operations"+
+                        message
+                    )
+
+            if kbsubscriber.contained_in(socks):
+                message = kbsubscriber.recv_string()
+                filter, command = message.split()
+
+                if command == "KILL":
+                    logger.info("USB Port Controller stopping")
+                    break

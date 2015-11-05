@@ -3,7 +3,7 @@ from datetime import datetime
 
 from sqlalchemy import *
 from .base import Base
-from sqlalchemy.orm import relationship 
+from sqlalchemy.orm import relationship
 
 from bin.models.alarm import Alarm
 
@@ -20,14 +20,15 @@ class Environment(Base):
     name = Column(String)
     serial = Column(String, unique=True)
 
-    atmospheric_conditions = relationship("AtmosphericCondition", 
+    quantitative_properties = relationship("QuantitativeProperty",
                                           backref='environment',
                                           cascade="all, delete, delete-orphan")
 
     def __repr__(self):
-        return "Environment(id={}, name={}, serial={}".format(
+        return "Environment(id={}, name={}, serial={}, properties={})".format(
             self.id,
             self.name,
-            self.serial
+            self.serial,
+            [p for p in self.quantitative_properties]
         )
 

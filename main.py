@@ -1,4 +1,4 @@
-import time, sys, logging, argparse
+import time, sys, logging, argparse, zmq
 from multiprocessing import Process
 
 from datetime import date
@@ -10,13 +10,18 @@ from bin.controllers.usb_port_controller import UsbPortController
 from bin.controllers.transmitter_application_controller import (
     TransmitterApplicationController
 )
+from bin.controllers.environment_application_controller import (
+    EnvironmentApplicationController
+)
 
 # need to import models in this order so that each is added to the
 # declarative base of sqlalchemy
 from bin.models import environment, transmitter, admin, address
-from bin.models import atmospheric_condition, channel
+from bin.models import quantitative_property, channel
 from bin.models import expectation
 from bin.models import reading, alarm
+
+from bin.infrastructure.networking_library import NetworkingManager
 
 if __name__ == "__main__":
     # parse arguments from stdin
@@ -54,6 +59,9 @@ if __name__ == "__main__":
     logger.addHandler(fh)
     logger.addHandler(ch)
 
+    # initialize messaging
+    kbpublisher = NetworkingManager.KillBroadcastPublisher()
+
     # initialize the process controllers
     usb_port_controller = UsbPortController()
     upc = Process(target=usb_port_controller.run)
@@ -65,5 +73,21 @@ if __name__ == "__main__":
     tap.daemon = False
     tap.start()
 
-    upc.join()
-    tap.join()
+    environment_application_controller = EnvironmentApplicationController(
+        session
+    )
+    ec = Process(target=environment_application_controller.run)
+    ec.daemon = False
+    ec.start()
+
+    # time.sleep(10)
+    # logger.info("Attempting to terminate transmitter application controller..")
+    # tap.terminate()
+
+    # upc.join()
+    # tap.join()
+    try:
+        input()
+    except EOFError:
+        while tap.is_alive() or upc.is_alive() or ec.is_alive():
+            kbpublisher.send_string("KILL")

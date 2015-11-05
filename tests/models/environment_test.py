@@ -2,7 +2,7 @@
 Mostly test interaction with the ORM
 """
 from bin.models.environment import Environment
-from bin.models.atmospheric_condition import AtmosphericCondition
+from bin.models.quantitative_property import QuantitativeProperty
 from bin.models.expectation import Expectation
 from bin.models.alarm import Alarm
 from bin.models.reading import Reading
@@ -28,13 +28,13 @@ class EnvironmentModelTest(unittest.TestCase):
             Environment(
                 name="Test Environment 1",
                 serial="test1",
-                atmospheric_conditions=[]
+                quantitative_properties=[]
             ),
             Environment(
                 name="Test Environment 2",
                 serial="test2",
-                atmospheric_conditions=[
-                    AtmosphericCondition(
+                quantitative_properties=[
+                    QuantitativeProperty(
                         type="test2",
                         channel_bus=0,
                         channel_address=0,
@@ -47,8 +47,8 @@ class EnvironmentModelTest(unittest.TestCase):
             Environment(
                 name="Test Environment 3",
                 serial="test3",
-                atmospheric_conditions=[
-                    AtmosphericCondition(
+                quantitative_properties=[
+                    QuantitativeProperty(
                         type="test3",
                         channel_bus=0,
                         channel_address=0,
@@ -56,7 +56,7 @@ class EnvironmentModelTest(unittest.TestCase):
                         rec_freq=0,
                         expectation=test_expectation
                     ),
-                    AtmosphericCondition(
+                    QuantitativeProperty(
                         type="test3",
                         channel_bus=0,
                         channel_address=0,
@@ -69,8 +69,8 @@ class EnvironmentModelTest(unittest.TestCase):
             Environment(
                 name="Test Environment 4",
                 serial="test4",
-                atmospheric_conditions=[
-                    AtmosphericCondition(
+                quantitative_properties=[
+                    QuantitativeProperty(
                         type="test4",
                         channel_bus=0,
                         channel_address=0,
@@ -78,7 +78,7 @@ class EnvironmentModelTest(unittest.TestCase):
                         rec_freq=0,
                         expectation=test_expectation
                     ),
-                    AtmosphericCondition(
+                    QuantitativeProperty(
                         type="test4",
                         channel_bus=0,
                         channel_address=0,
@@ -86,7 +86,7 @@ class EnvironmentModelTest(unittest.TestCase):
                         rec_freq=0,
                         expectation=test_expectation
                     ),
-                    AtmosphericCondition(
+                    QuantitativeProperty(
                         type="test4",
                         channel_bus=0,
                         channel_address=0,
@@ -94,7 +94,7 @@ class EnvironmentModelTest(unittest.TestCase):
                         rec_freq=0,
                         expectation=test_expectation
                     ),
-                    AtmosphericCondition(
+                    QuantitativeProperty(
                         type="test4",
                         channel_bus=0,
                         channel_address=0,
@@ -102,7 +102,7 @@ class EnvironmentModelTest(unittest.TestCase):
                         rec_freq=0,
                         expectation=test_expectation
                     ),
-                    AtmosphericCondition(
+                    QuantitativeProperty(
                         type="test4",
                         channel_bus=0,
                         channel_address=0,
@@ -110,7 +110,7 @@ class EnvironmentModelTest(unittest.TestCase):
                         rec_freq=0,
                         expectation=test_expectation
                     ),
-                    AtmosphericCondition(
+                    QuantitativeProperty(
                         type="test4",
                         channel_bus=0,
                         channel_address=0,
@@ -118,7 +118,7 @@ class EnvironmentModelTest(unittest.TestCase):
                         rec_freq=0,
                         expectation=test_expectation
                     ),
-                    AtmosphericCondition(
+                    QuantitativeProperty(
                         type="test4",
                         channel_bus=0,
                         channel_address=0,
@@ -126,7 +126,7 @@ class EnvironmentModelTest(unittest.TestCase):
                         rec_freq=0,
                         expectation=test_expectation
                     ),
-                    AtmosphericCondition(
+                    QuantitativeProperty(
                         type="test4",
                         channel_bus=0,
                         channel_address=0,
@@ -134,7 +134,7 @@ class EnvironmentModelTest(unittest.TestCase):
                         rec_freq=0,
                         expectation=test_expectation
                     ),
-                    AtmosphericCondition(
+                    QuantitativeProperty(
                         type="test4",
                         channel_bus=0,
                         channel_address=0,
@@ -142,7 +142,7 @@ class EnvironmentModelTest(unittest.TestCase):
                         rec_freq=0,
                         expectation=test_expectation
                     ),
-                    AtmosphericCondition(
+                    QuantitativeProperty(
                         type="test4",
                         channel_bus=0,
                         channel_address=0,
@@ -183,7 +183,7 @@ class EnvironmentModelTestSuite(EnvironmentModelTest):
             Environment.id == test_id
         ).one()
         
-        self.assertEqual(env.atmospheric_conditions, [])
+        self.assertEqual(env.quantitative_properties, [])
 
 
     def test_access3(self):
@@ -206,7 +206,7 @@ class EnvironmentModelTestSuite(EnvironmentModelTest):
             Environment.id == test_id
         ).one()
 
-        for ac in env.atmospheric_conditions:
+        for ac in env.quantitative_properties:
             self.assertEqual(ac.type, expected_condition_type)
 
     def test_access5(self):
@@ -230,7 +230,7 @@ class EnvironmentModelTestSuite(EnvironmentModelTest):
             Environment.id == test_id
         ).one()
 
-        for ac in env.atmospheric_conditions:
+        for ac in env.quantitative_properties:
             self.assertEqual(ac.type, expected_condition_type)
 
 
@@ -255,7 +255,7 @@ class EnvironmentModelTestSuite(EnvironmentModelTest):
             Environment.id == test_id
         ).one()
 
-        for ac in env.atmospheric_conditions:
+        for ac in env.quantitative_properties:
             self.assertEqual(ac.type, expected_condition_type)
 
     def test_modify1(self):
@@ -279,7 +279,7 @@ class EnvironmentModelTestSuite(EnvironmentModelTest):
     def test_modify2(self):
         test_id = 3
         new_ac_value = [
-            AtmosphericCondition(
+            QuantitativeProperty(
                 type="New Test AC",
                 channel_bus=0,
                 channel_address=0,
@@ -293,7 +293,7 @@ class EnvironmentModelTestSuite(EnvironmentModelTest):
             Environment.id == test_id
         ).one()
         
-        env.atmospheric_conditions = new_ac_value
+        env.quantitative_properties = new_ac_value
         self.session.add(env)
         self.session.commit()
 
@@ -302,7 +302,7 @@ class EnvironmentModelTestSuite(EnvironmentModelTest):
         ).one()
         
         self.assertEqual(
-            env2.atmospheric_conditions[0].type, 
+            env2.quantitative_properties[0].type, 
             new_ac_value[0].type
         )
         
@@ -333,11 +333,11 @@ class EnvironmentModelTestSuite(EnvironmentModelTest):
             Environment.id == test_id
         ).one()
 
-        deleted_type = env.atmospheric_conditions[0].type
+        deleted_type = env.quantitative_properties[0].type
         self.session.delete(env)
         self.session.commit()
         
-        atm = self.session.query(AtmosphericCondition).filter(
-            AtmosphericCondition.type.like('%{}%'.format(deleted_type))
+        atm = self.session.query(QuantitativeProperty).filter(
+            QuantitativeProperty.type.like('%{}%'.format(deleted_type))
         ).all()
         self.assertEqual(atm, [])

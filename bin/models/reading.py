@@ -26,7 +26,7 @@ class Reading(Base):
     units: the units of the measurement
     value: the value of the measurement
     time: the time at which the measurement was taken
-    atmospheric_condition_id: the id of the condition to which this 
+    quantitative_property_id: the id of the condition to which this 
     reading belongs
     """
     __tablename__='reading'
@@ -36,14 +36,14 @@ class Reading(Base):
     value = Column(Float)
     time = Column(DateTime, default=datetime.now())
 
-    atmospheric_condition_id = Column(Integer, 
-                                      ForeignKey('atmospheric_condition.id'))
+    quantitative_property_id = Column(Integer, 
+                                      ForeignKey('quantitative_property.id'))
     
     def __repr__(self):
-        return "Reading(id={}, units={}, value={}, time={}, atmospheric_condition_id={}".format(
+        return "Reading(id={}, units={}, value={}, time={}, quantitative_property_id={}".format(
             self.id,
             self.units,
             self.value,
             self.time,
-            self.atmospheric_condition_id
+            self.quantitative_property_id
         )

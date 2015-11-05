@@ -67,7 +67,8 @@ class Transmitter:
         self.close_method = close_method
 
     def __repr__(self):
-        return "Transmitter(num_channels={}, channel_units={})".format(
+        return "Transmitter(usb_device={}, num_channels={}, channel_units={})".format(
+            self.usb_device,
             self.num_channels,
             self.channel_units
         )

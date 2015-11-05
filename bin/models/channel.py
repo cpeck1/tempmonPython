@@ -35,6 +35,15 @@ class Channel:
         self.current_state_value = None
         self.last_update_time = None
 
+    def __repr__(self):
+        return "Channel(usb_device={}, channel_number={}, current_state_value={}, units={}, last_update_time={})".format(
+            self.usb_device,
+            self.channel_number,
+            self.current_state_value,
+            self.units,
+            self.last_update_time
+        )
+
     def read(self):
         """read this channel using the tools given by the transmitter"""
         if (not callable(self.read_method)):

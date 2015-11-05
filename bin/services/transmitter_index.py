@@ -145,11 +145,8 @@ t_cache.build(directory)
 
 class TransmitterIndex:
     def find_matching(device, cache=None):
-        logger.info("Transmitter cache contents:")
-        logger.info("---------------------------")
         for trans in t_cache.cache:
             logger.info(repr(trans))
-        logger.info("---------------------------")
 
         if cache is None: cache = t_cache # allows for testing
         transmitter = cache.find_by_vid_pid(
@@ -157,11 +154,6 @@ class TransmitterIndex:
             device.idProduct
         )
         if transmitter is not None:
-            logger.debug(
-                "Transmitter discovered among usb devices: " + (
-                    repr(transmitter)
-                )
-            )
             return Transmitter(
                 usb_device=device,
                 num_channels=len(transmitter.channel_units),
@@ -172,11 +164,8 @@ class TransmitterIndex:
             )
 
     def filter(usb_list, cache=None):
-        logger.info("Transmitter cache contents:")
-        logger.info("---------------------------")
         for trans in t_cache.cache:
             logger.info(repr(trans))
-        logger.info("---------------------------")
 
         if cache is None: cache = t_cache # allows for testing
         transmitter_list = []
@@ -186,11 +175,6 @@ class TransmitterIndex:
                 device.idProduct
             )
             if transmitter is not None:
-                logger.debug(
-                    "Transmitter discovered among usb devices: " + (
-                        repr(transmitter)
-                    )
-                )
                 # combine transmitter data with bus number and address
                 # and append to transmitter_list
                 transmitter_list.append(

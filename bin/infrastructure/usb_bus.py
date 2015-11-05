@@ -37,15 +37,22 @@ class UsbBus:
         if self.find(device) is None:
             self.devices.append(device)
 
+    def remove(self, device):
+        """
+        attempt to remove the device from the usb bus
+        if it is not in the usb bus do nothing
+        """
+        self.devices.remove(device)
+
     def find(self, device):
         """
         return the index that device appears at within the bus, or
         none if the device is not in the bus
         """
-        for index, dev in enumerate(self.devices):
-            if dev == device:
-                return index
-        return None
+        try:
+            return self.devices.index(device)
+        except ValueError:
+            return None
 
     def find_with(self, **attributes):
         for device in self.devices:
@@ -89,23 +96,23 @@ class UsbDevice:
         Instantiate a usb device using attributes. This circumvents
         initially instantiating a class within the usb translator
         library, and creates a more organic interface with the usb
-        devices on the system.
-
-        Pass attributes in "key=value" pairs. By default this
-        function finds the attribute using Pyusb as this has the
-        simplest interface.
+        devices on the system. However, there is no confirmation
+        that this device is actually present or was present on the
+        system at some point
         """
-        device = PyudevDevice.find_using_attributes(**attributes)
-        if device:
-            return cls.from_device(device)
-        else:
-            raise DeviceNotFoundError(
-                "No device found on system with attributes: "+
-                str(attributes)
-            )
+        return cls(
+            usb_device=None,
+            path=attributes['path'],
+            bus=attributes['bus'],
+            device=attributes['device'],
+            idVendor=attributes['idVendor'],
+            idProduct=attributes['idProduct'],
+            product=attributes['product'],
+            manufacturer=attributes['manufacturer']
+        )
 
     @classmethod
-    def from_json(cls, json_string):
+    def from_json(cls, json_obj):
         """
         Instantiate a usb device using the attributes contained
         within the json_string identifying a usb device.
@@ -113,53 +120,83 @@ class UsbDevice:
         Extract the necessary attributes and use the from_attributes
         class method to instantiate a usb device object
         """
-        dct = json.loads(json_string)
+        if type(json_obj) == str:
+            dct = json.loads(json_obj)
+        elif type(json_obj) == dict:
+            dct = json_obj
+
         return cls.from_attributes(
             path=dct['path'],
             bus=dct['bus'],
             device=dct['device'],
             idVendor=dct['idVendor'],
-            idProduct=dct['idProduct']
+            idProduct=dct['idProduct'],
+            product=dct['product'],
+            manufacturer=dct['manufacturer']
         )
 
-    def __init__(self, device):
+    def __init__(
+            self,
+            usb_device = None,
+            path = None,
+            bus = None,
+            device = None,
+            idVendor = None,
+            idProduct = None,
+            product = None,
+            manufacturer = None
+    ):
         """
-        We need to find the corresponding device in both the pyudev
-        and the libusb1 libraries. Between the two we can gather all
-        the information we need about the device and combine it
-        together into a unified whole. Start by finding the pyudev
-        equivalent of the given device
+        Construct a USB device out of a device from the USB
+        translation library or using the known arguments bus, device
+        number etc. Note if a USB device is instantiated using
+        attributes ALL necessary attributes must be provided.
         """
-        pyudev_device = None
-        if device is None:
-            raise DeviceNotFoundError
-        elif isinstance(device, pyudev.device.Device):
-            pyudev_device = PyudevDevice(device)
-        elif isinstance(device, usb1.USBDevice):
-            pyudev_device = PyudevDevice.find_using_device(
-                Libusb1Device(device)
-            )
-        elif isinstance(device, usb.core.Device):
-            pyudev_device = PyudevDevice.find_using_device(
-                PyusbDevice(device)
-            )
+        if usb_device is None:
+            self.path = path
+            self.bus = bus
+            self.device = device
+            self.idVendor = idVendor
+            self.idProduct = idProduct
+            self.manufacturer = manufacturer
+            self.product = product
+
         else:
-            raise UnsupportedUsbLibraryError
+            pyudev_device = None
+            if isinstance(usb_device, pyudev.device.Device):
+                pyudev_device = PyudevDevice(usb_device)
+            elif isinstance(usb_device, usb1.USBDevice):
+                pyudev_device = PyudevDevice.find_using_device(
+                    Libusb1Device(usb_device)
+                )
+            elif isinstance(usb_device, usb.core.Device):
+                pyudev_device = PyudevDevice.find_using_device(
+                    PyusbDevice(usb_device)
+                )
+            else:
+                raise UnsupportedUsbLibraryError
 
-        if pyudev_device is None: raise InvalidDeviceError
+            if pyudev_device is None:
+                raise InvalidDeviceError
 
-        self.path = pyudev_device.path
-        self.bus = pyudev_device.bus
-        self.device = pyudev_device.device
-        self.idVendor = pyudev_device.idVendor
-        self.idProduct = pyudev_device.idProduct
-        self.manufacturer = pyudev_device.manufacturer
-        self.product = pyudev_device.product
+            self.path = pyudev_device.path
+            self.bus = pyudev_device.bus
+            self.device = pyudev_device.device
+            self.idVendor = pyudev_device.idVendor
+            self.idProduct = pyudev_device.idProduct
+            self.manufacturer = pyudev_device.manufacturer
+            self.product = pyudev_device.product
 
-        # now we need the libusb1 equivalent in order to determine the
-        # device port
-        libusb_device = Libusb1Device.find_using_device(pyudev_device)
-        self.port = libusb_device.port
+    def __dict__(self):
+        return dict(
+            path=self.path,
+            bus=self.bus,
+            device=self.device,
+            idVendor=self.idVendor,
+            idProduct=self.idProduct,
+            manufacturer=self.manufacturer,
+            product=self.product
+        )
 
     def __eq__(self, other):
         if isinstance(other, type(self)):
@@ -185,3 +222,6 @@ class UsbDevice:
             self.manufacturer,
             self.product
         )
+
+    def to_json(self):
+        return json.dumps(self.__dict__(), ensure_ascii=False)

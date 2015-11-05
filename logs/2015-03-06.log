@@ -2,7 +2,7 @@
 2015-03-06 12:34:25,189 - monitoring_application - INFO - Environment Controller initializing
 2015-03-06 12:34:25,207 - monitoring_application - INFO - Environment Controller initialized
 2015-03-06 12:34:25,208 - monitoring_application - INFO - Atmospheric Condition Controller initializing
-2015-03-06 12:34:25,210 - monitoring_application - INFO - Creating condition controller with conditions: [AtmosphericCondition(id=1, type=Temperature, channel_bus=3, channel_address=2, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))]
+2015-03-06 12:34:25,210 - monitoring_application - INFO - Creating condition controller with conditions: [QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=2, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))]
 2015-03-06 12:34:25,210 - monitoring_application - INFO - Atmospheric Condition Controller initialized
 2015-03-06 12:34:25,210 - monitoring_application - INFO - Transmitter Controller initializing
 2015-03-06 12:34:25,234 - monitoring_application - INFO - Transmitter cache contents:
@@ -16,8 +16,8 @@
 2015-03-06 12:34:25,239 - monitoring_application - INFO - Opened channels: []
 2015-03-06 12:34:25,239 - monitoring_application - INFO - Transmitter channels opened
 2015-03-06 12:34:25,239 - monitoring_application - INFO - Assigning transmitter channels
-2015-03-06 12:34:25,240 - monitoring_application - INFO - No channel to gather readings from for AtmosphericCondition(id=1, type=Temperature, channel_bus=3, channel_address=2, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
+2015-03-06 12:34:25,240 - monitoring_application - INFO - No channel to gather readings from for QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=2, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))
 2015-03-06 12:34:25,240 - monitoring_application - INFO - Transmitter channels assigned
-2015-03-06 12:34:25,240 - monitoring_application - INFO - Errors: [AtmosphericCondition(id=1, type=Temperature, channel_bus=3, channel_address=2, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))]
+2015-03-06 12:34:25,240 - monitoring_application - INFO - Errors: [QuantitativeProperty(id=1, type=Temperature, channel_bus=3, channel_address=2, channel_number=1, recording_frequency=15, expectation=Expectation(id=1, units=Celsius, low=-90.0, high=-80.0))]
 2015-03-06 12:34:25,240 - monitoring_application - INFO - Load block complete
 2015-03-06 12:34:26,519 - monitoring_application - WARNING - Monitoring Controller stopped

@@ -11,17 +11,17 @@ from bin.models import base
 from sqlalchemy.sql import exists
 
 from bin.models.environment import Environment
-from bin.models.atmospheric_condition import AtmosphericCondition
+from bin.models.quantitative_property import QuantitativeProperty
 from bin.models.expectation import Expectation
 from bin.models.alarm import Alarm
 from bin.models.reading import Reading
 from bin.models.channel import Channel
 
-from bin.controllers.atmospheric_condition_controller import (
-    AtmosphericConditionController
+from bin.controllers.quantitative_property_controller import (
+    QuantitativePropertyController
 )
 
-class AtmosphericConditionControllerTest(unittest.TestCase):
+class QuantitativePropertyControllerTest(unittest.TestCase):
     def setUp(self):
         engine = create_engine("sqlite:///:memory:")
         base.Base.metadata.create_all(engine, checkfirst=True)
@@ -31,7 +31,7 @@ class AtmosphericConditionControllerTest(unittest.TestCase):
     def tearDown(self):
         self.session.close()
 
-class AtmosphericConditionControllerTestSuite(
-        AtmosphericConditionControllerTest
+class QuantitativePropertyControllerTestSuite(
+        QuantitativePropertyControllerTest
 ):
     pass

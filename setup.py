@@ -3,7 +3,7 @@ from distutils.core import setup, Extension
 
 PACKAGE = "edcra"
 NAME = "edcra-client"
-DESCRIPTION = """Client-side of software for reading and recording output given by a variety of atmospheric condition-monitoring devices that provide a USB interface."""
+DESCRIPTION = """Client-side of software for reading and recording output given by a variety of quantitative property-monitoring devices that provide a USB interface."""
 AUTHOR = "Connor Peck"
 AUTHOR_EMAIL = "cpeck1@ualberta.ca"
 URL = "http://github.com/cpeck1/tempmonPython"
