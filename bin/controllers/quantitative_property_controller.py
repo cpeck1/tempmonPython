@@ -1,7 +1,7 @@
 import time, signal, sys
 
 from bin.models.quantitative_property import QuantitativeProperty
-from bin.infrastructure.networking_library import NetworkingManager
+from bin.services.networking.networking_manager import NetworkingManager
 
 import logging
 logger = logging.getLogger("monitoring_application")

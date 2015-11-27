@@ -47,11 +47,12 @@ class ReadingModelTest(unittest.TestCase):
 
     def tearDown(self):
         self.session.close()
-    
+
 class ReadingModelTestSuite(ReadingModelTest):
     def test_access(self):
+        """Reading 1's ID matches first reading added"""
         test_id = 1
-        
+
         reading = self.session.query(Reading).filter(
             Reading.id == test_id
         ).one()
@@ -59,6 +60,7 @@ class ReadingModelTestSuite(ReadingModelTest):
         self.assertEqual(reading.id, test_id)
 
     def test_delete(self):
+        """Reading 1 can be properly deleted from the system"""
         test_id = 1
 
         reading = self.session.query(Reading).filter(
@@ -67,7 +69,7 @@ class ReadingModelTestSuite(ReadingModelTest):
 
         self.session.delete(reading)
         self.session.commit()
-        
+
         readings = self.session.query(Reading).filter(
             Reading.id == test_id
         ).all()

@@ -41,17 +41,17 @@ class ChannelModelTest(unittest.TestCase):
 
 class ChannelModelTestSuite(ChannelModelTest):
     def test_read1(self):
+        """Channel raises InvalidReadMethodError with bad read method"""
         self.transmitter.read_channel_method = 0
 
         self.transmitter.open()
         channel = self.transmitter.channels[0]
 
-        try:
+        with self.assertRaises(InvalidReadMethodError):
             channel.read()
-        except Exception as e:
-            self.assertTrue(isinstance(e, InvalidReadMethodError))
 
     def test_read2(self):
+        """Channel raises NoDeviceHandleError when reading without device handle"""
         self.transmitter.read_channel_method = lambda x, y: x + y
 
         self.transmitter.open()
@@ -59,12 +59,11 @@ class ChannelModelTestSuite(ChannelModelTest):
 
         channel.device_handle = None
 
-        try:
+        with self.assertRaises(NoDeviceHandleError):
             channel.read()
-        except Exception as e:
-            self.assertTrue(isinstance(e, NoDeviceHandleError))
 
     def test_read3(self):
+        """Channel raises NoChannelNumberError reading without a channel number"""
         self.transmitter.read_channel_method = lambda x, y: x + y
 
         self.transmitter.open()
@@ -78,6 +77,7 @@ class ChannelModelTestSuite(ChannelModelTest):
             self.assertTrue(isinstance(e, NoChannelNumberError))
 
     def test_read4(self):
+        """Channel reads properly if constructed properly"""
         def _read_method(handle, channel_number):
             return handle.read_value
 

@@ -33,6 +33,7 @@ class TransmitterModelTest(unittest.TestCase):
 
 class TransmitterModelTestSuite(TransmitterModelTest):
     def test_open1(self):
+        """Transmitter's open method creates device handle"""
         self.transmitter.open_method = lambda x,y: x+y
         self.transmitter.open()
 
@@ -40,6 +41,7 @@ class TransmitterModelTestSuite(TransmitterModelTest):
         self.assertEqual(self.transmitter.device_handle, 2)
 
     def test_open2(self):
+        """Transmitter's open method creates channels"""
         self.transmitter.open_method = lambda x, y: x + y
         self.transmitter.read_channel_method = lambda x: x
 
@@ -48,6 +50,7 @@ class TransmitterModelTestSuite(TransmitterModelTest):
         self.assertTrue(self.transmitter.channels)
 
     def test_open3(self):
+        """Transmitter's open method gives channels the device handle"""
         self.transmitter.open_method = lambda x, y: x + y
         func = lambda x: x
         self.transmitter.read_channel_method = func
@@ -58,6 +61,7 @@ class TransmitterModelTestSuite(TransmitterModelTest):
         self.assertEqual(channel.read_method, func)
 
     def test_close1(self):
+        """Transmitter's close method properly removes device handle"""
         def test_open_func(v1, v2):
             return v1+v2
         def test_close_func(value):
@@ -72,6 +76,7 @@ class TransmitterModelTestSuite(TransmitterModelTest):
         self.assertTrue(self.transmitter.device_handle is None)
 
     def test_close2(self):
+        """Transmitter's close method properly removes device handle (again)"""
         def test_open_func(v1, v2):
             return v1+v2
         def test_close_func(value):

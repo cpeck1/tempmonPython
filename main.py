@@ -5,14 +5,13 @@ from datetime import date
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from bin.models import base
-
 from bin.controllers.usb_port_controller import UsbPortController
 from bin.controllers.transmitter_application_controller import (
     TransmitterApplicationController
 )
-from bin.controllers.environment_application_controller import (
-    EnvironmentApplicationController
-)
+# from bin.controllers.environment_application_controller import (
+#     EnvironmentApplicationController
+# )
 
 # need to import models in this order so that each is added to the
 # declarative base of sqlalchemy
@@ -21,7 +20,9 @@ from bin.models import quantitative_property, channel
 from bin.models import expectation
 from bin.models import reading, alarm
 
-from bin.infrastructure.networking_library import NetworkingManager
+from bin.models.command import Command
+from bin.services.networking.message import (CommandMessage, DocumentMessage)
+from bin.services.networking.networking_manager import NetworkingManager
 
 if __name__ == "__main__":
     # parse arguments from stdin
@@ -65,7 +66,7 @@ if __name__ == "__main__":
     # initialize the process controllers
     usb_port_controller = UsbPortController()
     upc = Process(target=usb_port_controller.run)
-    upc.daemon = False
+    upc.daemon = True
     upc.start()
 
     transmitter_application_controller = TransmitterApplicationController()
@@ -73,12 +74,12 @@ if __name__ == "__main__":
     tap.daemon = False
     tap.start()
 
-    environment_application_controller = EnvironmentApplicationController(
-        session
-    )
-    ec = Process(target=environment_application_controller.run)
-    ec.daemon = False
-    ec.start()
+    # environment_application_controller = EnvironmentApplicationController(
+    #     session
+    # )
+    # ec = Process(target=environment_application_controller.run)
+    # ec.daemon = False
+    # ec.start()
 
     # time.sleep(10)
     # logger.info("Attempting to terminate transmitter application controller..")
@@ -89,5 +90,8 @@ if __name__ == "__main__":
     try:
         input()
     except EOFError:
-        while tap.is_alive() or upc.is_alive() or ec.is_alive():
-            kbpublisher.send_string("KILL")
+        attempts = 0
+        command = Command.SHUTDOWN
+        message = CommandMessage(command=command.value).serialize()
+        while tap.is_alive() or upc.is_alive():
+            kbpublisher.send_string(message)

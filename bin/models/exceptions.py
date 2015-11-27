@@ -18,3 +18,6 @@ class NoDeviceHandleError(Exception):
 
 class NoChannelNumberError(Exception):
     pass
+
+class ExitProcess(Exception):
+    pass

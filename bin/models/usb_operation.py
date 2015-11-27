@@ -1,5 +1,6 @@
 import json
 from bin.infrastructure.usb_bus import UsbDevice
+from bin.infrastructure.operation import Operation
 
 class UsbOperation:
     """
@@ -14,16 +15,13 @@ class UsbOperation:
             dct = json_obj
 
         return cls(
-            usb_device=UsbDevice.from_json(dct['usb_device']),
-            operation=dct['operation']
+            operation=Operation.from_json(dct['operation']),
+            usb_device=UsbDevice.from_json(dct['usb_device'])
         )
 
-    def __init__(self, usb_device, operation):
-        self.usb_device = usb_device
+    def __init__(self, operation, usb_device):
         self.operation = operation
-
-    def __dict__(self):
-        return dict(usb_device=self.usb_device, operation=self.operation)
+        self.usb_device = usb_device
 
     def __repr__(self):
         return "Operation(usb_device={}, operation={})".format(
@@ -37,11 +35,14 @@ class UsbOperation:
                 self.usb_device == other.usb_device and
                 self.operation == other.operation
             )
-        except TypeError:
+        except AttributeError:
             return False
+
+    def __dict__(self):
+        return dict(operation=self.operation, usb_device=self.usb_device)
 
     def to_json(self):
         return json.dumps(
-            self.__dict__(),
+            self,
             default=lambda o: o.__dict__()
         )

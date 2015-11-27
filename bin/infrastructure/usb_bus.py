@@ -26,6 +26,9 @@ class UsbBus:
         for device in usb.core.find(find_all=True):
             self.add(UsbDevice(device))
 
+    def __len__(self):
+        return len(self.devices)
+
     def add(self, device):
         """
         add the device to the usb bus, unless it is not a UsbDevice
@@ -224,4 +227,7 @@ class UsbDevice:
         )
 
     def to_json(self):
-        return json.dumps(self.__dict__(), ensure_ascii=False)
+        return json.dumps(
+            self,
+            default=lambda o: o.__dict__()
+        )

@@ -21,7 +21,7 @@ class AdminModelTest(unittest.TestCase):
 
         admins = [
             Admin(
-                name="Sean Gomez", 
+                name="Sean Gomez",
                 email_addresses=[
                 ]
             ),
@@ -75,7 +75,7 @@ class AdminModelTest(unittest.TestCase):
             )
         ]
         self.admins = admins
-        
+
         for a in admins:
             self.session.add(a)
 
@@ -84,10 +84,11 @@ class AdminModelTest(unittest.TestCase):
     def tearDown(self):
         self.session.close()
 
-    
+
 class AdminModelTestSuite(AdminModelTest):
     # simultaneously test that IDs were assigned in order
     def test_access1(self):
+        """Admin 1's ID belongs to first Admin added"""
         admin_test_id = 1
 
         actual_admin_name = "Sean Gomez"
@@ -95,6 +96,7 @@ class AdminModelTestSuite(AdminModelTest):
         self.assertEqual(admin.name, actual_admin_name)
 
     def test_access2(self):
+        """Admin 1's email addresses empty"""
         admin_test_id = 1
 
         admin = self.session.query(Admin).filter(Admin.id==admin_test_id).one()
@@ -103,6 +105,7 @@ class AdminModelTestSuite(AdminModelTest):
         self.assertEqual(address_strings, [])
 
     def test_access3(self):
+        """Admin 2's ID belongs to second Admin added """
         admin_test_id = 2
 
         actual_admin_name = "Juan Diego"
@@ -110,6 +113,7 @@ class AdminModelTestSuite(AdminModelTest):
         self.assertEqual(admin.name, actual_admin_name)
 
     def test_access4(self):
+        """Admin 2's email addresses match second Admin added"""
         admin_test_id = 2
 
         actual_email_address_strings = ["juanjuan213949142@gmail.com"]
@@ -120,6 +124,7 @@ class AdminModelTestSuite(AdminModelTest):
                 self.assertTrue(actual_address_string in address_strings)
 
     def test_access5(self):
+        """Admin 3's name matches third Admin added"""
         admin_test_id = 3
 
         actual_admin_name = "Rachel Dawes"
@@ -127,6 +132,7 @@ class AdminModelTestSuite(AdminModelTest):
         self.assertEqual(admin.name, actual_admin_name)
 
     def test_access6(self):
+        """Admin 3's email addresses match third Admin added"""
         admin_test_id = 3
 
         actual_email_address_strings = [
@@ -140,6 +146,7 @@ class AdminModelTestSuite(AdminModelTest):
                 self.assertTrue(actual_address_string in address_strings)
 
     def test_access7(self):
+        """Admin 4's name matches fourth Admin added"""
         admin_test_id = 4
 
         actual_admin_name = "This Dude's Got A Very Very Long Name In Particular It Has A Lot Of Words In It And I Suspect He Is Of Some Kind Of Royal Birth"
@@ -147,6 +154,7 @@ class AdminModelTestSuite(AdminModelTest):
         self.assertEqual(admin.name, actual_admin_name)
 
     def test_access8(self):
+        """Admin 4's email addresses matches fourth Admin added"""
         admin_test_id = 4
 
         actual_email_address_strings = [
@@ -159,10 +167,11 @@ class AdminModelTestSuite(AdminModelTest):
                 self.assertTrue(actual_address_string in address_strings)
 
     def test_modify1(self):
+        """Admin 1's name can be properly modified"""
         admin_test_id = 1
         admin_name_test_value = "San Diego"
         admin = self.session.query(Admin).filter(Admin.id==admin_test_id).one()
-        
+
         admin.name = admin_name_test_value
         self.session.commit()
 
@@ -170,11 +179,12 @@ class AdminModelTestSuite(AdminModelTest):
         self.assertEqual(admin.name, admin_name_test_value)
 
     def test_modify2(self):
+        """Admin 3's emals can be properly modified"""
         admin_test_id = 3
         admin_address_test_value = Address(email="test_value")
         admin = self.session.query(Admin).filter(Admin.id==admin_test_id).one()
-        
-        admin.email_addresses = [admin_address_test_value]        
+
+        admin.email_addresses = [admin_address_test_value]
         self.session.commit()
 
         atest = self.session.query(Admin).filter(Admin.id==admin_test_id).one()
@@ -182,6 +192,7 @@ class AdminModelTestSuite(AdminModelTest):
         self.assertEqual(address.email, admin_address_test_value.email)
 
     def test_delete1(self):
+        """Admin 1 can be properly deleted from the system"""
         admin_test_id = 1
         admin = self.session.query(Admin).filter(Admin.id==admin_test_id).one()
         self.session.delete(admin)
@@ -191,10 +202,11 @@ class AdminModelTestSuite(AdminModelTest):
         self.assertEqual(admin, [])
 
     def test_delete2(self):
+        """Admin 4's deletion properly cascades to addresses"""
         # testing cascade
         admin_test_id = 4
         admin = self.session.query(Admin).filter(Admin.id==admin_test_id).one()
-        
+
         self.session.delete(admin)
         self.session.commit()
 

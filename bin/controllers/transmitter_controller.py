@@ -1,7 +1,7 @@
 import signal, logging, random, time
 import json
 
-from bin.infrastructure.networking_library import NetworkingManager
+from bin.services.networking.networking_manager import NetworkingManager
 from multiprocessing import Process
 
 logger = logging.getLogger("monitoring_application")
@@ -38,25 +38,7 @@ class TransmitterController:
             socks = dict(poller.poll(1000))
 
             if pair.contained_in(socks):
-                # no way to put this in function as break call needs
-                # to be within while loop
-                message = pair.recv_string()
-                if message == "SHUTDOWN":
-                    logger.info(
-                        "Transmitter application with "+
-                        repr(self.transmitter)+" stopping."
-                    )
-                    pair.send_string("OFFLINE")
-                    break
+                pass
 
             if kbsubscriber.contained_in(socks):
-                message = kbsubscriber.recv_string()
-                filter, command = message.split()
-
-                if command == "KILL":
-                    logger.info(
-                        "Transmitter application with "+
-                        repr(self.transmitter)+" stopping."
-                    )
-                    break
-
+                pass

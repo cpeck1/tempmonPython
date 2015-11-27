@@ -162,9 +162,10 @@ class EnvironmentModelTest(unittest.TestCase):
 
     def tearDown(self):
         self.session.close()
-    
+
 class EnvironmentModelTestSuite(EnvironmentModelTest):
     def test_access1(self):
+        """Environment 1 has same name/serial as first Environment entered"""
         test_id = 1
         expected_name = "Test Environment 1"
         expected_serial = "test1"
@@ -177,16 +178,18 @@ class EnvironmentModelTestSuite(EnvironmentModelTest):
         self.assertEqual(env.serial, expected_serial)
 
     def test_access2(self):
+        """Environment 1 has same properties as first Environment entered"""
         test_id = 1
 
         env = self.session.query(Environment).filter(
             Environment.id == test_id
         ).one()
-        
+
         self.assertEqual(env.quantitative_properties, [])
 
 
     def test_access3(self):
+        """Environment 2 has same name/serial as second Environment entered"""
         test_id = 2
         expected_name = "Test Environment 2"
         expected_serial = "test2"
@@ -199,6 +202,7 @@ class EnvironmentModelTestSuite(EnvironmentModelTest):
         self.assertEqual(env.serial, expected_serial)
 
     def test_access4(self):
+        """Environment 2 has same properties as second Environment entered"""
         test_id = 2
         expected_condition_type = "test2"
 
@@ -210,6 +214,7 @@ class EnvironmentModelTestSuite(EnvironmentModelTest):
             self.assertEqual(ac.type, expected_condition_type)
 
     def test_access5(self):
+        """Environment 3 has same name/serial as third Environment entered"""
         test_id = 3
         expected_name = "Test Environment 3"
         expected_serial = "test3"
@@ -219,10 +224,10 @@ class EnvironmentModelTestSuite(EnvironmentModelTest):
         ).one()
 
         self.assertEqual(env.name, expected_name)
-
         self.assertEqual(env.serial, expected_serial)
 
     def test_access6(self):
+        """Environment 3 has same properties as third Environment entered"""
         test_id = 3
         expected_condition_type = "test3"
 
@@ -235,6 +240,7 @@ class EnvironmentModelTestSuite(EnvironmentModelTest):
 
 
     def test_access7(self):
+        """Environment 4 has same name/serial as fourth Environment entered"""
         test_id = 4
         expected_name = "Test Environment 4"
         expected_serial = "test4"
@@ -244,10 +250,10 @@ class EnvironmentModelTestSuite(EnvironmentModelTest):
         ).one()
 
         self.assertEqual(env.name, expected_name)
-
         self.assertEqual(env.serial, expected_serial)
 
     def test_access8(self):
+        """Environment 4 has same properties as fourth Environment entered"""
         test_id = 4
         expected_condition_type = "test4"
 
@@ -259,13 +265,14 @@ class EnvironmentModelTestSuite(EnvironmentModelTest):
             self.assertEqual(ac.type, expected_condition_type)
 
     def test_modify1(self):
+        """Environment's name can be properly modified"""
         test_id = 1
         new_name_value = "New Test Value!"
 
         env = self.session.query(Environment).filter(
             Environment.id == test_id
         ).one()
-        
+
         env.name = new_name_value
         self.session.add(env)
         self.session.commit()
@@ -273,10 +280,11 @@ class EnvironmentModelTestSuite(EnvironmentModelTest):
         env2 = self.session.query(Environment).filter(
             Environment.id == test_id
         ).one()
-        
+
         self.assertEqual(env2.name, new_name_value)
 
     def test_modify2(self):
+        """Environment's properties can be properly modified"""
         test_id = 3
         new_ac_value = [
             QuantitativeProperty(
@@ -292,7 +300,7 @@ class EnvironmentModelTestSuite(EnvironmentModelTest):
         env = self.session.query(Environment).filter(
             Environment.id == test_id
         ).one()
-        
+
         env.quantitative_properties = new_ac_value
         self.session.add(env)
         self.session.commit()
@@ -300,13 +308,14 @@ class EnvironmentModelTestSuite(EnvironmentModelTest):
         env2 = self.session.query(Environment).filter(
             Environment.id == test_id
         ).one()
-        
+
         self.assertEqual(
-            env2.quantitative_properties[0].type, 
+            env2.quantitative_properties[0].type,
             new_ac_value[0].type
         )
-        
+
     def test_delete1(self):
+        """Environment can be properly deleted from the system"""
         # test removal from db
         test_id = 1
 
@@ -326,6 +335,7 @@ class EnvironmentModelTestSuite(EnvironmentModelTest):
         )
 
     def test_delete2(self):
+        """Environment can be properly deleted from system, delete cascades"""
         # test cascade delete
         test_id = 4
 
@@ -336,7 +346,7 @@ class EnvironmentModelTestSuite(EnvironmentModelTest):
         deleted_type = env.quantitative_properties[0].type
         self.session.delete(env)
         self.session.commit()
-        
+
         atm = self.session.query(QuantitativeProperty).filter(
             QuantitativeProperty.type.like('%{}%'.format(deleted_type))
         ).all()

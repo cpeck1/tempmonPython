@@ -145,9 +145,6 @@ t_cache.build(directory)
 
 class TransmitterIndex:
     def find_matching(device, cache=None):
-        for trans in t_cache.cache:
-            logger.info(repr(trans))
-
         if cache is None: cache = t_cache # allows for testing
         transmitter = cache.find_by_vid_pid(
             device.idVendor,
@@ -164,9 +161,6 @@ class TransmitterIndex:
             )
 
     def filter(usb_list, cache=None):
-        for trans in t_cache.cache:
-            logger.info(repr(trans))
-
         if cache is None: cache = t_cache # allows for testing
         transmitter_list = []
         for device in usb_list.devices:

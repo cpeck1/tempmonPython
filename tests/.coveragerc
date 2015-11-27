@@ -1,0 +1,40 @@
+# .coveragerc
+[report]
+include = *.py
+omit =
+     *sqlalchemy*
+     *usb.py
+     *usb/*
+     *pyudev.py
+     *pyudev/*
+     *libusb1.py
+     *zmq.py
+     *zmq/*
+     *uuid.py
+     *sqlite*
+     *unittest/*
+     *numbers.py
+     *multiprocessing/*
+     *usb1.py
+     *decimal.py
+     *ctypes.py
+     *ctypes/*
+     *transmitter_file_0.py
+     *transmitter_file_1.py
+     *transmitter_file_2.py
+     *transmitter_file_3.py
+     *transmitter_file_4.py
+     *transmitter_file_5.py
+     *transmitter_file_6.py
+     *transmitter_file_7.py
+     *transmitter_file_4.py
+     *driver_package_1.py
+     *driver_package_2.py
+     *driver_package_3.py
+     *driver_package_4.py
+     *driver_package_5.py
+     *driver_package_6.py
+     *driver_package_7.py
+     *driver_package_8.py
+     *driver_package_9.py
+

@@ -47,9 +47,10 @@ class AlarmModelTest(unittest.TestCase):
 
     def tearDown(self):
         self.session.close()
-    
+
 class AlarmModelTestSuite(AlarmModelTest):
     def test_access(self):
+        """Alarm 1's ID matches first Alarm added"""
         test_id = 1
 
         alarm = self.session.query(Alarm).filter(
@@ -60,6 +61,7 @@ class AlarmModelTestSuite(AlarmModelTest):
         self.assertEqual(alarm.reading.units, "Test")
 
     def test_active1(self):
+        """Alarm properly reads as active"""
         test_id = 1
 
         alarm = self.session.query(Alarm).filter(
@@ -69,16 +71,18 @@ class AlarmModelTestSuite(AlarmModelTest):
         self.assertTrue(alarm.active())
 
     def test_active2(self):
+        """Alarm properly reads as inactive"""
         test_id = 1
 
         alarm = self.session.query(Alarm).filter(
             Alarm.id == test_id
         ).one()
 
-        alarm.end_time = datetime.now() 
+        alarm.end_time = datetime.now()
         self.assertFalse(alarm.active())
 
     def test_end1(self):
+        """Alarm end method properly ends alarm"""
         test_id = 1
 
         alarm = self.session.query(Alarm).filter(
@@ -87,8 +91,9 @@ class AlarmModelTestSuite(AlarmModelTest):
 
         alarm.end()
         self.assertTrue(alarm.end_time is not None)
-    
+
     def test_end2(self):
+        """Alarm end method on inactive Alarm raises AlarmInactiveException"""
         test_id = 1
 
         alarm = self.session.query(Alarm).filter(
@@ -103,12 +108,13 @@ class AlarmModelTestSuite(AlarmModelTest):
             self.assertTrue(isinstance(e, AlarmInactiveException))
 
     def test_delete(self):
+        """Alarm deletion properly removes alarm"""
         test_id = 1
-        
+
         alarm = self.session.query(Alarm).filter(
             Alarm.id == test_id
         ).one()
-        
+
         self.session.delete(alarm)
         self.session.commit()
 

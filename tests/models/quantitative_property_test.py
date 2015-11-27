@@ -78,18 +78,20 @@ class QuantitativePropertyModelTest(unittest.TestCase):
 
     def tearDown(self):
         self.session.close()
-    
+
 class QuantitativePropertyModelTestSuite(QuantitativePropertyModelTest):
     def test_access1(self):
+        """Quantitative Property 1's ID matches first Quantitative Property entered"""
         test_id = 1
         expected_type = "Test1"
         ac = self.session.query(QuantitativeProperty).filter(
             QuantitativeProperty.id == test_id
         ).one()
-        
+
         self.assertEqual(ac.type, expected_type)
 
     def test_access2(self):
+        """Quantitative Property 2's ID matches second Quantitative Property entered"""
         test_id = 2
         expected_type = "Test2"
 
@@ -100,6 +102,7 @@ class QuantitativePropertyModelTestSuite(QuantitativePropertyModelTest):
         self.assertEqual(ac.type, expected_type)
 
     def test_access3(self):
+        """Quantitative Property 3's ID matches third Quantitative Property entered"""
         test_id = 3
         expected_type = "Test3"
 
@@ -109,6 +112,7 @@ class QuantitativePropertyModelTestSuite(QuantitativePropertyModelTest):
         self.assertEqual(ac.type, expected_type)
 
     def test_access4(self):
+        """Quantitative Property 4's ID Matches fourth Quantitative Property entered"""
         test_id = 4
         expected_type = "Test4"
 
@@ -120,6 +124,7 @@ class QuantitativePropertyModelTestSuite(QuantitativePropertyModelTest):
 
 
     def test_modify1(self):
+        """Quantitative Property's expectation can be properly modified"""
         test_id = 1
         altered_expectation_units = "It's A Test!"
         altered_expectation = Expectation(
@@ -135,17 +140,18 @@ class QuantitativePropertyModelTestSuite(QuantitativePropertyModelTest):
 
         self.session.add(ac)
         self.session.commit()
-        
+
         same_ac = self.session.query(QuantitativeProperty).filter(
             QuantitativeProperty.id == test_id
         ).one()
 
         self.assertEqual(
-            same_ac.expectation.units, 
+            same_ac.expectation.units,
             altered_expectation_units
         )
 
     def test_add_reading(self):
+        """Quantitative Propery can have readings added"""
         test_id = 1
         ac = self.session.query(QuantitativeProperty).filter(
             QuantitativeProperty.id == test_id
@@ -171,6 +177,7 @@ class QuantitativePropertyModelTestSuite(QuantitativePropertyModelTest):
         )
 
     def test_most_recent_alarm1(self):
+        """Quantitative Property's most recent alarm is None"""
         test_id = 1
         ac = self.session.query(QuantitativeProperty).filter(
             QuantitativeProperty.id == test_id
@@ -179,12 +186,13 @@ class QuantitativePropertyModelTestSuite(QuantitativePropertyModelTest):
         self.assertTrue(ac.most_recent_alarm() is None)
 
     def test_most_recent_alarm2(self):
+        """Quantitative Property's most recent alarm fetches properly"""
         test_id = 1
         ac = self.session.query(QuantitativeProperty).filter(
             QuantitativeProperty.id == test_id
         ).one()
-        
-        alarm = Alarm() 
+
+        alarm = Alarm()
         ac.alarms.append(alarm)
 
         self.session.add(ac)
@@ -195,19 +203,20 @@ class QuantitativePropertyModelTestSuite(QuantitativePropertyModelTest):
         ac = self.session.query(QuantitativeProperty).filter(
             QuantitativeProperty.id == test_id
         ).one()
-        
+
         self.assertEqual(
             ac.most_recent_alarm().id,
             actual_most_recent_alarm_id
         )
 
     def test_alarm_active1(self):
+        """Quantitative Property properly determines an alarm is active"""
         test_id = 1
         ac = self.session.query(QuantitativeProperty).filter(
             QuantitativeProperty.id == test_id
         ).one()
-        
-        alarm = Alarm() 
+
+        alarm = Alarm()
         ac.alarms.append(alarm)
 
         self.session.add(ac)
@@ -216,16 +225,17 @@ class QuantitativePropertyModelTestSuite(QuantitativePropertyModelTest):
         ac = self.session.query(QuantitativeProperty).filter(
             QuantitativeProperty.id == test_id
         ).one()
-        
+
         self.assertTrue(ac.alarm_active())
 
     def test_alarm_active2(self):
+        """Quantitative Property properly determines there is no active alarm"""
         test_id = 1
         ac = self.session.query(QuantitativeProperty).filter(
             QuantitativeProperty.id == test_id
         ).one()
-        
-        alarm = Alarm() 
+
+        alarm = Alarm()
         alarm.end()
         ac.alarms.append(alarm)
 
@@ -239,37 +249,40 @@ class QuantitativePropertyModelTestSuite(QuantitativePropertyModelTest):
         self.assertFalse(
             ac.alarm_active()
         )
-        
+
     def test_record_due1(self):
+        """Quantitative Property 1 properly determines there is a record due"""
         # no record committed for conditions[0]
         test_id = 1
-        
+
         ac = self.session.query(QuantitativeProperty).filter(
             QuantitativeProperty.id == test_id
         ).one()
-                       
+
         self.assertTrue(
             ac.record_due()
         )
 
     def test_record_due2(self):
+        """Quantitative Property 2 properly determines there is a record due"""
         test_id = 2
-        
+
         ac = self.session.query(QuantitativeProperty).filter(
             QuantitativeProperty.id == test_id
         ).one()
-                       
+
         self.assertTrue(
             ac.record_due()
         )
 
     def test_record_due3(self):
+        """Quantitative Property 3 properly determines there is no record due"""
         test_id = 2
-        
+
         ac = self.session.query(QuantitativeProperty).filter(
             QuantitativeProperty.id == test_id
         ).one()
-        
+
         ac.recording_frequency = 15
         self.session.add(ac)
         self.session.commit()
@@ -283,6 +296,7 @@ class QuantitativePropertyModelTestSuite(QuantitativePropertyModelTest):
         )
 
     def test_orphanage1(self):
+        """Quantitative Property reading orphans are properly deleted"""
         # make sure orphans are removed
         test_id = 3
 
@@ -301,6 +315,7 @@ class QuantitativePropertyModelTestSuite(QuantitativePropertyModelTest):
         self.assertEqual(q, [])
 
     def test_orphanage2(self):
+        """Quantitative Property alarm orphans are properly deleted"""
         # make sure orphans are removed
         test_id = 4
 
@@ -320,12 +335,13 @@ class QuantitativePropertyModelTestSuite(QuantitativePropertyModelTest):
 
 
     def test_delete1(self):
+        """Quantitative Property can be properly removed from the system"""
         test_id = 3
-        
+
         ac = self.session.query(QuantitativeProperty).filter(
             QuantitativeProperty.id == test_id
         ).one()
-        
+
         self.session.delete(ac)
         self.session.commit()
 
@@ -336,13 +352,14 @@ class QuantitativePropertyModelTestSuite(QuantitativePropertyModelTest):
         self.assertEqual(ac, [])
 
     def test_delete2(self):
+        """Quantitative Property deletion properly cascades to readings"""
         # make sure delete cascades 1
         test_id = 1
-        
+
         ac = self.session.query(QuantitativeProperty).filter(
             QuantitativeProperty.id == test_id
         ).one()
-        
+
         self.session.delete(ac)
         self.session.commit()
 
@@ -353,13 +370,14 @@ class QuantitativePropertyModelTestSuite(QuantitativePropertyModelTest):
         self.assertEqual(q, [])
 
     def test_delete3(self):
+        """Quantitative Property deletion properly cascades to alarms"""
         # make sure delete cascades 2
         test_id = 4
-        
+
         ac = self.session.query(QuantitativeProperty).filter(
             QuantitativeProperty.id == test_id
         ).one()
-        
+
         self.session.delete(ac)
         self.session.commit()
 
